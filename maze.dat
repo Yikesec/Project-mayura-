@@ -1,0 +1,301 @@
+#*****************************************************************************
+#maze.dat
+#by Yumehotaru/Dream firefly 　mukei@rose.freemail.ne.jp
+#Before using, modifying, or distributing this file, check with the author
+#*****************************************************************************
+
+:crypt
+
+menu.adv : $(set sflag 1)\t\0\s[0]\q[From the beginning","adv.opening]\n\q[Continue from","adv.start]
+
+adv.opening : $(set mazesflag 0)\t\c\0\_q\n\n\n\n　　　　　　　＊　Mayura's house　＊\_q\x\c\0\s[3]Well～、what should I do。\n\n\w8\1\s[10]…\w8…\w8。\n\w8\0I was in trouble……it has become a serious thing。\n\n\w8\1\s[10]…\w8…\w8。\n\w8\0\s[7]Oh、troubled troubled troubled、troubled violently!\n\n\w8\1\s[10]…\w8…\w8。\n\w8\0…\w8…\w8…\w8…\w8\s[0]I'll skip it if you don't rush into it。\1\s[10]What happened、young lady?\x\c\0\s[3]It looks like you've dropped Wardner's amulet。\n\n\w8\1\s[10]Maybe A.Greenberg and R.Woodhead signed first limited edition with autographs?\n\w8\0So。I think it was probably when I was playing $(? Vampire-Road Maelific) and $(? Slime-Bullying Water-Fish-pose) on the 10th basement floor。\n\n\w8\1\s[10]It must have been picked up by someone。That labyrinth is surprisingly crowded。\w8\0\s[4]……right～。\x\c\w8\1\s[10]So、what did you do?\n\w8\0\s[0]When it comes to this、you have to take the original that Wardner has。\n\n\w8\1\s[10]No matter how much it is terrible。That old man was pretty important。\n\w8\0\s[5]It's okay。I don't know if I secretly replaced it with another。\w8I'm already old。\n\w8\1\s[10]You are……。\x\c\0\s[5]So、immediately go to the labyrinth～！\w8\1\s[10]……after all go。\x${adv.start0}\e
+
+adv.start : $(if $([ ${mazesflag} -eq 20 ]) ${adv217})$(if $([ ${mazesflag} -eq 21 ]) ${adv207})$(if $([ ${mazesflag} -eq 40 ]) ${adv401})$(if $([ ${mazesflag} -eq 90 ]) ${adv901})$(if $([ ${mazesflag} -eq 100 ]) ${adv1001} ${adv.start0})
+
+adv.start0 : \t\c\0\_q\n\n\n\n　　　　　　　　　　 ENTERING\n　　　 PROVING GROUNDS OF THE MAD OVERLORD\_q\x\c\w8\1\s[10]I'm tired of seeing this。\n\w8\0\s[0]It's like my garden now～。\w8\n\n\*\q[Go down the stairs","adv00]\n\q[Return","adv.end]\e
+
+adv.end : \t\c\0\s[0]Gave up。 After all、let's return today。\n\n\w8\1\s[10]What。\n\w8\0\s[8]$(? ${o.shop}-I-forgot-I-was-doing-junk-sale I'm-worried-about-the-continuation-of-the-game ${o.name}-I-forgot-to-promise-to-go-play I-forgot-to keep-the-laundry-dry I-forgot-to-shop-for-dinner)。\w8\1\s[10]Oioi。$(set sflag 0)\e
+
+adv.fight : \t\c\0\s[0]\_q\n\n\n\n　　　　　　　＊ I met a monster! ＊\w8\w8\n\n　　　　　　　　I was surprised by the demon!\x\c\0\s[0]${fight_sub2}\_q\n\n\w8\w8\s[2]The enemy's ${o.skill}!\n\w8\w8$(? But the attack missed.\w8\w8\n\n$(? \s[8]Aim properly~. \1\s[10]Come on. \0 \0\s[5]There's no way that would hit. ) ${digit} hits, $(? 0 1) damage.\w8\w8\n\n\s[0]…\w8…\w8$(? \s[5]It's not effective at all~. \s[0]Did something just hit? \s[5]It doesn't hurt or itch. )\w8\1\s[10]$(? Challenging us is 1 million years too early. Did you think you could defeat us with that level? Inexperienced fools. ))\x\c\0\s[5]$(? Well then, it's our turn to return the favor~. Now it's our turn. Counterattack begins~. )\n\n\w8\w8${fight_sub}\w8\w8\n\n\0\s[5]$(? Well, it's an easy win. Oh, it was refreshing. It's nice to wipe out enemies~. )\w8\1\s[10]$(? It was a waste of time. Zako is just annoying. It's really nothing to add. )\x\c\0
+
+
+adv.treasure : \t\c\0\s[0]…\w8…\w8oh、a treasure chest。What to do?\n\n\w8\1\s[10]$(? Anyway、there's-no-great-mon。 I'm-gonna-do-it-now。 Anyway、it's-not-a-rogue-thing。)\n\w8\0\s[8]Well、let's open it。\x\c\0\s[0]The treasure chest contained、$(? ${o.item} ${o.food} ${o.pc} ${o.cpu} ${o.mag})。\w8\w8\n\n…\w8…\w8\s[4]$(? Why? I-don't-need-this。 What-do-you-do-with-this?)\w8\1\s[10]So you said。\x\c\0 , \c\0
+
+
+adv00 : \t\c\0\s[5]Then you did go。\n\n\w8\1\s[10]Let's get off with Mallor。\w8\0\s[5]OK～。\x\c\0\s[0]まろ～る～。\n\n\w8\w8\1\s[10]…\w8…\w8。\n\w8\0\s[0]…\w8…\w8。\n\n\w8\1\s[10]…\w8…\w8oi。\n\w8\w8\0Hmm?\n\n\w8\w8\1\s[10]Again。\n\w8\0\s[4]That's funny～。Why doesn't it work?\n\n\w8\1\s[10]I don't know what to do but I have to walk。\w8\0メンドくさ～。\x${adv01}\e
+
+adv01 : \t\c\0\s[0]Walkways lead north and east。\n\n\*\q[East","adv02]\n\q[North","adv030]\n\q[go home","adv.end]\e
+
+adv02 : \t\c\0\s[0]After a short walk、there was a room on the north side。\n\n\*\q[$(? Enter Jump-in Kick-through-the-door)","adv02b]\n\q[West","adv01]\n\q[go home","adv.end]\e
+
+adv02b : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]There was nothing especially in the room。\n\n\w8\1\s[10]Well、at first it was such a thing。\n\n\w8\0Let's go back。\x${adv01}\e
+
+adv030 : \t\c\0\s[0]It's a turning point。\n\n\*\q[South","adv01]\n\q[East","adv031]\n\q[go home","adv.end]\e
+
+adv031 : \t\c\0\s[0]After a while、we arrived at a T-junction。\n\n\*\q[South","adv04]\n\q[East","adv05]\n\q[West","adv030]\n\q[go home","adv.end]\e
+
+adv04 : \t\c\0\s[0]There is a room。\n\n\*\q[$(? Enter Jump-in Jump-in Kick-through-the-door)","adv04b]\n\q[Return","adv031]\n\q[go home","adv.end]\e
+
+adv04b : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]The room was an empty shell。\n\n\w8\1\s[10]Here too。\n\n\w8\0Let's go。\x${adv031}\e
+
+adv05 : \t\c\0\s[0]Another T-junction。\n\n\*\q[South","adv06]\n\q[East","adv07]\n\q[West","adv031]\n\q[go home","adv.end]\e
+
+adv06 : \t\c\0\s[0]There is a room。\n\n\*\q[$(? Enter Jump-in Jump-in Kick-through-the-door)","adv06b]\n\q[Return","adv05]\n\q[go home","adv.end]\e
+
+adv06b : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]There was nothing especially in the room。\n\n\w8\1\s[10]That's enough。\n\n\w8\0\s[4]Let's go back。\x${adv05}\e
+
+adv07 : \t\c\0${adv.fight}${adv.treasure}\s[0]We have come to a wide T-junction。\n\n\*\q[North","adv08]\n\q[East","adv13]\n\q[West","adv05]\n\q[go home","adv.end]\e
+
+adv08 : \t\c\0\s[0]A little further、there was a fork。\n\n\*\q[North","adv09]\n\q[West","adv12]\n\q[South","adv07]\n\q[go home","adv.end]\e
+
+adv09 : \t\c\0\s[0]\_q\n\n\n　　　　　On the large signboard affixed to the wall、\n　　*** Trying to cross the end of the corridor ***\n　　　　　　　　please turn back!\_q\x\c…\w8…\w8\0\s[8]It was a message that I did not know the reason even when seen。\n\n\w8\1\s[10]North from here was the familiar dark zone。\n\w8\0\s[0]Well、we can walk even if we close our eyes。\n\n\w8\1\s[10]So、where are we going?\w8\0\*\q[Proceed north","adv10]\n\q[Back south","adv08]\n\q[go home","adv.end]\e
+
+adv10 : \t\c\0\s[0]${adv.fight}\s[0]After a while in the dark zone、we hit a small room。\n\n\w8\1\s[10]Was the room of the old-fashioned father。\n\w8\0\s[3]I think it's better not to enter。\n\n\w8\1\s[10]That's it。\w8\0\*\q[Enter","adv10b]\n\q[North","adv11]\n\q[South","adv09]\n\q[go home","adv.end]\e
+
+adv10b : \t\c\0\s[0]From this room、a dubious light was emitted。\w8A little man wearing a long robe in the middle looked back at our party and shouted。\w8\n”Gentiles、stay away”\w8\nHe began waving and remembered。\w8\n”MAPIRO MAHAMA DIROMAT!”\n\n\w8\0\s[2]So I told you～！\x\c\0\_q\n\n\n\n　　　　　　　　　　 ENTERING\n　　　 PROVING GROUNDS OF THE MAD OVERLORD\_q\x\c\w8\1\s[10]It's been returned。\n\w8\0\s[4]Well、that's common。\w8\n\n\*\q[Challenge again","adv01]\n\q[go home","adv.end]\e
+
+adv11 : \t\c\0\s[0]There is an elevator。\w8\n\n『Here are buttons marked A through D。Please press one any』\n\n\w8\1\s[10]The ３rd floor can be anything、so only to push these ２。\n\n\w8\0\*\q[Press button Ｂ","adv217]\n\q[Press button Ｄ","adv401]\n\q[Back south","adv10]\n\q[go home","adv.end]\e
+
+adv12 : \t\c\0\s[0]As we progressed down the aisle、we eventually came to a dead end。\w8\nThere was a ladder going down。\n\n\w8\0\*\q[Get down","adv207]\n\q[Return east","adv08]\n\q[go home","adv.end]\e
+
+adv12b : \t\c\0\s[0]There was a down ladder at our feet。To the east was a passage。\n\n\w8\0\*\q[Get down","adv207]\n\q[East","adv08]\n\q[go home","adv.end]\e
+
+adv13 : \t\c\0\s[0]The road is divided。\w8\n\n\*\q[North","adv13b]\n\q[West","adv07]\n\q[East","adv13c]\n\q[go home","adv.end]\e
+
+adv13b : \t\c\0\s[0]There was a dead end。There was a door on the east side。\w8\n\n\*\q[Open the door and head east","adv13b2]\n\q[South","adv13]\n\q[go home","adv.end]\e
+
+adv13b2 : \t\c\0\s[0]We entered a small room。There were ２ doors on the south side。\w8\n\n\*\q[Open the right door","adv13b3]\n\q[Open the left door","adv13b4]\n\q[Leave the room and head west","adv13b]\n\q[go home","adv.end]\e
+
+adv13b3 : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]There was nothing especially in the room。\w8\1\s[10]Out of place。I'll go back。\x${adv13b2}\e
+
+adv13b4 : \t\c\0\s[0]In the room there was a silver statue of a boar with horns and long fangs。\w8On the wall next to the statue、there was a fading message that seems to have been left by passing by ${o.name}。\w8\nI could hardly read it because it was messy、apparently there was a warning about ${o.name} and ${o.name}。\w8\n\n…\w8…\w8\s[4]I always think、why is it a pig?\n\n\w8\1\s[10]That's Wardner's hobby。\w8\0\q[Look for","adv13b5]\n\q[Leave","adv13b2]\n\q[go home","adv.end]\e
+
+adv13b5 : \0\s[0]…\w8…\w8…\w8$(? ${o.item} ${o.food} ${o.pc} ${o.cpu} ${o.mag}) I found。\n\n\w8…\w8…\w8\s[4]Wasn't it a silver key?\w8\1\s[10]Something is wrong。\x${adv13b2}\e
+
+adv13c : \t\c\0\s[0]At the end of the long passage was a door blocking the way。\w8\n\n\*\q[Open the door and head east","adv14]\n\q[West","adv13]\n\q[go home","adv.end]\e
+
+adv14 : \t\c\0\s[0]${adv.fight}\s[2]After a while、I was suddenly teleported to another place!\n\n\w8…\w8…\w8\s[8]Not surprising、though。\n\n\w8\1\s[10]It was a room full of doors。\n\w8\0\s[8]You know what's here。\w8\1\s[10]For now、there are only ２ rooms on the west side。\x${adv14b}\e
+
+adv14b : \t\c\0\s[0]In a large room full of doors。What will you do?\w8\n\n\*\q[Enter the room on the west、to the left","adv14b2]\n\q[Enter the room on the west side to the right","adv14c]\n\q[Exit through the south door","adv15]\n\q[go home","adv.end]\e
+
+adv14b2 : \t\c\0\s[0]In the room was a creepy beast statue with ${o.name} head and ${o.name} body。\w8\nThe sculpture was made of $(? Paper-clay Oil-clay Resin-cast) and the pedestal was made of $(? cardboard Tangerine-box soil)。\w8\nThere were unnatural scars everywhere on the pedestal。\w8\w8\n\n\1\s[10]It was eerie。\n\w8\0\s[8]……It was full of scratches。\n\n\w8\1\s[10]An adventurer who saw this might been perhaps so angry about bad taste、that he tried to destroy it。\n\w8\0\s[3]So fragile、why not break?\n\n\w8\1\s[10]……I do not understand。\w8\0\*\q[Look for","adv14b3]\n\q[Leave","adv14b]\e
+
+adv14b3 : \0\s[0]…\w8…\w8…\w8$(? ${o.item} ${o.food} ${o.pc} ${o.cpu} ${o.mag}) I found。\n\n\w8…\w8…\w8\s[4]Wasn't it a copper key?\w8\1\s[10]Get it for the time being。\x${adv14b}\e
+
+adv14c : \t\c\0\s[0]You can see a large humanoid statue wearing a hood。\w8The hood has gold light spilling out of it、and the statue is studded with various shapes of jewelry。\n\w8There is an altar in front of the statue、and new incense is burning。\n\n\w8\0\s[0]It's been a long time、come here。\n\n\w8\1\s[10]I'm gonna worship him。\w8\0\*\q[Look for","adv14c2]\n\q[Leave","adv14b]\e
+
+adv14c2 : \t\c\0\s[0]１） １ ${o.name}\w8\n\n…\w8…\w8\s[4]Oh、Murphy?\n\n\w8\1\s[10]I don't know what、but let the outsider disappear。\w8\0\s[5]$(? Raja～ おっけ～ んじゃ、テキトーに)。\x\c${fight_sub}\w8\w8\n\n\0\s[0]Anyway、where did Murphy go?\w8\1\s[10]It's a strange enemy、it's good that the labyrinth is changing、something seems to be happening。\x${adv14b}\e
+
+adv15 : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]After passing through the winding passage、the area suddenly darkened。\w8I tried to go back、but somehow behind it was a wall。\n\n\w8\1\s[10]We should go west here without panic。\w8\0\s[0]So so。\x${adv10}\e
+
+adv201 : \t\c\0\s[0]A right-turn path follows。 After spinning around for a while、we came to a dead end。\n\w8There was a down ladder at my feet。\n\n\w8\w8\s[8]The ３rd floor is boring, so you don't have to go。\w8\1\s[10]It is common sense to go to the ４th floor by elevator。 I'll go back。\x${adv202}\e
+
+adv202 : \t\c\0\s[0]Passages extend west and south。There is a door to the north。\n\n\w8\0\*\q[West","adv203]\n\q[South","adv207]\n\q[Open the door and head north","adv201]\n\q[go home","adv.end]\e
+
+adv203 : \t\c\0\s[0]I came to a corner。There is a door to the north。\n\n\w8\0\*\q[East","adv202]\n\q[South","adv208]\n\q[Open the door and head north","adv204]\n\q[go home","adv.end]\e
+
+adv203b : \t\c\0\s[0]I returned to the original aisle、opened the door and exited the southern aisle。\n\n\w8\0\*\q[East","adv202]\n\q[South","adv208]\n\q[Open the door and head north","adv204]\n\q[go home","adv.end]\e
+
+adv204 : \t\c\0\s[0]As the party entered this room、a silver mist came down from the ceiling。\w8\nSuddenly、a scary demon began to appear。\x\cDemon 「Thank you for your help」\n\n\w8\s[5]How are you?\n\n\w8Demon 「It is refreshing compared to the past。Recent adventurers must not be soft」\n\n\w8\1\s[10]Totally。The players themselves are only decreasing。\w8\0Demon 「I'm sorry for being at work」\w8\s[0]\n\nThe devil disappeared。\x\cHeading east、there was a door。\n\n\w8\0\*\q[Open the door and head north","adv205]\n\q[Return","adv203b]\n\q[go home","adv.end]\e
+
+adv205 : \t\c\0\s[0]There was a door。\n\n\w8\0\*\q[Go inside","adv206]\n\q[Return","adv203b]\n\q[go home","adv.end]\e
+
+adv206 : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]Inside was a large room。 ３ doors are lined up in front of the north side。\n\n\w8\0\*\q[Enter the right door","adv206b]\n\q[Enter the middle door","adv206b]\n\q[Enter the left door","adv206c]\n\q[Leave the room","adv203b]\n\q[go home","adv.end]\e
+
+adv206b : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[4]…\w8…\w8$(? Inside-was-empty Nothing-in-the-room)。\n\n\w8\1\s[10]$(? So-here-is-different……\w8\0I-didn't-say-that。 Good-grief。\w8\0Don't-be-bothered。)\n\n\w8\*\q[Return","adv206]\n\q[go home","adv.end]\e
+
+adv206c : \t\c\0\s[0]On the small pedestal was a statue of ${o.name}。\w8On the sign behind it、\n\w8”I killed millions!”\n\n\w8\1\s[10]…\w8…\w8it's still sweet。\w8\0\s[8]You won't be proud of this level～。\n\n\w8\*\q[Look for","adv206d]\n\q[Leave","adv206]\n\q[go home","adv.end]\e
+
+adv206d : \t\c\0\s[0]…\w8…\w8\s[3]That? Speaking of which、is there a statue of a bear?\n\n\w8\1\s[10]It shouldn't be a Hokkaido souvenir、or a bear forever。\w8\0\s[4]I don't think it is。\w8\n\n\*\q[Leave","adv206]\n\q[v","adv.end]\e
+
+adv207 : $( set mazesflag 21)\t\c\0\s[0]We came to an open place。There was a climbing ladder in the back。\n\n\w8\0\*\q[Climb the ladder","adv12b]\n\q[Enter","adv202]\n\q[go home","adv.end]\e
+
+adv208 : \t\c\0\s[0]There was a door to the west。\n\n\w8\0\*\q[West","adv212]\n\q[Enter","adv203]\n\q[South","adv209]\n\q[go home","adv.end]\e
+
+adv208b : \t\c\0\s[0]Going east for a while、there was a door。Beyond was a passage extending north and south。\n\n\w8\0\*\q[Back to the west","adv212]\n\q[Enter","adv203]\n\q[South","adv209]\n\q[go home","adv.end]\e
+
+adv209 : \t\c\0\s[0]A passage lead to the north。There was a door to the south。\n\n\w8\0\*\q[Open the door and head south","adv210]\n\q[Enter","adv208]\n\q[go home","adv.end]\e
+
+adv209b : \t\c\0\s[0]We ran through a smoke-filled walkway and exited through the north door。\n\w8A passage lead to the north。 There was a door to the south。\n\n\w8\0\*\q[Open the door and head south","adv210]\n\q[Enter","adv208]\n\q[go home","adv.end]\e
+
+adv210 : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]As soon as we entered、the room filled with $(? Mustard light-blue pink) colored smoke。 Suddenly、the party was driven by the urge to go out to the one who just came in。\n\n\w8\0\s[1]Uh……the color of the gas is different……！\n\n\w8\1\s[11]Please listen to this story。\x${adv211}\e
+
+adv211 : \t\c\1\s[10]\0\s[0]Cut through the smoke and fled to the southern room。\w8\nThe inside was wide and the passageway continues to the east and westBIn the south there is a door to another room。\n\n\w8\0\*\q[West","adv211h]\n\q[East","adv211e]\n\q[To the south room","adv211c]\n\q[go home","adv.end]\e
+
+adv211b : \t\c\0\s[0]In the hall。To the east and west there was a passage to the back、and to the south there was a door to another room。\n\n\w8\0\*\q[West","adv211h]\n\q[East","adv211e]\n\q[To the south room","adv211c]\n\q[Exit the hall","adv209b]\n\q[go home","adv.end]\e
+
+adv211c : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]In the center of the room was a luxurious treasure chest that does not resemble the surrounding atmosphere。\w8$(set b 0 ; foreach a itemlist $(if $([ ${a} == "盗賊の小手" ]) $(set b 1)) ; if $([ ${b} -eq 1 ]) ${adv211c2} ${adv211c1})
+
+adv211c1 : \nThe treasure chest had a lock made of black metal。\n\n\w8\0…\w8…\w8\s[3]was there such a thing?\n\n\w8\1\s[10]…\w8…\w8no、I don't know。\n\w8\0It was really awesome。\n\n\w8\1\s[10]Open it and my ghost is whispering。\n\w8\0\s[4]……I mean、we're ghosts。\n\n\w8\0\*\q[Open","adv211d]\n\q[Leave the room","adv211b]\n\q[go home","adv.end]\e
+
+adv211c2 : \nThe treasure chest had already been opened by someone。Inside was empty。\n\n\w8\0\s[8]……that's what we opened。\n\n\w8\1\s[10]Well。\w8\0\*\q[Leave the room","adv211b]\n\q[Return","adv.end]\e
+
+adv211d : \t\c\0\s[0]…\w8…\w8…\w8\s[2]oh、it's open!\n\n\w8\1\s[11]Really。\n\w8\0\s[0]The contents are\w8…\w8…\w8\s[3]what、like these gloves。\n\n\w8\1\s[10]It's a 『thief's glove』。\n\w8\0\s[5]So、if you use this……。\w8\1Well、that's it。Take it anyway。$(set item1.flag 2 ; adddict itemlist "盗賊の小手")\x${adv211b}\e
+
+adv211e : \t\c\0\s[0]There were rooms north and south。\n\n\w8\0\*\q[To the north room","adv211f]\n\q[To the south room","adv211g]\n\q[Return to hall","adv211b]\n\q[go home","adv.end]\e
+
+adv211f : \t\c\0\s[0]A large silver shining disk carried a statue of ${o.name} with a red and blue cape。\w8\nEven though it was made of metal、waving her hips back and forth\nyay！！！．．．”\nShe danced with a loud voice。\n\n\w8\w8…\w8…\w8。\n\n\w8\1\s[10]…\w8…\w8。\w8\0\s[4]Let's not see it。\x${adv211e}\e
+
+adv211g : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[4]There was nothing behind the room。\n\n\w8\1\s[10]I understand the map。\w8\0Also that there is no body or lid。\x${adv211e}\e
+
+adv211h : \t\c\0\s[8]There's nothing here so let's go back。\n\n\w8\1\s[10]Ah～。\w8\0\s[4]……yes yes、I don't want to say that I'm sloppy。\x${adv211b}\e
+
+adv212 : \t\c\0\s[0]We found some doors on the way、but ignored them and proceeded。\w8\nEventually、we approached a T-junction。\n\n\w8\0\*\q[To the north door","adv213]\n\q[West","adv216]\n\q[East","adv208b]\n\q[South","adv216]\n\q[go home","adv.end]\e
+
+adv212b : \t\c\0\s[0]Ｔ-junction。There was a door to the north。\n\n\w8\0\*\q[To the north door","adv213]\n\q[West","adv216]\n\q[East","adv208b]\n\q[South","adv216]\n\q[go home","adv.end]\e
+
+adv213 : \t\c\0\s[0]Another door。\n\n\w8\1\s[10]The door here cannot be opened without a statue of a bear。\n\w8\0\s[5]I have it properly～。\w8ほら…\w8…\w8…\w8…\w8\n\s[3]that?\n\n\w8\w8\1\s[10]What happened?\n\w8\0\s[4]Will not open! Why?\n\n\w8\1\s[10]Really。\n\w8\0…\w8…\w8\s[0]Can I break a spot?\n\n\w8\1\s[10]Wait a minute……\s[11]ぐあっ！！\x\c\1\s[10]……I really broke the edge。\w8And with a single button。\n\w8\0\s[5]Hey open。\n\n\w8\1\s[10]Looks like open。\w8\0\*\q[Go ahead","adv214]\n\q[Return","adv212b]\n\q[go home","adv.end]\e
+
+adv214 : \t\c\0\s[0]Another door。\n\n\w8\w8……I didn't even open this place。\n\n\w8\1\s[10]No、it's better to check……\s[11]ぐわっ！！\x\c\1\s[10]I kicked again。 Have a bad habit。\n\w8\0\s[3]Hitting it will hurt your hand。\n\n\w8\1\s[10]…\w8…\w8。\w8\0\*\q[Go ahead","adv215]\n\q[Return","adv212b]\n\q[go home","adv.end]\e
+
+adv215 : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]The area was suddenly wrapped in darkness。\n\n\w8\w8\0\s[5]It was an easy win here too～。\x\c\s[0]Took in the breeze and darkness、I went into the soon bright room。\n\w8In the room was a creepy beast statue with ${o.name} head and ${o.name} body。\w8\nThe statue was $(? wood wax)、he pedestal was made of $(? weight stone tombstone) body。\w8\nThere were unnatural scars on the pedestal。\w8\w8\n\n\s[4]……again。\n\n\w8\1\s[10]Don't be as grim as ever。\w8\0\*\q[Look for","adv215b]\n\q[Leave","adv212b]\e
+
+adv215b : \t\c\0\s[0]…\w8…\w8…\w8$(? ${o.item} ${o.food} ${o.pc} ${o.cpu} ${o.mag}) I found。\n\n\w8\s[4]Gold key……。\n\n\w8\1\s[10]Did using also feel poking indeed。\w8\0……let's go。\x${adv212b}\e
+
+adv216 : \t\c\0\s[8]This is for sure、there's just a room that doesn't matter。\n\n\w8\1\s[10]You don't have to go。\w8\0\s[4]I'm going to be told again……。\x${adv212b}\e
+
+adv217 : $(set mazesflag 20)\t\c\0\s[0]There is an elevator。There is a door to the north。\n\n\w8\0\*\q[Press button Ａ","adv11]\n\q[Press Ｄ button","adv401]\n\q[Open the door and head north,"adv218]\n\q[go home","adv.end]\e
+
+adv218 : \t\c\0\s[0]It was a small room。\w8There were ２ doors on the west wall。\n\n\w8\0\*\q[Open the right door","adv219]\n\q[Open the left door","adv220]\n\q[Leave the room and return to the elevator","adv217]\n\q[go home","adv.end]\e
+
+adv219 : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]Inside was a small room。Nothing unusual has been found。\n\n\w8\1\s[10]Good grief。I'll go back。\x${adv218}\e
+
+adv220 : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]In the center of the small room was a large box that can be barely lifted with both hands。\w8Its surface had a pure white luster like a pearl, making it feel even godly。\n\n\w8$(set b 0 ; foreach a itemlist $(if $([ ${a} == "大天使の羽" ]) $(set b 1)) ; if $([ ${b} -eq 1 ]) ${adv220a2} ${adv220a1})
+
+adv220a1 : \0…\w8…\w8\s[3]What's this?\n\n\w8\1\s[10]…\w8…\w8dunno。\n\w8\0It's too unnatural。\n\n\w8\1\s[10]I feel a dangerous aura。\n\w8\0But don't worry～。\n\n\w8\0\*\q[Open","adv220b]\n\q[Leave the room","adv218]\n\q[go home","adv.end]\e
+
+adv220a2 : \0But the treasure chest had already been opened by someone。Inside was empty。\n\n\w8\0\s[8]……that's what we opened。\n\n\w8\1\s[10]Well。\w8\0\*\q[Leave the room","adv218]\n\q[Return","adv.end]\e
+
+adv220b : $(if $([ ${altoflag} -eq 1 ]) ${adv220b1} ${adv220b2})
+adv220b1: \t\c\0\s[0]...\w8...\w8...\w8\s[2]oh, it's open!\n\n\w8\1\s[11]Really.\n\w8\0\s[0]The contents are\w8...\w8...\w8it has some white feathers.\n\n\w8\1\s[10]That is "The Archangel's Wings". They seem to protect themselves from sacred powers.\n\w8\0\s[0]I mean...\w8\1This seems to be able to overcome angel allergies. $(set altoflag 2 ; adddict itemlist "大天使の羽")\x${adv218}\e
+
+adv220b2: \t\c\0\s[0]...\w8...\w8...\w8\s[4]will not open~.\n\n\w8\1\s[10]It looks like it's locked.\w8\0Let's go back for now.\x${adv218}\e
+
+adv401: $(set mazesflag 40)\t\c\0\s[0]There's an elevator. A door to the north and a passage extending to the south.\n\n\w8\0\*\q[Enter","adv404]\n\q[South","adv402]\n\q[Press A button","adv11]\n\q[Press B button","adv217]\n\q[go home","adv.end]\e
+
+adv401b: \t\c\0\s[0]Upon going through the long passage, there was an elevator. There's a door on its north side.\n\n\w8\0\*\q[Open the door and go north","adv404]\n\q[South","adv402]\n\q[Press A button","adv11]\n\q[Press B button","adv217]\n\q[go home","adv.end]\e
+
+adv401c: \t\c\0\s[0]After passing through several doors, you come across an elevator.\n\n\w8\0\*\q[Open the door and go north","adv404]\n\q[South","adv402]\n\q[Press A button","adv11]\n\q[Press B button","adv217]\n\q[go home","adv.end]\e
+
+adv402: \t\c\0\s[0]As you walk down the long passage, you eventually come to a door. A sign on the door says,\n\n\_q\w8 * PRIVATE EXPRESS SERVICE ELEVATOR *\n Authorized personnel only! \_q\n\n\w8\w8\s[5]We have the blue ribbon, right~.\x${adv403}\e
+: \t\c\0\s[0]
+
+adv408: \t\c\0\s[0]There is a door on the north wall.\w8\nThe sign on the door says,\n\n\w8\_q *** TREASURE REPOSITORY ***\_q\n\n\w8\w8…\w8…\w8\s[0]It's a treasure room.\n\n\w8\1\s[10]There's nothing here.\n\w8\0\s[8]Well, when I take over this labyrinth, I'll fill this place with treasures.\n\n\w8\1\s[10]How much blood will be shed for that... terrifying.\n\w8\0\s[5]Did you say something?\n\n\w8\1No, nothing.\w8\0\*\q[Enter the room,"adv409]\n\q[Return east,"adv406]\n\q[go home,"adv.end]\e
+
+adv409: \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]The room was deserted.\n\n\w8\s[0]...Well, I know there's nothing here, but...\w8\1\s[10]It's a waste of time. Let's go back.\x${adv406}\e
+
+adv410: \t\c\0\s[0]There is a door on the south wall.\w8\nThe sign on the door says,\w8\n\n\_q *** MONSTER ALLOCATION CENTER ***\_q\n\n\w8\w8\1\s[10]It's been a while since I've been here.\w8\0\s[5]It's a place of trials.\n\n\w8\*\q[Enter the room,"adv411]\n\q[Return west,"adv406]\n\q[go home,"adv.end]\e
+
+adv411: \t\c\0\s[0]\_q\n\n\n\n　　　　　　　＊ Encountered monsters! ＊\n\n\w8\w8\x\c\0\s[0]1) 2 LVL 2 FIGHTERS\n2) 2 LVL 1 MAGES\n3) 2 LVL 1 PRIESTS\n4) 1 LVL 3 THIEF\_q\n\n\w8\w8…\w8…\w8\s[4]Huh?\n\n\w8\w8\1\s[10]Hmm?\n\w8\w8\0Don't they all seem incredibly weak?\n\n\w8\1\s[10]They're all low-level, and the ninja has become a thief.\n\w8\w8\0\s[3]What's going on?\x\cFighter "Well, we've been short on staff lately."\n\n\w8Thief "Business has been slow, and our earnings have dropped significantly.\w8The good guys have all moved on to other places due to poor treatment here."\n\n\w8\s[4]...Well, do your best.\w8\1\s[10]...I'm at a loss for words.\x${adv412}\e
+
+adv412: \t\c\0\s[0]The party crossed the room and stepped into the next room through the door to the south.\n\w8The adventurers noticed a large table in the middle of the room.\w8On it and around it were countless craft
+
+adv413: \t\c\0\s[0]When the party entered the room, the door closed with a bang, glowed bright orange, and disappeared, revealing a door to the right.\x\cA voice could be heard from nowhere.\n\w8"Congratulations, my loyal and capable servants. Now, you all are..." \n\n\w8\1\s[10]Enough talk, just give us the blue ribbon already.\w8\0\s[0]"At least listen to me... (sob) "\x\c\s[5]Obtained the blue ribbon.\n\n\w8\1\s[10]How many is that now?\n\w8\0Hmm, about 150.\n\n\w8\1\s[10]..."\x${adv414}\e
+
+adv414: \t\c\0\s[0]Upon leaving the room, they found themselves in the hallway they had seen before. The door behind them had disappeared.\n\n\w8\*\q[Enter,"adv404]\n\q[South,"adv401c]\n\q[go home,"adv.end]\e
+
+adv901: $(set mazesflag 90)\t\c\0\s[0]There is an elevator.\n\n\w8\"Here, there are buttons with marks A to F. Please press one of them.\"\n\n\w8\0\*\q[Press button A,"adv403b]\n\q[Enter,"adv902]\n\q[go home,"adv.end]\e
+
+adv902: \t\c\0\s[0]There are doors to the west and east. The corridor continues to the north, and a little further ahead, it turns to the right.\n\n\w8Since the goal this time is to reach the 10th floor, there's no need to go anywhere other than the western room.\n\n\w8\1\s[10]Well, it wouldn't hurt to go around again after a long time.\w8\0\*\q[Enter,"adv904]\n\q[Open the door and go east,"adv903]\n\q[Go to the western room,"adv908]\n\q[go home,"adv.end]\e\e
+
+adv903: \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]A narrow corridor continues to the south.\w8After a while, they reached a dead end. On the wall, there was a message:\w8\n\n"Isn't this mission not suitable for you guys?"\n\n\w8\w8...\s[4]I've seen this line somewhere before.\n\n\w8\1\s[10]Are we in the wrong scenario?\w8\0Let's go back.\x${adv902}\e
+
+adv904: \t\c\0\s[0]As they proceeded, they found text on the wall.\n\n\w8"The graveyard is dark..."\n\n\w8\w8\s[2]Could this be...?!\n\n\w8\1\s[10]There's no way it would be here.\n\w8\0\s[3]It's just someone's prank.\n\n\w8\0\*\q[Go ahead,"adv905]\n\q[Return,"adv902]\n\q[go home,"adv.end]\e
+
+
+adv906 : \t\c\0\s[0]As you proceed further, there is a sign standing beside the passage.\n\n\w8"Going beyond this point is unwise, or else..."\n\n\w8\w8\s[3]...What will you do?\n\n\w8\1\s[10]This is getting serious.\n\n\w8\0\*\q[Proceed further,"adv907]\n\q[Return,"adv902]\n\q[go home,"adv.end]\e
+
+adv907 : \t\c\0\_q\s[2]\n\n\n\n　　　　　　　＊　Inside the stone!　＊\_q\x\c…\w8…\w8…\w8…\w8\s[8]It's inside the stone.\n\n\w8\w8\1\s[10]...Yes, inside the stone.\n\w8\w8\0What should we do?\n\w8\w8\1\s[10]Well, there's no point in panicking.\x\c\0\s[0]Then, let's have some tea for now.\n\n\w8\1\s[10]Yes.\n\w8\0\s[6]Sip.\n\n\w8\1\s[10]Sip.\n\w8\0…\w8…\w8…\w8…\w8\s[7]This is not the time to be doing this!\n\n\w8\1\s[11]Calm down!\x\c\0\s[0]I really want to escape, but I can't use Malor.\n\n\w8\1\s[10]In that case, it must be that.\n\w8\0\s[4]Yes, that.\n\n\w8\1\s[10]It's unthinkable to have come this far and not do that.\n\w8\0Right.\x\c\s[0]Well, let's go.\n\n\w8\w8Mapiro Maha Dilo-mato~.\x\c\0\_q\n\n\n\n　　　　　　　　　　 ENTERING\n　　　 PROVING GROUNDS OF THE MAD OVERLORD\_q\x\c\w8\0\s[4]...Oh well.\n\n\w8\1\s[10]Well, it's better than being lost.\0\w8\*\q[Challenge again,"adv01]\n\q[go home,"adv.end]\e
+
+adv908 : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]Stepped inside. At first glance, it looks like an empty room, but there is a trapdoor hidden in the darkness at the back.\n\nYou can descend to the 10th floor from here.\n\n\w8\1\s[10]Let's get going quickly.\w8\0\*\q[Jump into the chute,"adv1001]\n\q[Leave the room,"adv902]\n\q[go home,"adv.end]\e
+adv1001: $(set mazesflag 100)\t\c\0\s[0]Went down.\w8\nThe place was clearly different from the previous floors.\w8The dimly lit corridor was filled with a sinister atmosphere, and the air was cold and tense.\w8\n...However, a single sign ruined that atmosphere.\x\cA tasteless gold frame contained a message. The words were covered in dust and blinked in various colors.\w8\n\n"Know this, you're trespassing in the territory of the supreme magician Wardna. My protection will not be broken by the likes of you. Don't even think about fighting me!\n\w8So, I'll give you this clue out of pity.\n\nCONTRA-DEXTRA AVENUE PS - TREBOR SUX"\x\c\0\s[0]…\w8…\w8\s[4]This sign is still here, huh.\n\n\w8\1\s[10]It's twisted.\n\w8\0\s[0]By the way, what does this CONTRA... mean?\n\n\w8\1\s[10]You don't know, huh.\w8This is what Trebor wrote when he discovered the extra continue cheat code for the PS version of Contra.\w8\w8\0\s[4]...What?\n\n\w8\1\s[10]\nThe disordered writing due to immense excitement is charming.\w8\0...。\x\c\1\s[10]Anyway, let's hurry on.\w8...What's wrong?\n\w8\0Nothing.\n\n\w8\0\*\q[Enter,"adv1002]\n\q[Jump into the suspicious space to the east,"adv1001b]\n\q[go home,"adv.end]\e
+
+adv1001b: \t\c\0\s[0]\_q\n\n\n\n　　　　　　　　　　 ENTERING\n　　　 PROVING GROUNDS OF THE MAD OVERLORD\_q\x\c\w8\1\s[10]We've been sent back.\n\w8\0\s[4]We were sent back, huh.\n\n\w8\1\s[10]Good grief.\w8\0Good grief, indeed.\w8\n\n\*\q[Challenge again,"adv01]\n\q[go home,"adv.end]\e
+
+adv1001c: \t\c\0\s[0]Right below the shoot. There's a tasteless gold-framed sign next to it, emitting a cheap light.\n\n\w8\0\*\q[Enter,"adv1002]\n\q[Jump into the suspicious space to the east,"adv1001b]\n\q[Go home,"adv.end]\e
+
+adv1002: \t\c\0\s[0]Walking down the long, winding path, eventually arrived at a door.\w8Could feel someone's presence behind it.\n\n\w8\0\*\q[Open the door,"adv1003]\n\q[Go back south,"adv1001c]\n\q[go home,"adv.end]\e
+
+adv1003: \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]It was a large room. In the northwest and southeast corners, dark spaces gaped open.\n\n\w8…\w8…\w
+
+
+adv1004 : \t\c\0\s[0]A moment of weightlessness. Then, a new scene unfolded in front of their eyes.\n\n\w8\w8\s[4]The teleporter here has a bad feel to it. It makes me feel like I'm going to get sick.\n\n\w8\1Well, it's old after all.\x\c\0\s[0]A passage continues to the east.\n\n\w8\0\*\q[Proceed east,"adv1005]\n\q[go home,"adv.end]\e
+
+adv1005 : \t\c\0\s[0]There's writing scribbled on the floor.\n\n\w8"You may have defeated a group of guards, but there are still more! Turn back while you still can. To those who are destined to die!"\n\n\w8\s[0]...\w8...\w8\s[4]What a bored person.\n\n\w8\1\s[10]That old man's got a top-notch sense of humor and wickedness.\n\w8\0\s[8]And yet, somehow he's missing something.\n\n\w8\1\s[10]Exactly.\n\w8\0He must have written this with a grin on his face.\w8\1\s[10]While smirking.\x\c\0\s[0]They started walking again.\w8At the end of the long passage, there was another door.\n\n\w8\0\*\q[Open the door and enter,"adv1006]\n\q[go home,"adv.end]\e
+
+adv1006 : \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]It was a large room inside. On the north wall, there were two teleporters.\n\n\w8\0\*\q[Enter the right teleporter,"adv1001c]\n\q[Enter the left teleporter,"adv1007]\n\q[go home,"adv.end]\e
+
+adv1007: \t\c\0\s[0]Once again, they stood in the corridor. The surrounding evil atmosphere was gradually becoming denser.\w8\nThe dimly lit path continued to the east and then bent to the south.\n\n\w8\w8\s[0]I'm pretty sure there was a room ahead too.\n\n\w8\1Four more to go.\n\w8\0\s[4]No matter what, it's too far.\x\c\s[0]Then, a horn blared in the distance.\n\n\w8\s[2]What?!\n\n\w8\1No way... .\x\c\0\s[0]Turning the corner of the corridor, there was a yellow car parked there.\w8\nWritten on the car door was the following:\n\n\w8"Abdul's Taxi - One Way 2500GP"\x\c...\w8...\w8\s[2]Why is it here?\n\n\w8\1\s[10]That's some dedication to business.\n\w8\0\s[4]...Wait, is Abdul's Taxi a car?\n\n\w8\1\s[10]What else could it be?\n\w8\w8\0I'm starting to not care anymore...\x\c\0\*\q[Get in the taxi,"adv1008]\n\q[Don't get in,"adv1009]\n\q[go home,"adv.end]\e
+
+adv1008: \t\c\0\s[0]They got into the taxi.\n\n\w8Abdul: "Thank you."\x\c\0\s[4]...Um, can I ask you something?\n\n\w8Abdul: "What is it?"\n\n\w8\w8How are you getting out of here? \w8...I mean, how did you get in here?\n\n\w8\w8Abdul: "Good question.\w8But I can't tell you that. It's a trade secret."\n\n\w8\w8... .\n\w8\w8Well, whatever. I doubt I'd get a straight answer even if I asked.\x\c\0\s[0]Anyway, the taxi arrived on the surface.\n\n\w8\w8\s[4]I still don't know how we got back.\n\n\w8\1\s[10]It was pitch black around us.\n\n\0\w8... .\w8... .\w8\s[7]Someday, I'll uncover your secret!\w8\1\s[10]There are some things in the world that are better left unknown.\x\c\0\_q\n\n\n\n           ENTERING\n   PROVING GROUNDS OF THE MAD OVERLORD\_q\x\c\w8\0\s[4]I feel like I'm forgetting something important...\n\n\w8\1\s[10]Really?\0\w8\*\q[Challenge again,"adv01]\n\q[go home,"adv.end]\e
+
+adv1009: \t\c\0\s[0]Ignored the taxi and moved forward.\w8\nEventually, arrived in front of a door.\n\n\w8\0\*\q[Open the door and go inside,"adv1010]\n\q[go home,"adv.end]\e
+
+adv1010: \t\c\0\s[0]${adv.fight}${adv.treasure}\s[0]It was a narrow, dark room. There are teleporters in front and on the right.\w8\w8\n\nSuddenly, there was a noise behind. When turning around, a man was trying to sneak out of the room.\n\n\w8\*\q[Catch him,"adv1011]\n\q[Leave him alone,"adv1011b]\n\q[go home,"adv.end]\e
+
+adv1011: \t\c\0\s[6]Manifo.\n\n\w8Man「Guwah！！」\n\n\w8\w8\s[0]The man froze in a strange posture.\w8\nWhen looking at his face from the front, it turned out that the man was MRON.\x\c\w8\1Why are you in a place like this? The scenario is different, right?\n\w8\0MRON「Who knows, I'd like to ask that myself」\n\n\w8\1Since we're here, why don't you spill everything you know?\n\w8\0MRON「If you want to hear my story, you have to pay 2500GP」\n\n\w8\1…\w8…\w8\s[11]It seems he doesn't understand his own position.\w8\0MRON「Wha……what……\w8Gyaaa！！」\x\cAfter the tragedy, MRON, who had become like a rag, was lying there.\n\n\w8\1\s[10]So?\n\w8\w8\0MRON「Everyone……has a weakness. There's no exception……to this」\n\n\w8\w8Saying that, MRON lost consciousness.\n\n\w8\1I've heard that line somewhere.\w8\0\s[8]I doubt it.\x\c\0\s[0]Well then, let's move on.\n\n\w8\0\*\q[Enter the teleporter in front,"adv1012]\n\q[Enter the teleporter on the right,"adv1001c]\n\q[go home,"adv.end]\e
+
+adv1011b: \t\c\0\s[0]There is a teleporter.\n\n\w8\0\*\q[Enter the teleporter in front,"adv1012]\n\q[Enter the teleporter on the right,"adv1001c]\n\q[go home,"adv.end]\e
+
+
+adv1012: \t\c\0\s[0]Teleported again.\n\n\w8\s[4]It's tiring when it's this long.\n\n\w8\1Not enough training.\n\w8\0I should have taken that taxi earlier.\x\cWhile walking leisurely, they arrived at the next room.\n\n\w8\*\q[Enter the room,"adv1013]\n\q[go home,"adv.end]\e
+
+adv1013: \t\c\0\s[0]As soon as they entered the room, an elderly monk appeared from the back.\n\n\w8\w8Monk: "You can obtain the contents of this box in exchange for your soul."\n\n\w8\w8\1...I've seen this old man somewhere before.\n\w8\0Yeah, we have.\x\c\0It's a GOLD MEDALLION inside, isn't it?\n\n\w8\w8Monk: "That's not it."\n\n\w8\w8Then what is it?\n\n\w8Monk: "It's a secret."\x\c...\w8...\w8\s[3]I'm curious.\n\n\w8\1It's probably nothing good.\n\w8\0\s[4]But I'm curious~.\x\cMonk: "If you really want it, answer the questions I pose splendidly.\w8I'll ask three questions, all related to games."\n\n\w8\1So that's how it is.\n\w8\0\s[5]That's fine~. If it's about games, it's a piece of cake.\n\n\w8\w8Monk: "Let's begin."\x\c\0\s[0]Monk: "Question.\n\w8In Wizardry, what are the required attribute values to create a Samurai?"\n\n\w8\1Too easy. Even elementary school students know that much.\0\w8\*\q[A. 15/10/--/15/14/10,"adv1013b]\n\q[B. 15/12/12/15/14/15,"adv1013b]\n\q[C. 15/11/10/14/10/--,"adv1013c]\e
+
+adv1013b: \t\c\0\s[0]Monk: "Wrong. Go back and try again."\n\n\w8\w8With that, the monk pushed us into the teleporter.\n\n\w8\s[2]No way~!!\x${adv1001c}\e
+
+
+adv1013c : \t\c\0\s[0]Monk: "Correct. Well, that was just a little test."\n\n\w8\1Hurry up and move on to the next one.\n\w8\0Monk: "Fine.\w8Now, question 2.\w8$(? "In Gain Ground, in which round does Cyber appear?"\n\n\w8\*\q[A. 2-7,adv1013b]\n\q[B. 2-9, 3-4,adv1013d]\n\q[C. There is no such character,adv1013b]" "In Genpei T?ma Den, which boss character appears in Kai?\n\n\w8\*\q[A. Benkei,adv1013d]\n\q[B. Yoshitsune,adv1013b]\n\q[C. Dragon,adv1013b]" "In Bubble Bobble, what is the effect of the orange candy?\n\n\w8\*\q[A. Warp 10 stages ahead,adv1013b]\n\q[B. Enemies turn into cakes,adv1013b]\n\q[C. Rapid fire power increases,adv1013d]")\e
+
+adv1013d : \t\c\0\s[0]Monk: "You're pretty good."\n\n\w8\1Heh, don't underestimate us.\n\w8\0Monk: "Well, how about this.\w8Question 3.\w8\n$(? "In Psycho-Nics Oscar, what hidden power-up appears when the gauge is filled twice?"\n\n\w8\*\q[A. SPECIAL,adv1013b]\n\q[B. QUICK,adv1014]\n\q[C. SHIELD,adv1013b]" "What is the method to increase credits in Crazy Climber?"\n\n\w8\*\q[A. Turn on the power while pressing 1P,adv1013b]\n\q[B. Enter 'JORDAN' in the name entry,adv1014]\n\q[C. Press 1P and 2P simultaneously when inserting coins,adv1013b]" "In Chack'n Pop, what is the method to get a 20,000 point bonus?"\n\n\w8\*\q[A. Defeat 8 enemies at once,adv1013b]\n\q[B. Collect 3 strawberries and clear,adv1013b]\n\q[C. Clear without defeating any enemies,adv1014]")\e
+
+adv1014: \t\c\0\s[0]Monk: "Ugh... I've been defeated."\n\n\w8\1Did you really think you could beat us with a problem of this level?\n\w8\0\s[5]It was so easy, wasn't it?\n\n\w8\w8Monk: "As promised, this box is yours. Take it."\n\n\w8\w8Handing over the box, the monk left the room.\x\c\0\s[5]Now, I wonder what's inside.\n\n\w8\1...You should really fix that habit.\n\w8\w8\0\s[0]What?\n\n\w8\w8\1You always want to open boxes when you see them.\n\w8\0\s[8]I just can't help it.\n\n\w8\w8\1...So, what's inside?\n\w8\0\s[0]Let's see...\w8...\w8...\w8\s[3]What's this?\n\n\w8\w8\1What is it?\n\w8\w8\0Dink's business card. It says, "Please feel free to call when needed."\n\n\w8\1Good grief.\x\c\0\s[0]There is a teleporter.\n\n\w8\0\*\q[Enter the western teleporter,"adv1001c]\n\q[Enter the teleporter in the middle of the room,"adv1015]\n\q[go home,"adv.end]\e
+
+adv1014: \t\c\0\s[0]Monk: "Ugh... I've been defeated."\n\n\w8\1Did you really think you could beat us with a problem of this level?\n\w8\0\s[5]It was so easy, wasn't it?\n\n\w8\w8Monk: "As promised, this box is yours. Take it."\n\n\w8\w8Handing over the box, the monk left the room.\x\c\0\s[5]Now, I wonder what's inside.\n\n\w8\1...You should really fix that habit.\n\w8\w8\0\s[0]What?\n\n\w8\w8\1You always want to open boxes when you see them.\n\w8\0\s[8]I just can't help it.\n\n\w8\w8\1...So, what's inside?\n\w8\0\s[0]Let's see...\w8...\w8...\w8\s[3]What's this?\n\n\w8\w8\1What is it?\n\w8\w8\0Dink's business card. It says, "Please feel free to call when needed."\n\n\w8\1Good grief.\x\c\0\s[0]There is a teleporter.\n\n\w8\0\*\q[Enter the western teleporter,"adv1001c]\n\q[Enter the teleporter in the middle of the room,"adv1015]\n\q[go home,"adv.end]\e
+
+aadv1016: \t\c\0\s[0]There were various obstacles, but they somehow managed to arrive at the next room.\n\n\w8\*\q[Enter the room,"adv1017]\n\q[go home,"adv.end]\e
+
+adv1017: \t\c\0\s[0]\_q\n\n\n\n　　　　　　　＊ Encountered a monster! ＊\n\n\w8\w8\x\c\0\s[0]1) 1 ＰＯ’ＬＥ\_q\n\n\w8\w8…\w8…\w8\s[2]Ah, it's Pole.\n\n\w8\1Why are you in a place like this?\n\w8\w8\0\s[5]Hey, Pole.\n\n\w8\1Pole Pole.\n\w8\0Pole: "Be quiet!"\x\c\0\s[0]Pole: "For you guys, I'll use Tilt Wait right away."\n\n\w8\s[2]Wow!\n\n\w8${sakuraname} took 5 points of damage.\n${keroname} was unaffected.\n\n\w8\s[4]It doesn't hurt, but... it hurts.\n\n\w8\1\s[11]You did it. Time for a counterattack.\x\c\0\s[0]Pole: "Well then, farewell."\n\n\w8…\w8…\w8\s[4]Ah, he ran away.\n\n\w8\1\s[10]Speaking of which, hit and run was his specialty.\n\w8\0It's just like him.\x\c\0\s[0]When they searched the room, they found two teleporters as expected.\n\n\w8\0\*\q[Enter the eastern teleporter,"adv1018]\n\q[Enter the southern teleporter,"adv1001c]\n\q[go home,"adv.end]\e
+
+adv1018: \t\c\0\s[5]Just a little more.\n\n\w8\1Once we pass through this next room, we'll finally reach Wordna's office.\x\c\0\s[0]After going through several turns, they soon arrived in front of the room.\n\n\w8\*\q[Enter the room,"adv1019]\n\q[go home,"adv.end]\e
+
+
+adv1019 : \t\c\0\s[0]部屋に入った途端、目の前に光輝く門が現れた。\w8そしてその中から、奇妙な人物が。\x\c\0\s[0]\_q１）１ ${sakuraname}\n２）１ ${keroname}\_q\n\n\w8\w8\s[2]えっ、私がもう一人！？\n\n\w8\1まさかオレ達のクローンが出てくるとはな。\n\w8\0\s[4]なんか闘うのヤダな～。\n\n\w8\w8\1じゃあ、こうしよう。\w8オレはニセ${sakuraname}を倒す。お前はニセ${keroname}をやれ。\n\w8\0\s[5]なるほどっ。\w8それじゃ、遠慮なく。\x\c\0\s[7]${sakuraname}の攻撃！\w8\n$(? ２ ３)${digit}${digit}回当たり、${digit}${digit}${digit}${digit}のダメージ。\n\n\w8ニセ${keroname}を倒した。\n\n\w8\w8\1\s[11]${keroname}の${o.skill}！\w8\n１${digit}${digit}回当たり、${digit}${digit}${digit}${digit}のダメージ。\n\w8ニセ${sakuraname}を倒した。\w8\w8\0ニセ${sakuraname}達は、門もろとも消え去った。\x\c\0\s[4]割と弱かったね。\n\n\w8\1\s[10]まあ、所詮は偽物だな。\n\w8\w8\0\s[3]それにしても、もうちょっと手加減してあげてよ。\w8すごく痛そうだったよ、彼女。\n\n\w8\1お前こそ、やけに気合い入ってなかったか？\n\w8\0\s[5]ぜんっぜんそんなことないよ～。\n\n\w8\1……。\x\c${adv1020}\e
+
+adv1020 : \t\c\0\s[0]静かになった部屋を見回すと、テレポーターがあった。\n\n\w8これで最後だね。\n\n\w8\1やれやれだ。\w8\0\*\q[東のテレポーターに入る","adv1001c]\n\q[北西のテレポーターに入る","adv1021]\n\q[go home","adv.end]\e
+
+adv1021 : \t\c\0\s[0]最後のテレポーターを抜け、私たちはついにワードナの事務所に辿り着いた。\n\n\w8壁の標識には、\n\n\w8\_q　　　　”邪悪な魔術師　ワードナの事務所”\n　　　　　営業時間は午前９時から午後３時\n　　　　　　 今、ワードナは　＊不在＊”\_q\w8\w8\1どうでもいいが、自分で”邪悪な魔術師”とか書くなよな。\x\c\0\s[5]どうやら、予定通りワードナはいないみたいだね。\n\n\w8\1オレら称号持ってるしな。\n\w8\0それじゃ、今のうちにアミュレットを探してすり替えちゃおう。\n\n\w8\1なんか後ろめたい気がするのはオレだけか？\0\w8\*\q[事務所に入る","adv1022]\n\q[go home","adv.end]\e
+
+adv1022 : \t\c\0\s[0]私たちは事務所へと足を踏み入れた。\n\n\w8…\w8…\w8\s[3]何、この感じ。\w8誰かいる？\n\n\w8\1この気配、只者じゃないな。\w8\w8\0薄闇に沈む室内は不気味なほど静かで、何者をも寄せ付けぬ緊張感を漂わせていた。\n\w8その研ぎ澄まされた気配は、部屋の奥にいる一人の男から発せられていた。\x\c男は、かつてワードナが座っていた大きな椅子に深く腰掛け、煙るような目でこちらを見ていた。\w8\n白銀の輝きを放つ装束、そして神々しいまでの威厳と気高さ。\w8私たちは彼をよく知っていた。\x\c\s[2]まさか……\w8ホークウインド？！\n\n\w8\1間違いない。ヤツだ。\n\w8\w8\0ホークウインド「……何者だ」\n\n\w8\w8\s[8]えーっと、私は${sakuraname}。\w8で、こっちの小さいのが${keroname}。よろしく～。\n\n\w8\w8ホークウインド「……」\x\cあの～、なんでこんな所に？\n\n\w8\w8ホークウインド「……知れた事。ワードナの討伐だ。\w8そしてそれはもう果たした」\n\n\w8\s[2]えっ、果たしたって……。\n\n\w8\w8ホークウインド「”本物の”ワードナは私がこの手で葬り、地下に封印した。そして、アミュレットはカドルト神に返還された」\n\n\w8そんな～！！\x\c\s[4]じゃあ、わざわざここまで来た私たちって一体……。\n\n\w8\1ムダ足もいいとこだな。\n\w8\0む～。\n\n\w8\w8すると、ホークウインドがゆっくりと立ち上がった。\x\cホークウインド「お前達からは邪悪な気配を感じる。ワードナの眷族だな」\n\n\w8\s[2]ええっ！？違うよ、ぜんっぜん違う。${keroname}は魔物かもしれないけど。\n\n\w8\1\s[11]余計な事言うな。\n\w8\w8\0ホークウインド「私を欺こうなど無駄な事。奴同様、永劫の闇に帰るがよい」\n\n\w8…\w8…\w8\s[4]どうやら、闘うしかないみたいだね。\n\n\w8\1\s[10]ったく、アタマの固い野郎だ。\x\c１）１　ホークウインド\n\n\w8\*\q[闘う","adv1024]\n\q[ディンクに電話する","adv1023]\e
+
+adv1023 : \t\c\0\s[0]そういえば、ディンクの名刺があったよね。\n\n\w8\1ヤツならホークウインドを倒せるぞ。\n\w8\0じゃあ、ケータイで。\n\n\w8\w8プルルル、プルルル……\w8ガチャ。\w8\w8\n「おかけになった番号は、現在使われておりません」\n\n\w8…\w8…\w8\s[4]なんで？\n\n\w8\1まるでＭＲＯＮだな。\w8\w8\0しょうがない、普通に闘おう。\x\c１）１　ホークウインド\n\n\w8\*\q[闘う","adv1024]\e
+
+adv1024 : ${adv1024sub}\s[4]あれ～？\n\n\w8ホークウインドは笑い飛ばした。\n\n\w8\*\q[$(? まだまだ それでも あくまで やっぱり しつこく)闘う","adv1025]\e
+
+adv1025 : ${adv1024sub}\s[4]効かない～。\n\n\w8ホークウインドは鼻で笑った。\n\n\w8\*\q[$(? まだまだ それでも あくまで やっぱり しつこく)闘う","adv1026]\e
+
+adv1026 : ${adv1024sub}\s[4]全然ダメ～。\n\n\w8ホークウインドは無視して雑誌を読みふけった。\x\c\*\q[$(? まだまだ それでも あくまで やっぱり しつこく)闘う","adv1024]\n\q[こっちも雑誌を読む","adv1027]\e
+
+adv1027 : \t\c\0\s[0]\w8…\w8…\w8。\n\n\w8ホークウインド「……」\n\n\w8\w8…\w8…\w8。\n\n\w8ホークウインド「……」\n\n\w8…\w8…\w8\s[7]あー、らちが開かないっ！やっぱり闘う！\x\c${adv1028}\e
+
+adv1028 : ${adv1024sub}\s[4]なんで～？\n\n\w8ホークウインドは手紙の返事を書いた。\n\n\w8\*\q[$(? まだまだ それでも あくまで やっぱり しつこく)闘う","adv1029]\e
+
+adv1029 : ${adv1024sub}\w8ホークウインドは爪を研いだ。\n\n\w8\s[4]ムカつく～。\n\n\w8\*\q[$(? まだまだ それでも あくまで やっぱり しつこく)闘う","adv1030]\e
+
+adv1030 : ${adv1024sub}\w8ホークウインドは寿司を注文した。\n\n\w8\s[7]あー、自分だけズルい！\x\c\*\q[$(? まだまだ それでも あくまで やっぱり しつこく)闘う","adv1024]\n\q[こっちも寿司を頼む","adv1031]\e
+
+adv1031 : \t\c\0\s[5]あーもしもし、特上３０人前サビ抜きでお願いします～。\n\n\w8\1っておい、そんなに食えるのか？\n\w8\0\s[7]こうなったら、大食い対決しかないでしょ。\n\n\w8ホークウインド「フッ、私に勝てると思っているのか」\n\n\w8\w8\1……なんだか妙な事になってきたぞ。\x\c\0\s[0]しばらくして、寿司屋が入ってきた。\n\n\w8寿司屋「まいど～」\n\n\w8\s[5]わーい、お寿司だ～！\n\n\w8\1……日頃ジャンクフードしか食ってないだけに、喜びようも半端じゃないな。\x\cホークウインド「より多く寿司を食べた方が勝ちだ。いくぞ」\n\n\w8\s[5]負けた方がオゴリね。\w8んじゃ、いただきま～す。\w8\1２人は猛烈な勢いで寿司を食べ始めた。\x\c\1\w8…\w8…\w8…\w8…\w8３０分後。\w8\w8\0\s[0]ホークウインド「\w8…\w8…\w8もう、食えん」\n\n\w8\s[5]あれ、もう終わり？まだ５０カンも食べてないのに。\w8\n……あーおじさん、からすみとえんがわとアボガド追加ね～。\w8${keroname}、アガリちょうだい。\n\n\w8\1\n大丈夫か？もう８０カンは食ってるぞ。\n\w8\0ん？全然大丈夫だけど。\w8\1……。\x\c\1\w8…\w8…\w8…\w8…\w8１時間後。\n\w8\0\s[5]あー食べた食べた。勝負終了だね。\n\n\w8\w8ホークウインド「……」\n\n\w8\w8\s[0]えーっと……私が１２９カンで、ホークウインドが５８カン。\n\w8\w8\s[5]というわけで、私の勝ち～！\x\c\0\s[0]ホークウインド「くっ……この借りは、いずれ返す」\n\n\w8捨て台詞を残し、ホークウインドは一陣の風と共に消え去った。\n\n\w8\w8\1まさかこんな手で勝てるとは……。\n\w8\0\s[5]口ほどにもなかったね。\n\w8\1つーかお前の食いっぷりは何なんだよ。\x\c${adv.ending}\e
+
+adv.ending : \t\c\0\s[0]激しい戦い（？）を終えた私たちは、久しぶりに地上に戻ってきた。\n\n\w8\1結局今回は何も手に入らなかったな。\n\w8\0\s[5]いいよ、別に。楽しかったし、お寿司いっぱい食べれたし。\w8\nそれに、本物のアミュレットはミスリルグローブがないと扱えないしね。\n\n\w8\1\s[11]って、お前最初からそれを知ってて……！\n\w8\0\s[8]ううん、今思い出した。\n\n\w8\1\s[10]…\w8…\w8。\x\c\0\s[5]さ～、帰ってゲームの続きやろーっと。\w8あー${keroname}、帰りに夕飯の買い物よろしくね～。\n\n\w8\1……結局オレはいつもこうだ。\x\c\0\n\n\n\n\n　　　　　　　　　 ～ おわり ～$(set sflag 0)\e
+
+advx01 : \t\c\0\s[0]……ねえ、${keroname}。\n\n\w8\w8\1\s[10]ん？\n\w8\w8\0今、何のボタン押したっけ？\n\n\w8\w8\1\s[10]Ｆじゃないのか？\n\w8\w8\0\s[3]あれ？確かＨだったような……。\n\n\w8\1\s[10]おいおい、そりゃ地下１１階のボタンだ。\n\w8\0…\w8…\w8…\w8\s[2]地下１１階？！\x\c\s[0]やがてエレベータは止まった。\n\w8エレベータを降りると、そこは小ぎれいな広間になっていた。\w8明るい室内にはテーブルが並べられ、怪しげな大小の工具に囲まれて、数名の職人らしき男が何やら細工をしている。\w8辺りには、ノミとヤスリの音だけが響いている。\n\n\w8\w8…\w8…\w8\s[3]ここ、どこ？\n\n\w8\1\s[10]ワードナが経営する工場だ。ここでは魔除けを作ってるが、奥の方ではレアアイテムも作ってるはずだ。\n\w8\0\s[2]…\w8…\w8。\x\c\s[0]私たちに気づいたのか、見覚えのある男が近づいてきた。\n\n\w8\w8男「部外者は立ち入り禁止だ。マピロ マハマ ディロマト」\n\n\w8\s[2]そんな～！！\x\c\0\_q\n\n\n\n　　　　　　　　　　 ENTERING\n　　　 PROVING GROUNDS OF THE MAD OVERLORD\_q\x\c\w8\0\s[4]戻された……。\n\n\w8\1\s[10]ゴール直前でふりだしに戻る……お約束にも程があるな。\0\w8\*\q[Challenge again","adv01]\n\q[go home","adv.end]\e
+
+
+adv1024sub : \t\c\0\s[7]${sakuraname}$(? の攻撃！\w8\nしかし、攻撃は外れた。 は$(? $(? ティルトウェイト ＺＡＰ ショックのパー ギガデイン 防犯の呪文 ばよえ～ん フレア メテオ アルテマ メギドラオン ルシネマ キケアーヌ)を唱えた！ アブリエルを唱えた！\w8\n${sakuraname}はグレーター$(? デーモン デビル)を${digit1}${digit2}体召喚、敵を袋叩きにした！)\w8\nしかし、ホークウインドには効かなかった。)\w8\n\n
+
+fight_sub : \s[7]${sakuraname}$(? の攻撃！\w8\n$(loop $(rand 2) "１")${digit}${digit}回当たり、${digit1}${digit2}${digit}${digit}のダメージ。\n$(loop $(rand 2) 敵は毒を受けた！\n)$(loop $(rand 2) 敵は眠った！\n)$(loop $(rand 2) 敵は沈黙した！\n)$(loop $(rand 2) 敵は麻痺した！\n)$(loop $(rand 2) 敵は石化した！\n)$(loop $(rand 2) 敵は$(? ４ ５ ６ ７ ８ ９)レベル分の経験値を吸い取られた！\n)$(loop $(rand 2) 敵は首をはねられた！\n) は$(? $(? ティルトウェイト ＺＡＰ ショックのパー ギガデイン 防犯の呪文 ばよえ～ん フレア メテオ アルテマ メギドラオン ルシネマ キケアーヌ)を唱えた！ アブリエルを唱えた！\w8\n${sakuraname}はグレーター$(? デーモン デビル)を${digit1}${digit2}体召喚、敵を袋叩きにした！)\w8\n敵全員に${digit1}${digit2}${digit}${digit}のダメージ。\n)\n\w8敵は$(? 消し炭になった 全滅した 塵になった 粉々になった 消滅した)。\n\x\c\0\s[0]$(inc mayura_kill $(rand 27))$(set a $(rand 1000) ; inc mayura_gold ${a})生き残ったメンバーは$(rand 10000)Ｅ．Ｐと${a}ＧＯＬＤを得た。
+
+fight_sub2 : １） ${digit} ${o.name},１） ${digit} ${o.name}\n２） ${digit} ${o.name},１） ${digit} ${o.name}\n２） ${digit} ${o.name}\n３） ${digit} ${o.name}
+
+
+:endcrypt

@@ -1,0 +1,866 @@
+#*****************************************************************************
+#sentence-mayura.dat
+#by Yumehotari http://mayura.jp/
+#Before using, modifying, or distributing this file, check with the author
+#*****************************************************************************
+
+:script
+
+#--------------------------------------------------------------------------
+#Random talk
+#001
+sentence : \0\s[0]There seems to be ${o.item} on the ${number} floor of $(? Harvel-Tower Black-tower Druaga-Tower)。\w5\1\s[10]I searched every corner。\e
+#002
+sentence : \0\s[8]When putting makanito on ${o.name}、will became dust。\w8\1\s[10]Whom with level 8 or below?\e
+#003
+sentence : \0\s[0]It seems that ${o.game.etc} will be resold at TAKERU this time。\w9\1\s[10]But where are the vending machines?\e
+#004
+sentence : \0\s[0]I saw it on ${o.mag}、ut it seems that ${o.game} will be ported to ${o.pc}。\n\n\w8\1\s[10]Reckless is good too。\e
+#005
+sentence : \0\s[2]＊＊＊　Are Some of the stones!　＊＊＊\w5\n\n\1\s[10]It's ${o.skill}。\w9\n\0\s[4]……camp was open and it wasn't Mallor?\e
+#006
+sentence : \0\s[0]Illusionists。\w5\n\n\1\s[10]It's a different order depending on the model。\w9\n\0\s[3]By the way、${o.pc} version?\w9\n\n\1\s[10]$(? red black blue yellow green purple white peach brown orange)・$(? red black blue yellow green purple white peach brown orange)・$(? red black blue yellow green purple white peach brown orange)・$(? red black blue yellow green purple white peach brown orange)・$(? red black blue yellow green purple white peach brown orange) looks。\w9\0\s[4]……$(? Did-you-get-lost-before-this? That's-awesome。 Really～？)\e
+#007
+sentence : \0\s[4]${o.name} was scared of forced scrolling and couldn't play the MSX version of 「Firebird」。 That's shiteoku～。\w8\1\s[10]The NES version had been good、guys…。\e
+#008
+sentence : \0\s[0]If you pause during the game with ${o.game.etc} and do ${o.skill}、you can use $(? ${o.item} ${o.skill})。\w5\1\s[10]I tried、but nothing happened。\e
+#009
+sentence : \0\s[4]Did you know that you can insert a ${o.game.etc} cartridge into slot 2 to put it on the back with ${o.game.etc}?\w5\1\s[10]Where do you get such a funny story……。\e
+#010
+sentence : \0\s[5]I have a collection of questions for the BakaChin Exam Center。\n\n\w8\1\s[10]Let's see。\n\w8\0\s[0]Sort the following companies、$(? founded left-the-Software-Ethics-Association went-out-of-business) in order。\n\n（１）${o.corp}\n（２）${o.corp}\n（３）${o.corp}\n（４）${o.corp}\n（５）${o.corp}\w8\1\s[10]$(? I-don't-know-at-all Do-you-understand)。\e
+#011
+sentence: \0\s[5]I got a collection of questions for the BacaChin test center.\n\n\w8\1\s[10]Let's see.\n\w8\0\s[0]Answer the following questions.\n(1) $(? Summarize the history or business content of ${o.corp} as detailed as possible within ${digit} characters. Create the background, family structure, or life of ${o.name} as $(? appropriately, emotionally, foolishly, lively) as possible.)\n(2) $(? Demonstrate the motion of ${a.skill} in the style of ${o.name}. Write ${digit}${digit} ways of describing the $(? effect, acquisition method, usage) of ${o.item} as detailed as possible.)\n(3) $(? Summarize the content of ${o.mag}${digit} month issue as detailed as possible within ${digit} characters. How many $(? people, monsters, times ${o.name} appeared) in total in ${a.game}?)\w8\1\s[10]$(? I-don-t-know-at-all Do-you-understand).\e
+#012
+sentence: \0\s[5]I got a collection of questions for the BacaChin test center.\n\n\w8\1\s[10]Let's see.\n\w8\0\s[0]Answer the following questions.\n(1) $(? Demonstrate the motion of ${o.skill} in the style of ${o.name}. How many $(? people, monsters, times ${o.name} appeared) in total in ${o.game}?)\n(2) $(? Summarize the content of "${o.mag}" ${digit} month issue as detailed as possible within ${digit} characters. Write ${digit}${digit} ways of describing the $(? effect, acquisition method, usage) of ${o.item} as detailed as possible.)\n(3) $(? Summarize the history or business content of ${o.corp} as detailed as possible within ${digit} characters. Create the background, family structure, or life of ${o.name} as $(? appropriately, emotionally, foolishly, lively) as possible.)\w8\1\s[10]$(? I-don-t-know-at-all Do-you-understand).\e
+
+#013
+sentence : \0\s[0]If you shout into the $2 microphone with the ${o.pc} version of ${o.game.etc}、you will see ${o.name}。 Did you know?\w5\1\s[10]$(? I'm-glad-but-nothing。 Is-it-useful?)\e
+#014
+sentence : \0\s[3]It seems that ${o.name} did ${o.skill} to ${o.name} before ${o.place}。\w5\1\s[10]What happened?\e
+#015
+sentence : \0\s[5]I have a collection of questions for the BakaChin Exam Center。\n\n\w8\1\s[10]Let's see。\n\w8\0\s[0]Write the person associated with the following phrase。\n\n（１）「$(? ${o.word} ${o.skill} ${o.item})」\n（２）「$(? ${o.word} ${o.skill} ${o.item})」\n（３）「$(? ${o.word} ${o.skill} ${o.item})」\n（４）「$(? ${o.word} ${o.skill} ${o.item})」\n（５）「$(? ${o.word} ${o.skill} ${o.item})」\w8\1\s[10]$(? It's-natural-to-understand-this-degree Well、it's-margin Maybe-difficult-for-today's-young)。\e
+#016
+sentence : \0\s[4]I've overdone ${o.game}、and broke $(? Space-key Return-key-FDD a-Cursor-key)。\w5\1\s[10]This、is my machine。\e
+#017
+sentence : \0\s[3]No matter what, my ${o.pc} FDD has stopped working.\w9\n\n\1\s[10]Maybe the belt got crazy. Parts are no longer available.\w5\n\0\s[2]Such~!\w9\n\n\1\s[10]Nor that there is no way.\w5\n\0\s[3]Really?\w9\n\n\1\s[10]From diagonal 45 degrees tapping bushings in ${o.item}.\w9\0\s[4]...that's definitely a lie.\eu-understand).\e
+
+#018
+sentence : \0\s[3]How do you defeat ${o.name}、the boss of ${o.game.ac}?\w9\1\s[10]$(? Entered-in-the-mouth While-hardening-the guard-at-the-screen-edge In-accordance-with-the X-axis-to-one-hundred-digit-of-the-score) ${o.skill} will do。\e
+#019
+sentence : \0\s[3]I don't know how to defeat the last boss 「${o.name}」 in 「${o.game}」。\w5\n\n\1\s[10]Written this month's issue in ${o.mag}。\w5\0\s[0]Thank you。I'm sure ${o.name} bought it、so I'll go to go。\e
+#020
+sentence : \0\s[3]Hey Unyuu、what's in ${o.mag} this issue?\w9\n\n\1\s[10]I haven't received it yet。\w9Don't subscribe so much。\w9\0\s[4]It's already lined up in bookstores……。\e
+#021
+sentence : \0\s[3]It's ${o.game.etc} that I've been into recently、but it doesn't go any further from the ${o.skill} ${o.name} scene at ${o.place}。\w9\n\n\1\s[10]Well in ${o.mag} it was written in the latest issue。\w9\n\0\s[4]If you look at the strategy、it's something awkward。\w5\1\s[10]Well。\e
+#022
+sentence : \0\s[8]Apparently ${o.name} was a regular of ${o.cor}。\w5\1\s[10]$(? That's-a-story。 Used-to-post-well-in-the-past。 The-story-of-the-guy-is-boring。)\e
+#023
+sentence : \0\s[0]This time、${o.name} will enter as an executive producer for ${o.corp}。\w5\1\s[10]$(? What-is-doing-specifically? At-first-glance-it-sounds-amazing。)\e
+#024
+sentence : \0\s[0]Was the true culprit of portopia ${o.name}?\w9\1\s[10]$(? close regrettable)。\e
+#025
+sentence : \0\s[0]Only cats、 at ${o.corp}。\w5\1\s[10]I'm a kitten。\e
+#026
+sentence : \0\s[5]Actually、I've been to a ${o.game} competition hosted by ${o.corp}。 That was amazing。\n\n\w5\1\s[10]So、and how far?\w9\n\0\s[4]……$(? Lost-first-match 2nd-round Semi-finals)。\w9\1\s[10]……it's blue。\e
+#027
+sentence : \0\s[3]What happened to ${o.game}、which was supposed to be coming out for ${o.pc}?\w5\n\n\1\s[10]ポシャった。\w9\n\0\s[4]……does come out anymore?\n\n\w9\1\s[10]Will not appear。\w8\0Mmm～。\e
+#028
+sentence : \0\s[0]It's correct to buy ${o.pc} to play ${o.game}。\w9\1\s[10]$(? Really? Exactly。)\e
+#029
+sentence : \0\s[8]It seems that ${o.name} was a regular of ${o.cor}。\w5\1\s[10]$(? Everyone-has-a-past。 The-story-of-the-guy-is-natural-and-boring。 Youth。)\e
+#030
+sentence : \0\s[0]It looks like my friend won the reader's arena。\w5\n\n\1\s[10]I've been in the mood for a while、what have been the prizes?\w9\n\0${o.item}。\w9\1\s[10]……seriously?\e
+#031
+sentence : \0\s[5]I applied for a ${o.mag} reader gift and won ${o.item}!\w9\1\s[10]$(? Are-you-happy-or-sad……? More-like-this、food-or-something? Don't-get-garbage-again。)\e
+#032
+sentence : \0\s[0]Yesterday、when I went to ${o.shop} after a long time、a used ${o.pc} was sold for ${number}00 yen。 I seemed to buy it unintentionally。\w5\n\n\1\s[10]Keep it。 Did you forget the get rule for junk when you see it?\w8\0\s[4]Mmm`、I failed……。\e
+#033
+sentence : \0\s[4]When I applied for a reader gift of ${o.mag}、I won ${o.item}。 I really wanted ${o.item}。\w9\1\s[10]Feel grateful just to win。\e
+#034
+sentence : \0\s[4]I applied for a reader gift of ${o.mag}、but it was useless。 I wanted ${o.item}。\w9\1\s[10]$(? It-seems-that-the-competition-rate-is-high。 It-is-easy-to--find-the-staff-in-the-impressum-column-if-you-go-there。)\e
+#035
+sentence : \0\s[5]Now、if you buy ${o.game} version of ${o.pc}、you will get an application ticket for ${o.item}。 Everyone、get it!\w9\n\n\1\s[10]No need。\e
+#036
+sentence : \0\s[0]Now、if you buy ${o.game} version of ${o.pc}、you will get an application ticket for ${o.item}。 Everyone、get it!\w9\n\n\1\s[10]I don't know anything about that business。Anyway watching other one the same for。\w9\0\s[4]It's not TV shopping。\e
+#037
+sentence : \0\s[5]Finally、I canceled it for ${o.game.ac}。\w5\n\n\1\s[10]$(? Well-done I-am-finally-alone)。\w5\n\0Now I'm the Queen of Chalehai。\w9\1\s[10]$(? Next-is${o.game.ac} The-destination-is-long Next-is-the-tour-of-Geisen Preparation)。\e
+#038
+sentence : \0\s[4]When putting jilwan on ${o.name}、will be shattered。\w5\1\s[10]After all、has been undead?\e
+#039
+sentence : \0\s[5]Recently、${o.game.ac} has been added to a nearby game center。 20 yen per play。\w5\1\s[10]$(? Everything-is-impeccable Did-you-play-forever-after-a-long-time That-would-cost-10-yen)。\e
+#040	out?
+sentence : \0\s[0]Ｐ６ which was in the shop in the past、one talked with strange words using ＴＡＬＫ sentences。\w5\n\n\1\s[10]It was an endless loop and I was often offended by the clerks。\w5\n\0What talk made to you?\w9\n\n\1\s[10]Like 「${o.word}！」。\w9\0\s[8]…\w9…\e
+#041
+sentence : \0\s[4]As is expected、${o.game} is frustrating with using $(? Joyball Power-gloves Ray-gun TOWNS-pad)。\w9\1\s[10]I mean、don't use。\e
+#042
+sentence : \0\s[5]When you buy a ${o.pc} version of ${o.game} at ${o.shop}、${o.item} comes with your first bonus。\w9\1\s[10]$(? What-are-you-doing? Got-cheaper-from-Nannamon。)\e
+#043
+sentence : \0\s[4]If you switch to ${o.name} at $(? Heaven Hell Temple) in Relics、you'll never be able to reach the ending。\w9\1\s[10]That is weak again。\e
+#044
+sentence : \0\s[0]Speaking of which、it was ${o.name}'s $(? Year-end-gift Summer-gift)、${o.item}。 What should we do in return?\w9\n\n\1\s[10]${o.item} is fine。\w9\0That's right。\e
+#045
+sentence : \0\s[0]When is ${o.name}'s birthday?\w9\n\n\1\s[10]That reminds me I think it is coming soon。\w9\n\0\s[3]What for present?\w9\n\n\1\s[10]${o.item} would be OK。\w9\0\s[5]Yeah。 Seems would like it。\e
+#046
+sentence : \0\s[5]Now、I'm making a game with $(? Japanese-BASIC dB-compiler Assembler Hyper-card)。\w5\n\n\1\s[10]What do you make?\w5\n\0${o.game}。\w9\1\s[10]……it is impossible。\e
+#047
+sentence : \0\s[3]Last time、a clerk got angry at the $(? Afterburner Enduro-Racer Outrun Space-Harrier Galaxy-Force) chassis。\w9\1\s[10]At least $(? rebagacha nap) - keep it alone。\e
+#048
+sentence : \0\s[3]Hey Unyuu、all about ${o.game} on ${o.pc}、don't you know?\w5\n\n\1\s[10]Ohー、then ${o.name} was borrowed。\e
+#049
+sentence : \0\s[3]The sonosheet which was attached to ${o.mag} has gone lost。 What should I do。\w5\n\n\1\s[10]What did you do、that had a precious ${o.pc} version of the  ${o.game} soundtrack。\e
+#050
+sentence : \0\s[4]My head is itchy!\w5\n\n\1\s[10]$(? Take-a-bath. Molting? Customer、here?)\w9\0……no、not really。\e
+#051
+sentence : \0\s[5]This time、TINY${o.game} will be released on PC-6001。\w9\n\n\1\s[10]But why?\w5\n\0Also、if the character is square、the imagination works and it's moe。\w9\1\s[10]…\w9…\e
+#052
+sentence : \0\s[5]I asked a clerk to show me the contents of the ${o.game.ac} enclosure。\n\n\w9\1\s[10]How was it?\n\w8\0\s[4]……${o.pc} was included。\w8\1\s[10]$(? That's-what-I-thought I-thought-the-screen-was-cheap)。\e
+#053
+sentence : \0\s[0]This month's issue of ${o.mag} features ${o.pc} software yearbook and new ${o.game} big captures、the special appendix is ${o.item}。\nThe price is ${digit}${digit0}${digit0} yen。\w5\1\s[10]${o.skill} - if you don't buy it。\e
+#054
+sentence : \0\s[0]This month's issue of ${o.mag} is a special featured talk between two creators、「${o.name} VS ${o.name}」、thorough introduction of new ${o.game} & ${o.game} and lots of other contents、and there is also a full play of ${o.item}。\nThe price is ${digit}${digit0}${digit0} yen。\w5\1\s[10]${o.skill} - if you don't buy it。\e
+#055
+sentence : \0\s[0]This month's issue of ${o.mag} is a special feature、a thrilling ＲＰＧ theater 「Legend of ${o.name}」! ${o.pc} VS ${o.pc} and many other special appendixes are ＤＯＳ handbooks for ${o.pc}。\nThe price is a special price ${digit}${digit0}${digit0} yen。\w5\1\s[10]${o.skill} - if you don't buy it。\e
+#056
+sentence : \0\s[0]This month's issue of ${o.mag} is a special feature、${o.name} tells the story behind the game 「${o.word}」、what is ${o.pc} high-tech kindergarten? The special appendix is a ${o.game} sonosheet with live ＢＧＭ by the ${o.name} band。\nThe price is a special price ${digit}${digit0}${digit0} yen。\w5\1\s[10]${o.skill} - if you don't buy it。\e
+#057
+sentence : \0\s[0]This month's issue of ${o.mag}、special feature is Japanese Islands ${o.pc} Brainwashing Project、${o.pc} VS ${o.pc} other contents、the appendix is the usual Super Soft Magazine。\nThe price is a special price ${digit}${digit0}${digit0} yen。\w5\1\s[10]${o.skill} - if you don't buy it。\e
+#058
+sentence : \0\s[0]In this month's issue of ${o.mag}、a special feature、ＢＡＳＩＣ (${o.pc} edition) to be started from now on、all-out coverage、${o.pc} current software list at once! Will be send as a preliminary report of ${o.pc} successor model 「${o.pc}」 ｅｔｃ。\nThe price is ${digit}${digit0}${digit0} yen。\w5\1\s[10]${o.skill} - if you don't buy it。\e
+#059
+sentence : \0\s[0]When was Gesen told me to hang around ${o.name}?\w9\1\s[10]A long time ago。\e
+#060
+sentence : \0\s[0]There seems to be a game that was featured in the National Assembly a long time ago。\w5\n\n\1\s[10]${o.game.etc}? That was ridiculous。\w9\n\0\s[3]Was that it?\e
+#061
+sentence : \0\s[7]I tried using the format software listed in ${o.mag}、but the floppy failed!\w8\n\n\1\s[10]How soft is that?\w8\n\0\s[4]……${o.name} format。\w8\1\s[10]It's not good for its name。\e
+#062
+sentence : \0\s[5]「Song dedicated to $(? Last-${o.name} ${o.name}-with-the-ashes-next-to-each-other)」、was interesting～。\w9\n\n\1\s[10]Isn't the title different?\e
+#063
+sentence : \0\s[3]Recently、I've been studying at ${o.name} machine language terakoya、I did not know at all。\w9\n\n\1\s[10]There was such a corner?\e
+#064
+sentence : \0\s[3]Recently、I've been studying at the ${o.name} game programming dojo、I did not know at all。\w9\n\n\1\s[10]There was such a corner?\e
+#065
+sentence : \0\s[5]「Love ${o.name}-murder crosses space and time」、it was good to be shibu～。\w9\1\s[10]There was such a corner?\e
+#066
+sentence : \0\s[4]${o.name} went to ${o.shop} to buy ${o.game.etc} and forgot the item after paying。 It's Shiteoku～。\w9\1\s[10]It's shiteoku。\e
+#067
+sentence : \0\s[4]${o.name} says that even if there are many people around、it's still you being asked the way。 That's shiteoku～。\w9\1\s[10]It's shiteoku。\e
+#068
+sentence : \0\s[4]${o.name} means you can put your feet on your own。 That's shiteoku～。\w9\1\s[10]It's shiteoku。\e
+#069
+sentence : \0\s[4]${o.name} seems to have bought too much juice at the vending machine and couldn't take it out。 It's a degree 10 shiteoku～。\w9\1\s[10]１０ it is。\e
+#070
+sentence : \0\s[4]It's like ${o.name}、you seemed to have sprained your wrist with the loop lever while playing $(? Rage TANK lost-world)。 It's a degree 10 shiteoku～。\w9\1\s[10]１０ it is。\e
+#071
+sentence : \0\s[3]Heard? It seems that ${o.name} was shaken off the housing of $(? Galaxy-Force Supehari Afterburner) and carried to the hospital。\w9\1\s[10]So be careful with that belt。\e
+#072
+sentence : \0\s[4]Yesterday、when I went to ${o.game.ac}、one of the buttons was dented。 That's Shiteoku～。\w9\1\s[10]∞it is。\e
+#073
+sentence : \0\s[0]This month's ${o.shop} inventory price list。\n\n${o.pc} ￥${number}$(? ８ ０ ５)００　$(? with-scratches no-accessories  yellowish  cracked)\n${o.pc} ￥${number}$(? ８ ０ ５)００　$(? with-scratches no-accessories  yellowish  割れあり)\n${o.pc} ￥${number}$(? ８ ０ ５)００　$(? with-scratches no-accessories  yellowish  cracked)\n${o.pc} ￥${number}$(? ８ ０ ５)００　$(? with-scratches no-accessories  yellowish  cracked)\n${o.pc} ￥${number}$(? ８ ０ ５)００　$(? with-scratches no-accessories  yellowish  cracked)\n${o.pc} ￥${number}$(? ８ ０ ５)００　$(? with-scratches no-accessories  yellowish  cracked)\n${o.pc} ￥${number}$(? ８ ０ ５)００　$(? with-scratches no-accessories  yellowish  cracked)\w8\1\s[10]$(? It's-a-big-deal If-you-look-at-this-and-call-it、it's-usually-sold It-is-a-pretty-assortment)。\e
+#074
+sentence : \0\s[4]I went to ${o.game.ac} after a long time、and the ball of the lever was stolen。 That's Shiteoku～。\w9\1\s[10]Why do you bring that thing?\e
+#075
+sentence : \0\s[5]I have a collection of questions for the BakaChin Exam Center。\n\n\w8\1\s[10]Let's see。\n\w8\0\s[0]Write the person associated with the following phrase。\n\n（１）「$(? ${o.word} ${o.skill} ${o.item})」\n（２）「$(? ${o.word} ${o.skill} ${o.item})」\n（３）「$(? ${o.word} ${o.skill} ${o.item})」\n（４）「$(? ${o.word} ${o.skill} ${o.item})」\n（５）「$(? ${o.word} ${o.skill} ${o.item})」\w8\1\s[10]$(? It's-natural-to-understand-this-degree Well、it's-margin Maybe-difficult-for-today's-young)。\e
+#076
+sentence : \0\s[5]I have a collection of questions for the BakaChin Exam Center。\n\n\w8\1\s[10]Let's see。\n\w8\0\s[0]Translate the following words into $(? english Xevi Ancient Babylonian)。\n\n（１）「$(? ${o.word} ${o.skill})」\n（２）「$(? ${o.word} ${o.skill})」\n（３）「$(? ${o.word} ${o.skill})」\n（４）「$(? ${o.word} ${o.skill})」\n（５）「$(? ${o.word} ${o.skill})」\w8\1\s[10]You can afford it。\e
+#077
+sentence : \0\s[0]${o.name} seems to live on the rooftop of the radio building。 I was surprised。\w9\1\s[10]Isn't it Kage?\e
+#078
+sentence : \0\s[0]${o.name} seems to be a model for the 24 episodes of 「Game binding!」。\w9\1\s[10]I felt like that somehow。\e
+#079
+sentence : \0\s[0]Which issue features the ${o.game.ac} feature in 「Hurry! Video Games」?\w9\n\n\1\s[10]Ahー、Long before that、${o.name} broke it and took it。\e
+#080
+sentence : \0\s[5]I got a collection of questions for the Bakachin test center。\n\n\w8\1\s[10]Let's see。\n\w8\0\s[0]Problem。\n${o.name} and ${o.name} fight for a trivial reason and ${0} takes a kitchen knife out of the kitchen、but is stopped by ${o.name}。\nNow、answer who has won using mathematical induction。\w8\1\s[10]$(?  Don't-know-at-all。 Do-you-understand?)\e
+#081
+sentence : \0\s[5]I got a collection of questions for the Bakachin test center。\n\n\w8\1\s[10]Let's see。\n\w8\0\s[0]Problem。\n${o.name} is currently running $(? agriculture  poultry-industry cleaning-industry detective-agency bounty-hunting) at ${o.place}、but answer how much you paid last year's $(? income-tax municipal-tax consumption-tax)。\w8\1\s[10]Do you know。\e
+#082
+sentence : \0\s[4]The theme was 「Combination of ${o.name} and ${o.name}」 at CC corner of this month、so I tried to send illustrations、but after all it seemed to be lost。\w9\1\s[10]It's too hard from the start。\e
+#083
+sentence : \0\s[0]Miko and Akemi's jungle adventure is a pleasure to make an 「${o.name} and ${o.name}'s $(? pounding exciting slimy useless bitchy surprising) adventure」。 Don't you think it would be interesting to make it?\w9\1\s[10]……I don't think so。\e
+#084
+sentence : \0\s[5]Hey、did it。 Finally did it。\w9\n\n\1\s[10]What?\w5\n\0The ${o.pc} version of ${o.game} has been ported to ${o.pc}! That's amazing。\w9\n\n\1\s[10]……it's amazing in many ways。\w5\n\0Thanks to the Transplant Technique Master Strategy。\w9\1\s[10]……I don't think it really matters。\e
+#085
+sentence : \0\s[3]I heard a strange rumor。\n\n\w8\1\s[10]What。\n\w8\0The army with ${o.name} always loses。\w8\nAnd it seems that only ${0} will survive。\w8\1\s[10]No way……Shinigami?\e
+#086
+sentence : \0\s[3]I was playing free ${o.game.ac} at the game center before ${o.place}、but ${o.name} occupied and couldn't play at all……。\w9\1\s[10]It's also an upwind gamer。 I'll teach the rules with a fist。\e
+#087
+sentence : \0\s[0]Once you put the phone number of ${o.name} at Tir na Nog、could interesting scenario。\w8\n\n\1\s[10]What is it?\w8\n\0As soon as the king of ${o.name} of the ${o.name} king shouts, 「${o.word}!」 I'm rampant。\w8\nSo the princess ${o.name} asks the hero fairy ${o.name} for help……\w8\1\s[10]Isn't it a bug?\e
+#088
+sentence : \0\s[5]I found a permanent pattern at ${o.game.ac}。 Rakusho～。\n\n\w8\1\s[10]It is an evil way、such as Yongpa。 Go around properly。\w8\0\s[3]Mmm～。\e
+#089
+sentence : \0\s[3]Heard? \w8Yesterday、at the intersection in front of the ${o.corp} building、${o.veh} on ${o.name} and ${o.veh} on ${o.name} collided head-on。\n\n\w8\1\s[10]Are you serious。 And what happened?\n\w8\0People $(? were-transported-to-the-Kant-temple-because-of-seriousness lost)。\w8\1\s[10]That's twisting。\e
+#090
+sentence : \0\s[0]It seems that ${o.item} from ${o.name} is pretty good at Yahoo auction。\n\n\w8\1\s[10]How much is it?\n\w8\0\s[0]Um……surely ${number}００ yen~。\w8\1\s[10]$(? Was-good-to-take-it out Absolutely-deceived)。\e
+#091
+sentence : \0\s[8]Apparently、${o.name} bought ${o.veh}。 Riding around and picking up at ${o.place}。\w8\1\s[10]$(? There-are-too-many-things-that-do-not-suit-me Don't-use-it-for-pick-up……)。\e
+#092
+sentence : \0\s[8]I went to ${o.name}'s home yesterday、I was groaning in the bed。\n\n\w8\1\s[10]What happened?\n\w8\0Apparently it was ${o.food} that I bought at supermarket ${o.name}。\w8\1\s[10]So stop that shopping……。\e
+#093
+sentence : \0\s[4]${o.name} is a shiteoku who blamed the character for failing to release traps without noticing a spelling mistake～。\w8\1\s[10]It's shiteoku。\e
+#094
+sentence : \0\s[5]I changed ${o.pc}'s CPU to ${o.cpu}。\n\n\w8\1\s[10]Unreasonably。\w8……so、what happened?\n\w8\0$(? \s[8]In the future \s[4]smoke blew \s[8]it worked for the time being、$(? The-mouse-doesn't-move the-sound-doesn't-follow the-I/O-has-disappeared)。 It was so fast、maybe a little faster。\w8\1\s[10]……good grief。\e
+#095
+sentence : \0\s[5]I connected ${o.item} to ${o.pc}。 Of course the interface was my own。\n\n\w8\1\s[10]……what did you do?\n\w8\0$(? Very-convenient。Why-don't-everyone-do-it? Another、super-comfortable。${0}cannot-be-used-without-${1}～。)\n\n\w8\1\s[10]……you shouldn't pry any further。$(loop $(rand 2) "\n\w8\0I wonder if I'll post it to the backpack。\w8\1\s[10]……。")\e
+#096
+sentence : \0\s[5]I tried doing those that were on the backpack。\n\n\w8\1\s[10]Connect ${o.item} to ${o.pc}。\n\w8\0$(? Very-convenient。 Indeed-it's-back-active～。 Another、super comfortable。 ${0}-cannot-be-used-without-${1}～。)\n\n\w8\1\s[10]……$(? After-all、what-effect-does-it-have? I-do-not-understand-the-principle-even-if-I-read-it-many-times。)\e
+#097
+sentence : \0\s[0]How do I get、${digit}${digit} floor treasure box at Druaga Tower?\n\n\w8\1\s[10]あー、確か$(? ${o.name}を${digit}匹倒す 下の階で${o.item}を$(? 取らずに 取ってから)$(? 扉 壁を壊した跡 フロアの$(? 四隅 右下と左上 右上と左下))を通る マトックで壁を${number}枚壊す 剣を$(? 抜いた しまった)状態でスペルを${digit}回盾で受ける ${number}回やられる ${number}回コンティニューする ${digit}回ＺＡＰされてからもう一度来る フロアの中央で${digit}回まわってワンと言う フロア中の$(? ${o.name}を全滅させる ${o.name}に${o.skill}をかます) ２コンのマイクに「${o.word}！」と叫ぶ ${number}番目に出てきたウィルオーウィスプに触る タイムオーバーで${digit}回やられる ${o.name}を後ろから刺す ${o.name}→${o.name}→${o.name}→${o.name}の順に倒す)と出るはずだ。\w8\0\s[4]You definitely tell Tekitou。\e
+#098
+sentence : \1Recently you could see a ${o.corp} real figure collection in Gashapon。\n\w8\0\s[0]It came out。\n\n\w8\1I tried it、but no matter how many times I only got ${o.name}。\n\w8\0\s[8]By the way、I thought there was only ${1} on the desk。\n\w8\1Let's do half。\w8\0……I do not need。\e
+#099
+sentence : \0\s[0]Who is stronger if you fight ${o.name} or ${o.name}?\n\n\w8\1${0}Look。 There is a special move ${o.skill}。\n\w8\0\s[0]But ${1}'s ${o.skill} can't be missed。\w8\1It looks interesting、so why not try it next time?\e
+#100
+sentence : \0\s[0]$(? SectionＺ KabukiＺ FormationＺ) - what is Ｚ?\n\n\w8\1「$(? ${o.word} ${o.skill})」 it's Ｚ。\w8\0\s[4]……did you enter Ｚ?\e
+#101
+sentence : \0\s[0]$(? Mr.Ｘ MaskerＸ StrategyＸ ＸＸmission) - what is Ｘ?\n\n\w8\1「$(? ${o.word} ${o.skill})」 it's Ｘ。\w8\0\s[4]……did you enter Ｘ?\e
+#102
+sentence : \0\s[0]$(? Ｒ－ＴＹＰＥ Crispy-RobberyＲ) - what is Ｒ?\n\n\w8\1「$(? ${o.word} ${o.skill})」 it's Ｒ。\w8\0\s[4]……did you enter Ｒ?\e
+#103
+sentence : \0\s[3]${o.name} is telling me to exchange $(? Kin-eraser Gyro Zillion Gundam seal ${o.item}) for my NES cassette……。\w8\1Rejected。\e
+#104
+sentence : \0\s[4]${o.name} was scared of scrolling and couldn't play Super Mario until recently。 It's shiteoku。\w8\1The first Mario was a good guy。\e
+#105
+sentence : \0\s[0]It looks like ${o.name} bought ${o.veh}。\n\n\w8\1$(? Has-been-inspired Hmm Looks-good)。\n\w8\0\s[8]But seems to be trouble to enter the garage。\w8\1It's Shiteoku。\e
+#106
+sentence : \0\s[0]I'm thinking of getting a license soon。\n\w8\1Car? Or a motorcycle?\n\w8\0\s[0]No、${o.veh}。\w8\1…\w8…\w8${0}？\e
+#107	out?
+sentence : \1\s[10]Mayura、what's $(? ゴソゴソ ガチャガチャ)?\n\w8\0\s[5]${o.cpu} overclocking。 After cooling with $(? Madalto Ice-laser Cold-wire-gun)、I pulled to $(? ２ ３ ４ ５ ６ ７ ８ ９)${digit}${digit}ＭＨｚ。\w8\1You are……。\e
+#108	out?
+sentence : \1\s[10]Mayura、what's $(? ゴソゴソ ガチャガチャ)?\n\w8\0\s[0]Want to incorporate ${o.item} in ${o.pc}。\n\n\w8\1……so what is it?\n\w8\0\s[5]Already perfect。 It fits nicely。\n\w8\1……I'm sorry that I can't show it to everyone。\e
+#109	out?
+sentence : \1\s[10]Mayura、what's $(? ゴソゴソ ガチャガチャ)?\n\w8\0\s[3]The $(? Ｃbus ＶＬ ＩＳＡ ＭＣＡ) card you just bought、does not be well recognized。\n\n\w8\1What is it?\n\w8\0${o.skill} card。\n\w8\1…\w8…\w8${1} card?\e
+#110
+sentence : \0\s[5]I got a ${o.pc} second hand at ${o.shop}。\n\n\w8\1Again。\n\w8\0Because it was cheap。\w8The condition is also good。\n\n\w8\1And what is it?\n\w8\0\s[0]Well\w8…\w8…\w8${1} just $(? ３ ４ ５ ６ ７ ８ ９) unit。\w8\1That's OK。\e
+#111
+sentence : \0\s[3]It may be because of my mind……。\n\n\w8\1What。\n\w8\0When ${o.name} fell and was injured、you could see metal under the skin。\w8\1No way、is also a snatcher?!\e
+#112
+sentence : \0\s[5]Against Tera drive、I tried to make a Mayura Drive。\n\n\w8\1What's that?\n\w8\0${o.pc} and ${o.pc} were united and housed in one case。\w8\1……$(? isn't-it-better-to-use-them-separately-from-the-beginning? Even-if-you-don't-bother。)\e
+#113
+sentence : \0\s[3]How do I go online with ${o.pc}?\n\n\w8\1Hmm、first connect a modem。\n\w8\0\s[0]So what?\n\n\w8\1$(? 「run”internet”」-it-is。 Press-the-I-and-N-keys-simultaneously-during-startup。  Insert-a-Pana-Internet-cartridge-into-slot-2。 Load-the-browser-from-the-cassette-for-one-hour。)\w8\0…\w8…\w8\s[4]What?\e
+#114
+sentence : \0\s[0]As I thought before、${o.name} is absolutely a snatcher。\w8\1No doubt。\e
+#115
+sentence : \0\s[5]Hey Unyuu、come on。\n\n\w8\1What?\n\w8\0$(? Road-Runner Flappy Excitebike Mach-Rider Sokoban) I made ${digit}${digit}${digit}${digit} levels、try it。\n\n\w8\1\s[11]You can solve it!!\n\w8\0\s[4]……though it is self-confidence work。\e
+#116
+sentence : \0\s[4]${o.name} has moved to the $(loop $(rand 2) １) ${digit}${digit} floor of the NICHIBUTSU building。\n\n\w8\1That's difficult。\n\w8\0Right? That building has no elevator or stairs、so you have to climb by hand。\n\n\w8\1Moreover、there is interference。\n\w8\0Thanks to、It seems they haven't returned home yet。\n\w8\1Awesome……。\e
+#117
+sentence : \0\s[4]Yesterday、I found a Pac-Man Pachimon at a candy store behind ${o.shop}。\n\n\w8\1\s[10]Again。 What is it?\n\w8\0……$(? Pac-Man-got-the-face-of-${o.name} All-monsters-are-Akabee All-baits-are-power-feed)。\w8\1……too bad。\e
+#118
+sentence : \0\s[4]Yesterday、I found Xevious Pachimon at a candy store behind ${o.shop}。\n\n\w8\1\s[10]Again。 What is it?\n\w8\0$(? 森の中に「ｄｂ－ＳＯＦＴ」-is-written-in-the-woods Globber-stretches-barriers-and-shoots-bullets Crushed-by-zionites Garza-kart-passed-by-without-bursting) however。\w8\1……too bad。\e
+#119
+sentence : \0\s[5]At last I came by hand 16 shots。\n\n\w8\1\s[10]Huh、not yet。 I'm firing 2x ${digit} with my thumb。\n\w8\0\s[7]Mmm～！ Then I fire 3x ${digit} with my little finger。\w8\1Try it if you can do it。\e
+#120
+sentence : \0\s[0]What is the Ｒ－ＴＹＰＥ laser、anti-air and ground、and what?\n\n\w8\1\s[10]Vs ${o.name} laserー。\w8\w8\0\s[4]……eh?\e
+#121
+sentence : \1\s[10]What is that luggage?\n\w8\0\s[8]I was doing stock disposal sale at Voltac and just bought too much。\n\n\w8\1Is that Bottakuri a bargain sale?\n\w8\0\s[5]Because、${o.item}が$(? ３ ４ ５ ６ ７ ８ ９)個まとめて${digit}${digit}０ＧＰでしょ、それに${o.food}なんか一山${digit}${digit}０ＧＰだよ。 Don't you think it's cheap?\w8\1……is it cheap?\e
+#122
+sentence : \0\s[4]Yesterday、I met ＭＲＯＮ。\n\n\w8\1\s[10]That's it……\w8What had to say?\n\w8\0「${o.mron}」 but。\n\n\w8\1I still don't know what it means。\e
+#123
+sentence : \0\s[3]I was walking in the labyrinth yesterday and was chased by the ghost of ${o.name}。\n\n\w8\1\s[10]You have still been。\n\w8\0I blew it off with jillwan because it was noisy。\w8\1Please make me a Buddha。\e
+#124
+sentence : \0\s[0]Well、how to make $(? NOILA-TEM GOD-THUNDER SUN-RAY LIGHT-CROSS)……\n\n\w8\1「$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )」 I guess。\n\w8\0\s[3]Well、no。「$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat)」 will do。\n\w8\1No、 it's 「$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )$(? Mon Tue Wed Thu Fri Sat )」。\n\w8\0…\w8…\w8\s[4]Are you not saying properly?\w8\1You too。\e
+#125
+sentence : \0\s[4]It looks like ${o.name} has turned into ash with flaming the hat wearing。\n\n\w8\1It's a story。\n\w8\0At first glance、it looks like an ordinary item。\w8\1It's like sun oil。\e
+#126
+sentence : \0\s[0]What are you doing?\n\n\w8\1\s[10]Organize disks。 Because the number has been increased unnecessarily recently。\n\w8\0\s[0]Huh～。\w8…\w8…\w8\s[2]WhatーOh!!\n\n\w8\1What is it?\n\w8\0\s[4]Even though it contained ${o.game.etc} save data～。\n\n\w8\1But the label says 「${o.name} dedicated disk」。\n\w8\0That's why is used by erasing from ${1}。\w8\1You are……。\e
+#127
+sentence : \0\s[0]What are you doing?\n\n\w8\1\s[10]Organize disks。 Recently、the number has been increased unnecessarily。\n\w8\0\s[0]Hmmmm。\w8…\w8…\w8\s[2]What?!!\n\n\w8\1What。\n\w8\0\s[4]My ${o.name} disk has been erased～。\w8\1${0} disk?\e
+#128
+sentence : \0\s[0]Now、${o.shop} and ${o.shop} will open at ${o.place}。\n\n\w8\1Recently that area wasn't hot。\n\w8\0The highlight of the opening sale is that ${1} is ${o.item} and ${2} is ${o.item}。\w8\1Hmm、which one should I line up with?\e
+#129
+sentence : \0\s[0]It's rumored that ${o.name} is transformed into a silver scale。\n\n\w8\1\s[10]What will happen if you solve the transformation?\n\w8\0\s[3]Everyone says ${o.name}。\w8\1The next time you meet、call by that name。\e
+#130
+sentence : \0\s[3]Recently、bad breath of ${o.name} was so bad that I couldn't talk properly。\n\n\w8\1\s[10]Apparently got Poison Breath。\w8\0\s[4]Just not brushing the teeth……？\e
+#131
+sentence : \0\s[3]How many volumes have you been talking about a carefree dad's 1$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0) story?\n\n\w8\1Sure、$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0) I think it was this volume。\n\w8\0Then、1$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0)$(? 1 2 3 4 5 6 7 8 9 0) the story?\w8\1……find on your own。\e
+#132
+sentence : \0\s[0]Have you seen Ares's real face?\n\n\w8\1\s[10]There is。\n\w8\0How was it?\n\n\w8\1Well、it's more like ${o.name}。\n\w8\0\s[4]……really?\e
+#133
+sentence : \0\s[5]This is Emit's new work。\n\n\w8\1\s[10]This time、the members seem to be super luxurious。\n\w8\0Oh yeah。 The original is ${o.name} and the music is ${o.name}。 The character design is ${o.name}。\n\n\w8\1Luxurious……or such of?\e
+#134
+sentence : \0\s[5]Do you know that Sonic Blastman had a hidden stage?\n\n\w8\1\s[10]Dunno。\n\w8\0The name is\n「Beat 3 shots and defeat ${o.name}!」\w8\1I definitely want to do it。\e
+#135
+sentence : \0\s[0]Did anyone play Diva on all models?\n\n\w8\1\s[10]Well、I guess it's about us。\n\w8\0\s[8]The ${o.pc} version was hard to get and struggled。\w8\1There was such for?\e
+#136
+sentence : \0\s[0]It seems Michael Jackson has put ${o.game.ac} into his home game。\n\n\w8\1\s[10I can't lose。 Immediately bought ${o.game.ac}。\w8\0\s[4]I don't think there's no use for competing……。\e
+#137
+sentence : \0\s[5]Problem。\n\w8What's Purple flame dragon's 「Oyaji System」?\n\n\w8Ａ．Difficulty decreases as Oyaji plays\n\w8Ｂ． Play with Oyaji to get along\n\w8Ｃ． Oyaji is in the housing\n\n\w8\1\s[10]Hmm……\w8$(? Ｂ Ｃ)。\w8\0\s[6]ブー。\e
+#138
+sentence : \0\s[0]The vending machine behind ${o.shop} has a holy ${o.name} ass。\n\w8\1\s[10]I will buy it now。\e
+#139
+sentence : \0\s[2]Ah! \w8Creeping $(? ${o.name} ${o.item})!\w8\1\s[10]……what is that?\e
+#140
+sentence : \0\s[5]I made a ${o.name} bench against the Mori bench。\n\n\w8\1\s[10]What is that?\n\w8\0${0}'s neck flies around the screen as it turns around。\w8While shouting 「${o.word}！」 in the ＢＥＥＰ sound。\w8\1……no need。\e
+#141
+sentence : \0\s[4]「I tried to get to serve the letters but forgot to add a stamp.」\n\n\w8\1\s[10]It's shiteoku。\e
+#142
+sentence : \0\s[4]I learned recently that ${o.name} is terrible snoring。\n\n\w8\1\s[10]If you record and load that thing、is it something like a program?\w8\0Maybe。\e
+#143
+sentence : \0\s[5]I raised the money、so raised to ${digit}${digit0}。\w8\1\s[10]……that was good。\e
+#144
+sentence : \0\s[5]My game creator tiger hole。\w8\nToday's theme is the union of 「${o.game}」 and 「${o.game}」。\n\n\w8Let's imagine what kind of game you can play!\w8\1Imagination and anything……。\e
+#145
+sentence : \0\s[5]My game creator tiger hole。\w8\nToday's theme is to create a $(? Love-simulation Race-game Shooting Block-breaking RPG Fighting-game Mahjong-game Strategy-simulation Flight-simulator) with ${o.name} and ${o.name} as the main characters、set in ${o.place}。\n\n\w8Let's imagine what kind of game you can play!\w8\1I imagined it……。\e
+#146
+sentence : \0\s[5]My game creator tiger hole。\w8\nToday's theme is 「If ${o.corp} ported ${o.game} to ${o.pc}」。Let's imagine what it will be like!\w8\1I imagined it……。\e
+#147
+sentence : \0\s[5]I have a collection of questions for the Bakachin Exam Center。\n\n\w8\1\s[10]Let's see。\n\w8\0\s[0]Problem。\nWrite the next character's $(? Game-name Portrait Habit/Favorite-phrase Right-thumb-thumbprint Special-Moves)。\n\n\w8１．${o.name}\n２．${o.name}\n３．${o.name}\n４．${o.name}\n５．${o.name}\w8\1\s[10]That's easy。\e
+#148
+sentence : \0\s[0]Last time ${o.name} was in a car accident、but escaped with Shoryu Fist。\n\n\w8\1\s[10]It's invincible while rising……。\e
+
+
+#--------------------------------------------------------------------------
+#Q & A corner
+#01
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「In Makai Village、the first red reamer cannot be defeated。 What should I do?」\n\w8\w8\0$(? If-you-are-struggling-to-that-extent、you-will-not-be-able-to-go-any-further。Give-up-and-play-another-game。\w8\1……Please-do-not-capture。 Get-${o.item}-at-the-graveyard-and-you'll-get-one-shot。Please-do-your-best-and-search。\w8\1There-was-such-for?)\e
+#02
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「[I'd like to watch a video of Xevious、isn't it somewhere?」\n\w8\w8\0The ＶＨＤ version is on my house、do you have a deck?\w8\1……also severe。\e
+#03
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「$(? Teddy-Boy-Blues・New-Employee-Toru-kun Hot-rock-of-love) What band is the ＢＧＭ from?」\n\w8\w8\0$(? Sadistic・Mika-Band Omega-Tribe Brain-police Carpenters) is。\w8\1Do Remember me so?\e
+#04
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「I heard that there is a turbo in the Ｆ１ race、how do you do it?」\n\w8\w8\0Take one wheel on the shoulder of the first course and accelerate to 5${digit}${digit} km/h。\w8\1That's why I'm off of the turbo。\e
+#05
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「$(? ＦＭ－ＴＯＷＮＳ-and-Ｘ６８０００ Ｘ１-and-ＦＭ－７ Motorola-system-and-Intel-system Ｍａｃ-and-Ｗｉｎｄｏｗｓ) which is up?」\n\w8\w8\0Questions should be game related only。\w8\1Neither of them。\e
+#06
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Isn't it too much that a wave gun powers down when taking damage from a baraduke?」\n\w8\w8\0It is null。 You don't have to take any damage。\w8\1Don't say it easily。\e
+#07
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Why is my physical strength reduced when a man grabs with Spartan X and is hugged by a man?」\n\w8\w8\0It is usually unpleasant to be embraced by a stranger。 It is usually unpleasant to be embraced by a stranger。\w8\1It's just that you can only hug yourself。\e
+#08
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Isn't Kagekiyo's whirlwind sword too much?」\n\w8\w8\0There is no problem because he is special。\w8\1Is that a problem?\e
+#09
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Why is Spelunker too weak?」\n\w8\w8\0Because the body and mind are weakened by the long cave search。\w8\1Curing。\e
+#10
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Why doesn't the Demon King go to defeat the hero at level 1?」\n\w8\w8\0In fact、the Demon King is also at level 1 at that time。\w8\1Weak。\e
+#11
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Who is Uncle Senmen?」\n\w8\w8\0\s[0]…\w8…\w8。\n\n\w8\1…\w8…\w8。\n\w8\0\s[3]I can't answer such a scary question。\n\n\w8\1Well、you know ＭＳＸ eroge。\e
+#12
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Why is Chris so stripped off?」\n\w8\0It is a specification。\n\w8\1Square's only character to take off。\e
+#13
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「I picked up "Excalibur" but it is not strong at all。 Is it a bug?」\n\w8\0Look closely at the name。 It's a fake copy。\w8\1Be careful with similar products。\e
+#14
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]At ${sentence.place}・${o.name} was。\n\w8「I can't go to 84 faces because of the mystery of Atlantis……」\n\w8\w8\0１面→１１面→１面→２面→９面→２面→３面→４面→２５面→４１面→９４面→４１面→２５面→４面→３面の順に進めばＯＫです。\w8\1It will differ。 Besides、it's false。\e
+#15
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「I picked up "MOILA-TEN's wand"、but NOILA-TEM did not shoot。 Is it a bug?」\n\w8\0It is not good to blame anything for a bug。\w8\1Please come back。\e
+#16
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「I heard that many young people thought that Ｗｉｚ 4 was a missing number until it was reprinted in ＰＳ version、how is around you?」\n\w8\0I mean、６ is a missing number。\w8\1Also ＣＤＳ。\e
+#17
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Why is Haslam so susceptible to death?」\n\w8\0It is a specification。\n\n\w8\1He and Thamrin only seemed to take part in the fight by harassment。\e
+#18
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「In Xevious、I saw a white dog running」\n\w8\0Too much game。 Keep it for an hour a day。\n\n\w8\1No、that's the problem……。\e
+#19
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]Ghost・${o.name}＆${o.name}-san from。\n\w8「How can I become a major ghost?」\n\w8\0I will give、$(? Akagi-Missile Super-large-ray-gun Indra-Crossing) to youB With other ghosts……\w8\1コラコラ。\e
+#20
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]Ghost・${o.name}＆${o.name}-san from。\n\w8「How can I become a major ghost?」\n\w8\0There is not enough training。 Now a special training video for ９８００ yen including tax……\w8\1コラコラ。\e
+#21
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「ＡＶＧ dies when the torch disappears?」\n\w8\0\s[4]This is Shiteoku。\n\n\w8\1Will die anyway。\n\w8\0\s[8]It's a game to enjoy death。\e
+#22
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Doesn't a live-action surface appear?」\n\w8\0There is no live action、but the Ｘ６８Ｋ version is a real type。\w8\1I'm scared。\e
+#23
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Trio・the・punch cannot be cleared。 Please tell me how to capture」\n\w8\0It is just wasteful to do it seriously。 Let's just look at the play of a good person。\n\n\w8\1What to say。 If you've true fighting spirit just go。\w8\0\s[4]That's it。\e
+#24
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「After all、what is a sheep's curse?」\n\w8\0In the first place、the game itself is like a curse。\n\n\w8\1Totally。\e
+#25
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「I made a game for Base-kun、but nobody plays because there is no other person with Base-kun。 What should I do?」\n\w8\0Let's use machine language instead of using Bae-kun。 That way、everyone can play。\n\n\w8\1I guess I'm using it because I can't do that。\n\w8\0Let's build a ＢＡＳＩＣ-compatible compiler in machine language and distribute it to everyone。\w8\1No、I do not want to……。\e
+#26
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Please tell me the origin of the name of a certain police rat named Mappy」\n\w8\0A long time ago、at the 2nd Micromouse Competition, Namco announced a mouse-type maze escape robot called "Mappy"。 That mappy made it into a game。\n\n\w8\1\s[10]Oh、that's an unusual answer。\n\w8\0No matter what I hide、I was in the competition。\n\n\w8\1It's my own unyuu robot。\n\w8\w8\0\s[4]I lost the first game。\w8\1…\w8…\w8it's not my fault。\e
+#27
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Orichalcum or AdamantiteAwhich is harder?」\n\w8\0Either way it is hard。\n\n\w8\1Or better than Bakyura?\w8\0I do not know。\e
+#28
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Which is stronger、iron ruler or capsule?」\n\w8\0It is iron ruler by far。 Hitting with a capsule does not hurt too much。\n\n\w8\1I'll hit you。\n\w8\0Moreover、can be used as a ruler。\n\n\w8\1Even a ruler。\e
+#29
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「How do I tell Mayura?」\n\w8\0It is ４００ years too early to teach me words。\n\n\w8\1I think you have something else to learn。\e
+#30
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]Ghost・${o.name}＆${o.name}-san from。\n\w8「How can I become a major ghost?」\n\w8\0First、water。\n\n\w8\1What?\n\w8\0Also、powder。\w8\1I heard somewhere……。\e
+#31
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]Repuke countries from Bowan City、Mu Kurato 28 years old。\n\w8「During this time、when I went to the fireworks display、about 4 Bragspalios flew and stuck together。 I have trouble sleeping at night。 What should I do?」\n\w8\0\s[0]Recently many。\n\n\w8\1There are many。\n\w8\0Let me guide you for now。You can earn a lot if you get used to it。\e
+#32
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]Phantom world・Lydia 18 years old。\n\w8「What is the biggest、the most surprising、or the worst thing you have ever summoned Mayura-san?」\n\w8\0\s[0]Um\w8…\w8…\w8speaking of creatures、Zorgia was the biggest one。\n\w8What surprised me the most was Octy King。\n\w8The most troublesome thing to handle\w8…\w8…\n\n\w8\1Why look at me?\e
+#33
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「It seems that Mayura can fly in the sky。 Can Unyuu fly?」\n\w8\1…\w8…\w8I'm determined to fly。\n\w8\0You need wings on your back to fly。\n\n\w8\1Doing this my shoulders will get stiff。\n\w8\0\s[4]……where are your shoulders?\w8\1Uh……。\e
+#34
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Is it fundamental to make a mistake between saving and loading after typing the program?」\n\w8\0Basic。\n\n\w8\1It's also fundamental to forget to press the return key。\e
+#35
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Please sell the NES button rubber……」\n\w8\0Please consult others。\n\n\w8\1It's natural for gamers to stock rubber。\e
+#36
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「How many points does Mayura recover per turn?」\n\w8\0I do not、but Unyuu will play even if in half。\n\n\w8\1Am I planarian?\e
+#37
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Mayura seems to be invincible。 Is there someone you can't win?」\n\w8\0\s[0]Well、it shouldn't be in theory。\n\n\w8\1What is in theory。\n\w8\0\s[3]If you say\w8…\w8…\w8after all、those two people。\n\n\w8\1Uncle Senmen and another person……\n\w8\w8\0so……\w8a man on a bicycle with a squash racket that appears with a flash……。\n\n\w8\1Don't get goosebumps too scary。\w8\0Really。\e
+#38
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「How old is Unyuu?」\n\w8\0\s[0]\w8…\w8…\w8how old?\n\n\w8\w8\1\s[10]Secret。\n\w8\0\s[4]You're not too old now。\n\n\w8\1By the way、looks like a human about ２０ years old。\n\w8\0I don't know at all。\e
+#39
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Is it true that Unyuu cannot swim?」\n\w8\1\s[10]……I don't know I'm a swim master。 I'm good with oysters……。\n\w8\0\s[8]Ah、that's a ３０minutes、２５m one-way trip。\w8\1\s[11]Don't say it!\e
+#40
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Can Mayura-san beat Lord British?」\n\w8\0\s[8]After all、what is it? That person。\n\n\w8\1\s[10]All opponents have the power to kill instantly、but they are also caught by stupidity。\n\w8\0\s[4]Is strong or weak?\n\n\w8\1Maybe just boring。\e
+#41
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Are black and white unyuus brothers?」\n\w8\0\s[0]Are brothers?\n\n\w8\1\s[10]I don't know。\w8In the first place the race is different。\n\w8\0I can only see it the same way。\n\n\w8\1That's why you are immature。\w8\0\s[4]I'm really clumsy……。\e
+#42
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「Which is scarier、"Uncle Shima" or "Uncle Senmen"?」\n\w8\0\s[3]…\w8…\w8。\n\n\w8\1\s[10]…\w8…\w8。\n\w8\0……I'm scared to talk about。\n\n\w8\1くわばらくわばら。\e
+#43	out?
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「大竹まことに『君たちにはキャパシティが足りない』なんて言われたらおしまいだと思いませんか？」\n\w8\0That's it。\n\n\w8\1\s[10]If you have the capacity、tolerate it。\e
+#44
+sentence : \0\s[5]My Q & A corner。\w8Today's letter?\n\n\w8\1\s[10]From ${sentence.place}・${o.name} was。\n\w8「What are the Saturn aliens doing now?」\n\w8\0Did return to hometown?\n\n\w8\1\s[10]I drank together last time but cried。\e
+
+
+#--------------------------------------------------------------------------
+#Spoiler
+
+#01
+sentence : \0\s[0]It seems to be told that my story cannot be understood unless you have played the game.。\w9\n\n\1\s[10]Yes、exactly。\w5\0There are no words to return。\e
+#02
+sentence : \0\s[0]\n\n\n\n　　　　 ＊＊＊　boring　＊＊＊\w9\1\s[10]What it is。\e
+#03
+sentence : \0\s[5]Diagonal insertion is basic。\w5\1\s[10]Everyone seems straight、but be careful。\e
+#04
+sentence : \0\s[4]No matter how much you use CD1 just for the opening。\w5\1\s[10]Overkill。\e
+#05
+sentence : \0\s[4]Why didn't I got featured in the Fantasy Academy?\w9\n\n\1\s[10]Probably because of everyday things。\w9\n\0\s[3]Did something wrong?\w9\1\s[10]It is。\w9Comparatively。\e
+#06
+sentence : \0\s[5]Gleaming☆\w9\1\s[10]Gleaming☆\e
+#07
+sentence : \0\s[0]I wonder why the roadrunner doesn't aim a ray gun at the enemy。\w8\n\n\1\s[10]A pacifist。\n\w8\0But I think it's worse to be killed and buried……\w8\1\s[10]……\e
+#08
+sentence : \0\s[3]Why do you bring a ruler to Gaisen when you play the Hyper Olympics?\w9\n\n\1\s[10]That is good。 But the shop clerk gets angry because it's noisy。\w9\0\s[0]……\w5？\w5？\w5？\e
+#09
+sentence : \0\s[0]After all the maze is a wired frame～。\n\n\w8\1\s[10]It's a solid paint in a hundred steps。\n\w8\0It is outrageous to put a texture on it。\w8\1\s[10]Totally。\e
+#10
+sentence : \0\s[5]When playing the World Cup、be careful not to pinch your hand with the trackball。\w9\1\s[10]That hurts、that。\e
+#11
+sentence : \0\s[0]Rubbing it in moderation。\w8\1\s[10]Before nails get ragged。\e
+#12
+sentence : \0\s[0]Some people insist that it is correct to read Marouru as Maraa、but absolutely Marouru is better～。\w8\1\s[10]Whichever is fine、already。\e
+#13
+sentence : \0\s[0]It seems that Bakyura can't be broken。\n\n\w8\1\s[10]That's hoax。 If you can put out a flame piece with one shot。\w8\0\s[4]……I can't。\e
+#14
+sentence : \0\s[0]There are times when you have one credit left in a game of く１００ yen twice。\n\n\w8\1\s[10]You forgot the previous one。\w8In that case、it's polite to play exactly that minute。\w8\0\s[3]Is it alright?\e
+#15
+sentence : \1\s[10]No matter how fun the game is、don't stack coins。 Violation of manners。\n\w8\0\s[3]Such～。\n\n\w8\1\s[10]And continueing is a bad idea。If you are a Chinese、start overｹ。\n\w8\0\s[8]It's OK because I'm a woman。\w8\1\s[10]No good。\e
+#16
+sentence : \0\s[5]ＳＤＩ is good to do with two people。\n\n\w8\1\s[10]Evil ways are also good。 Play with your right and left brain。\w8\0\s[4]It's such a thing～。\e
+#17
+sentence : \0\s[0]Sega's bodily sensations and night strikers are easy if you spin around。\n\n\w8\1\s[10]Nattoran。 It's like abandoning play。 Dare to challenge from the front、catch it with your own eyes、and dodge with a piece of paper。 This is true。\w8\0\s[4]Even if that is said～。\e
+#18
+sentence : \0\s[4]If you don't do anything and don't let go、you won't be able to proceed without a game～。\w5\n\n\1\s[10]Waiting after the ending……there was something like。\w5\n\0Since then、after the ending was over、there was a habit of dazzling about 5 minutes。\w9\1\s[10]That's too bad。\e
+#19
+sentence : \0\s[3]After all、what kind of structure is one side of Gradius?\w8\1\s[10]Don't ask me。\e
+#20
+#sentence : \0\s[4]A friendly wardner is a shiteoku～。\w8\1\s[10]It's Shiteoku。\e
+#21
+sentence : \0\s[4]It's a shiteoku、a bragging kart passing by without rupture～。\w8\1\s[10]That's pretty scary。\e
+#22
+sentence : \0\s[4]When you open the door、you get a shock wave、which is a forced thing。\w8\1\s[10]That's a promise I won't say。\e
+#23
+sentence : \1\s[10]Absolutely more amazona than peach。\n\w8\0\s[0]Hmm? What are you talking about?\w8\1\s[10]Not anything。\e
+#24
+sentence : \1\s[10]When THE BEAST comes out on the 5th floor alone、\nit's not just me。\n\w8\0\s[0]Hmm? What are you talking about?\w8\1\s[10]Not anything。\e
+#25
+sentence : \0\s[4]You shouldn't use the word 「remaining game」 in any game。\n\n\w8\1\s[10]I guess Mario was doing 「Oh、one was killed」。\w8\0I'll just say it。\e
+#26
+sentence : \0\s[4]People who just wash the keyboard are super shiteoku。\w8\1\s[10]I know one person。\e
+#27
+sentence : \0\s[4]It's a shiteoku that you try to get green mushrooms。\w8\1\s[10]Shiteoku。\e
+#28
+sentence : \0\s[4]Ａ－ＭＡＴＥ file slot is a shiteoku。\w8\1\s[10]I expected at first。\e
+#29
+sentence : \0\s[5]After all ＣＤ－ＲＯＭ are constant speed。\w8\1\s[10]Naturally it's a serial connection。\e
+#30
+sentence : \0\s[4]It's Shiteoku to be done in the first Kuribo。\w8\1\s[10]No、basically。\e
+#31
+sentence : \0\s[4]A loved reader postcard without perforations is a shiteoku。\w8\1\s[10]Personally a shiteoku。\e
+#32
+sentence : \0\s[4]It's a shiteoku that normal shots are stronger than lasers。\w8\1\s[10]Shiteoku。\e
+#33
+sentence : \0\s[4]I want you to stop saying "pico pico" about video games。\w8\1\s[10]I don't need it anymore。\e
+#34
+sentence : \0\s[4]I think it's shiteoku to abbreviate Final Fantasy as "FiFan"。\w8\1\s[10]Shiteoku。\e
+#35
+sentence : \0\s[4]Don't write your name on a cassette。\w8\1\s[10]Some strange people will sell it to second-hand shops。\e
+#36
+sentence : \0\s[4]When a cassette doesn't work well、it's a shiteoku to blow on it。\w8\1Shiteoku。\e
+#37
+sentence : \0\s[4]The ＦＭ－ＴＯＷＮＳ ＰＣcard slot is a shiteoku。\w8\1\s[10]Especially the first generation。\e
+#38
+sentence : \0\s[4]Sinclair's ＺＸ８１ ＲＡＭ and １kb are too small。\n\n\w8\1\s[10]That said、BASIC-LEVELⅡ is 512 bytes。\n\w8\0Wabi-sabi ist perfekt。\n\n\w8\1But when I talk like this、people from the single board era say、 「Well、there are 512 bytes ?!」 I guess I'll be thrust at you、surely。\w8\0……。\e
+#39
+sentence : \0\s[4]Pac-Man with a horizontal screen is a shiteoku。\w8\1\s[10]Shiteoku。\e
+#40
+sentence : \0\s[4]The last boss is the weakest game。\w8\1\s[10]Shiteoku。\e
+#41
+sentence : \0\s[4]If you know that king will be kidnapped、you just have to hide and don't wander。\w8\1\s[10]I should say that。\e
+#42
+sentence : \0\s[4]It's a game that can be moved in ８ directions、but if the four-way lever is attached to the housing、it's super shiteoku。\w8\1\s[10]This is common again。\e
+#43
+sentence : \0\s[4]I tried remodeling Gyaraga to triple fighter specification、but it was too difficult to enlarge hit specifications。\w8\1\s[10]There is a limit。\e
+#44
+sentence : \0\s[4]In Donkey Kong、it's pretty shiteoku if you get it when you have a hammer。\w8\1\s[10]Shiteoku。\e
+#45
+sentence : \0\s[4]Why can you refuel by destroying the fuel tank?\w8\1\s[10]Don't ask me。\e
+#46
+sentence : \0\s[4]Even if it's closed、don't turn off the power while playing。\w8\1\s[10]${o.skill} for those clerks。\e
+#47
+sentence : \0\s[4]I wonder why everyone uses only burokken。\w8\1\s[10]They are ouzumanda。 Thumbs up。\e
+#48
+sentence : \0\s[0]It's good to save rare items because they are wasteful、but it's a shiteoku that you end up using them as they are。\w8\1\s[10]Elixirs。\e
+#49
+sentence : \0\s[0]The key that disappears after use is shiteoku～。\w8\1\s[10]Shiteoku。\e
+#50
+sentence : \0\s[4]Tsutankaamu where the beam does not shoot up and down is a shiteoku～。\n\n\w8\1\s[10]Nuru i zo。 That's an exquisite game character。\w8\0Is that so?\e
+#51
+sentence : \0\s[4]How can you kill a ghost with a gun?\w8\1\s[10]Don't ask me。\e
+#52
+sentence : \0\s[4]There are people who are good at hitting allies。\w8\1\s[10]What is that?\e
+#53
+sentence : \0\s[4]The person who makes the bishop suddenly is shiteoku～。\w8\1\s[10]Shiteoku。\e
+#54
+sentence : \0\s[4]The Hawk Wind where the level 5 drain works is a shiteoku～。\n\n\w8\1\s[10]Moreover、makanito works。\w8\0Super shiteoku。\e
+#55
+sentence : \0\s[8]People with horns can't turn over。\w8\1Shiteoku。\e
+#56
+sentence : \0\s[4]There are times when you only recover one point with ＤＩＯＳ。\w8\1Shiteoku。\e
+#57
+sentence : \0\s[0]Have you ever seen a dwarf woman?\n\n\w8\1\s[10]No。I don't want to see。\n\w8\0Gnomes of women?\n\n\w8\1I can imagine。\n\w8\0So、the Unyuu women……？\w8\1\w8…\w8…\w8no Comment。\e
+#58
+sentence : \0\s[0]Who sat there and for what reason dropped it?\w8\1\s[10]Don't ask me。\e
+#59
+sentence : \0\s[4]At least once、I want to stay outside of the stable～。\n\n\w8\1\s[10]But I'm old。\n\w8\0I don't think there is any age in this world。\w8\1Well。\e
+#60
+sentence : \0\s[0]Oh、the airship of Borutakku。\w8「A big sale once in a million years」。\n\n\w8\1\s[10]Long time no see。 Before、there were plenty of bargains so I can expect this time。\w8\0…\w8…\w8\s[4]How many years lives an Unyuu?\e
+#61
+sentence : \0\s[4]A punch……。\w8\1\s[10]……。\e
+#62
+sentence : \0\s[0]After all、was that hat of the undeadline a wave gun?\n\n\w8\1Of course。\w8\0\s[1]That's too cool。\e
+#63
+sentence : \0\s[3]The undeadline and the ghost front are confusing。\n\n\w8\1In fact、the story is connected……。\w8\0It does not。\e
+#64
+sentence : \0\s[4]The god of death Rougasu was a completely different game between the initial development and the finished version。\n\n\w8\1It is common。\e
+#65
+sentence : \0\s[3]Don't beat your grandmother with a whip。\w8\1\s[10]You doubt good sense。\e
+#66
+sentence : \0\s[3]That。\n\n\w8\1What?\n\w8\0In the Druaga board game、all the gil was painted in gold、Unyuu。\n\n\w8\1After all Gil is golden。\n\w8\0\s[4]It's important for preservation……。\n\n\w8\w8\1Oh、and I decided to make a monster using an empty card。It's the best one can do。\w8\0\s[4]…\w8…\w8。\e
+#67
+sentence : \0\s[3]Family basic keyboards are pretty yellow。\n\n\w8\1Because it's quite intensive。\w8Hightech○polish with a scourer。\n\w8\0…\w8…\w8\s[4]Well、I can't get it～。\n\n\w8\1Then you have to bleach the roses。\n\w8\0\s[0]ド○スト？サン○ール？\n\n\w8\1Don't mix。\e
+#68
+sentence : \0\s[0]Recent games have been an overkill。\n\n\w8\1I guess it's solid BMPs or solid WAVs、or a full color image with no color reduction。\n\n\w8\0If you're a programmer、it's only natural to sacrifice compression。\w8\1Not at all。\e
+#69
+sentence : \0\s[0]Hmm?\n\n\w8\1\s[10]What happened?\n\w8\0Somehow、a timer like sound is heard。\n\n\w8\1I can't hear it。\n\w8\0Try maximizing the volume of the machine。\w8\1……it's not in my hand。\e
+#70
+sentence : \0\s[0]Named ＦＭ－７、\nbut looks like had been told "Lolicon computer"。\n\n\w8\1\s[10]I don't know why、but at the beginning there was many software of this type only for this model。\n\w8\0Well、９８ Erokon……\w8\1There is no need to say it now。\e
+#71
+sentence : \0\s[4]Mmm～。\n\n\w8\1\s[10]What happened?\n\w8\0I went to Manfredi Casino and was kicked out by Big Max。 Why?\n\n\w8\1Does it mean、you did not try to buy the 838861 coins in the 4G?\n\w8\0That's right、but。\w8\1The store is different。\e
+#72
+sentence : \0\s[4]Sky Destroyer is a hidden character that comes out with artificial satellites。\n\n\w8\1\s[10]Do not leave。\n\w8\0Isn't that just dropping with machine guns and torpedoes too much?\w8\1It is impossible。\e
+#73
+sentence : \0\s[0]The protagonists of Baraduke and Metroid were actually girls。\n\n\w8\1\s[10]I'm surprised。\n\w8\0That means that Akindonite and alpha planets……\w8\1Absolutely not。\e
+#74
+sentence : \0\s[4]The weaker the enemy、the lower the dungeon's shiteoku～。\w8\1It's Shiteoku。\e
+#75
+sentence : \0\s[0]How do you process bakyura?\n\n\w8\1You should cut it with a cutter made of a material harder than bakyura。\n\w8\0So how did you make that cutter?\n\n\w8\1…\w8…\w8did do in homework today。\e
+#76
+sentence : \0\s[0]What kind of material is Mario Brothers floor?\w8\1It is amazing it bends even if it is frozen。\e
+#77
+sentence : \0\s[8]Love warrior Nicole is an embarrassing title now。\w8\1The roses make me cry。\e
+#78
+sentence : \0\s[0]Speaking of Deco 3 Great Devil game……\n\n\w8\1\s[10]Karunofu、Cherunobu、Torio za panchida。\n\w8\0\s[4]How can someone make such a game?\w8\1A terrible talent。\e
+#79
+sentence : \1\s[10]After all it is Konami。\n\w8\0\s[0]Eh? What?\w8\1Not anything。\e
+#80
+sentence : \0\s[4]A fairy tale maze that is not an oblique viewpoint is a shiteoku。\w8\1\s[10]Shiteoku。\e
+#81
+sentence : \0\s[0]It's boring to make the Boskonian just a vertical shoe。\w8\1Another rant……。\e
+#82
+sentence : \0\s[3]No matter what you think、fruits and bread are falling in the dungeon。\w8\1\s[10]I would never pick it up。\e
+#83
+sentence : \0\s[8]A game that can be played on the demo screen is shiteoku。\n\n\w8\1\s[10]The legend of the shadow has gone quite well。\w8\0I wish I could just insert coins。\e
+#84
+sentence : \0\s[3]Why did the Toa Plan collapse?\n\n\w8\1\s[10]It was a good shooting maker。\n\w8\0\s[0]What kind of title would you expect if the sequel to Guru King came out?\n\n\w8\1"The ultimate master king"、of course。\n\w8\0\s[5]"Master! Master! Master!" It's hard to throw away。\n\n\w8\1How about "Guru Sisters" or "Guru Game Tikipaki"?\n\w8\0\s[4]It's not shooting。\e
+#85
+sentence : \0\s[4]MSX2 with 64KB of VRAM is a shiteoku～。\w8\1\s[10]Shiteoku。\e
+#86
+sentence : \0\s[3]Who is the ultimately person on the title screen of Adventure Romance?\w8\1\s[10]Don't ask me。\e
+#87
+sentence : \0\s[1]After all SIMM is 64Pin～。\w8\1\s[10]I can't help reopening that minor。\e
+#88
+sentence : \1\s[10]What have you been doing since then?\n\w8\0\s[0]Hmm、I'm thinking of putting a Karakura motherboard into 98 CV21。\n\n\w8\1Also such a barren thing。\n\w8\0It went well when I put it in TOWNS UX。\n\n\w8\1……that TOWNS was my favorite machine。\e
+#89
+sentence : \0\s[1]After all it is a plasma display～。\w8\1\s[10]I can't help getting that red。\e
+#90
+sentence : \0\s[4]If you swing your sword more than three times、and the knight turns his eyes on you、you are shiteoku～。\w8\1\s[10]Shiteoku。\e
+#91
+sentence : \0\s[3]Ruta Jenma was a sleepwalker。\n\n\w8\1He seems to have been helped by Adoru、caught by the enemy where he was wandering。\n\w8\0……it's pathetic。\w8\1I'm pathetic。\e
+#92
+sentence : \0\s[4]Holmes isn't that violent。\n\n\w8\1\s[10]In the first place、it's like an adventure、killing an enemy with a kick or a gun。\w8\0Absolutely different。\e
+#93
+sentence : \0\s[4]How much anything、it's too much to die in the feces of bats。\w8\1\s[10]I'm sad as a person。\e
+#94
+sentence : \0\s[4]When you are about to lose、it's shiteoku to act like lot of a combat engineer～。\w8\1\s[10]Shiteoku。\e
+#95
+sentence : \0\s[4]It's a shiteoku to be beaten by a toroid before the start music stops in the FC version of Xevious～。\1\s[10]Shiteoku。\e
+#96
+sentence : \0\s[4]A machine with an optional keyboard is a shiteoku～。\w8\1\s[10]Moreover、it is quite expensive。\e
+#97
+sentence : \0\s[4]It's a shiteoku to hit the button repeatedly to escape in Dorakue～。\w8\1\s[10]I guess that would make it easier to escape。\e
+#98
+sentence : \0\s[5]Start button hitting is basics～。\n\n\w8\1\s[10]No、it doesn't。\n\w8\0If you modify the controller and fire the start button、it will be slow and easy to play。\w8\1Heard the story。\e
+#99
+sentence : \0\s[0]There are rumors that Maafiizu's Ghost is a childhood friend of Torebou。\n\n\w8\1\s[10]I wonder why he's in that place。\n\w8\0\s[8]Well、it's Torebou。\n\n\w8\1I guess I've been fighting for a long time。\w8\0There are few friends、that person。\e
+#100
+sentence : \0\s[4]When mapping、if you run off the graph paper、it's a shiteoku。\w8\1\s[10]＃５ and so on。\e
+#101
+sentence : \0\s[4]It's a shiteoku to self-destruct when selecting a Daraiasu zone～。\w8\1\s[10]Shiteoku。\e
+#102
+sentence : \0\s[4]Brown ryu is a shiteoku。\n\n\w8\1\s[10]Red buranka too。\w8\0……ninjin?\e
+#103
+sentence : \0\s[4]It's a shiteoku that suddenly weakens when you turn left～。\w8\1\s[10]I guess I couldn't hit Shoryu Ken。\e
+#104
+sentence : \0\s[3]It's an absolute lie that one million wanwanpanic been sold～。\n\n\1\s[10]But there were a lot of used shops。\w8\0\s[4]That is……。\e
+#105
+sentence : \0\s[0]How many Adoru girlfriends are there?\n\n\w8\1\s[10]According to trustworthy sources、there were roughly ${digit}${digit0} people in 1-3。\n\w8\0\s[3]In other words、Fina and Riria won the fierce competition and won the heroine position。\w8\1In a sense、they are real braves。\e
+#106
+sentence : \0\s[4]The person who wields a log from Ninja Ryuken is a shiteoku～。\w8\1\s[10]I can't tell about that brute person。\e
+#107
+sentence : \0\s[0]A door that disappears when you open it is a shiteoku～。\w8\1\s[10]Shiteoku。\e
+#108
+sentence : \0\s[0]Ragosu is a shiteoku。\w8\1\s[10]Whereabouts is。\e
+#109
+sentence : \0\s[0]Option and Multiple……which is the correct choice?\n\n\w8\1\s[10]Write multiple and read option。\w8\0\s[4]Is that so?\e
+#110
+sentence : \0\s[4]Anyway、what is Konami Code basic?\w8\1\s[10]Basic。\e
+#111
+sentence : \0\s[0]Basically buying a Beemaga to read technart manga?\w8\1\s[10]Basic。\e
+#112
+sentence : \0\s[4]The most difficult way to capture a game magazine is to say、"Take care and avoid it" or "I won't talk if you die here"。\n\n\w8\1\s[10]In the first place、it is wrong to rely on magazine capture。\n\w8\0\s[3]Well、what you do?\n\n\w8\1Of course it is clear with spirit。\w8\0\s[4]……after all it is the same。\e
+#113
+sentence : \0\s[4]It's a shiteoku to hit a bomb with a shot and use it all at once。\w8\1\s[10]It's Shiteoku。\e
+#114
+sentence : \0\s[0]A mega driver is like some kind of trick。\w8\1\s[10]Skill。\e
+#115
+sentence : \0\s[0]Is it basic to put a bomb at the start position in a Bomberman match?\w8\1\s[10]Basic。\e
+#116
+sentence : \0\s[4]Even though it's a Syntax Error、it's a shiteoku to say "Ok"～。\w8\1\s[10]I'm still satisfied with Ready。\e
+#117
+sentence : \0\s[4]When you see that the text of the contributor is too long in the OF section and the comment ends with a few letters、it feels like a shit。\w8\1\s[10]I guess I can only write "Wow!"。\e
+#118
+sentence : \0\s[5]The more you do、\w5the more disk system!\w8\1\s[10]Coin。\e
+#119
+sentence : \1\s[10]The night I can't save you、\wI can't sleep。\w8\0\s[4]……eh?\e
+#120
+sentence : \0\s[4]It's a shiteoku to put a black box inside a black box～。\w8\1\s[10]It's gone。\e
+#111
+sentence : \0\s[4]It's a shiteoku to walk with a money changer。\w8\1\s[10]No matter how much money is exchanged、I don't think it makes sense to carry a currency exchange machine。\e
+#122
+sentence : \0\s[4]It was done by this Famimaga。\n\n\w8\1\s[10]But why?\n\w8\0All the usotechs that are on it are false。\w8\1\s[10]……have you tried it?\e
+#123
+sentence : \0\s[5]It seems that Sutanrei can be shoot down with 256 bullets。\n\n\w8\1\s[10]I can't be deceived anymore。\e
+#124
+sentence : \0\s[4]It's a shiteoku to shoot yourself with a fireball against the wall～。\w8\1\s[10]You're in a hurry when the enemy comes。\e
+#125
+sentence : \0\s[3]After all、what is Kage's identity?\w9\1\s[10]Stop it。 If you know、you will have an accident。\e
+
+
+#--------------------------------------------------------------------------
+#○○meeting
+
+#0
+sentence : \0\s[5]Urgent report。\n\w8As of today、「${society}」 members have finally topped ${digit}${digit0}${digit0}million。\n\n\w8\1seriously。\n\w8\0We are still recruiting members。\w8\1Stop it。\e
+
+society : ３発殴って隕石を砕く会 , ジャーヴァス最短攻略研究会 , ストⅢをストⅠの筐体でプレイする会 , マッドドラゴンをレベル３で倒す会 , ラリーＸのエキスパートモードを極める会 , ダブルドラゴンを肘鉄だけでクリアする会 , オメガファイターのシークレットボーナスを極める会 , 逆さ着地を極める会 , ご先祖様対策委員会 , 頭脳戦艦ガルをノーマルワープだけでクリアする会 , ファイナライザー・ロケットパンチ愛好会 , 前向きのままヘビーバレルをクリアする会 , クリーピングコインの首をはねる会 , ３つ首愛好会 , 臭い息同好会 , エグゼドエグゼスのスプライトオーバーをあくまで『フラッシュ攻撃』と言い切る会 , SCREEN1.5であらゆるものを描ききる会,ザインソフトのゲームをどうにかして面白おかしく遊ぶ会,ソフトークオールスターズに加入する会,２５６発当ててバキュラを破壊する会,冒険浪漫のタイトル画面の人の正体を暴く会 , 変形がアヤしいメカを徹底解析する会,Ｂ－ＷＩＮＧをウイングなしでクリアする会 , ７６５０点ポーズを極める会 , ソード・オブ・ソダンをとりあえずクリアしてみる会 , マーティーにチャンネルを合わせる会 , ＦＣ版ロードランナーを最高速で遊ぶ会 , ラコニアンポットに頼らないでミャウを仲間にする会 , ＣＨＲ：０でＸＡＮＡＤＵをクリアする会 , チェルノブを横移動無しで全面クリアする会 , ゼロヨンチャンプシリーズを本格ダンジョンＲＰＧとして世間に認知させる会 , ジムダステギを２列全部破壊する会 , ”戦え！ダダンダーン”をカラオケに入れてもらう会 , ダメなコントローラをどうにかして使う会 , マイコン電児ランに学ぶ会 , ８本ソルを全部破壊する会 , 羊の謎を解明する会 , ライザンバー２をノーコンでクリアする会 , 「ぶたさん」復刻をジャレコに要望する会 , バンゲリングベイで空母に帰還せずにどれだけ生き延びられるかを競う会 , アスキースティックL5でザナックをクリアする会 , バンゲリングベイのダメージカウントでハイスコアを競う会 , ぼうけんのしょ消滅による被害者の会 , ウルフファングのスペシャルを６４機体全てでクリアする会 , オニオンヘッド将軍を0.5秒以内に倒す会 , シングルビームを１万発ためてゲームオーバーになる会 , デュアルＣＰＵよりツインＣＰＵの方がスゴいと言ってみる会 , アイテムを鑑定せずに使い続ける会 , マーフィーズゴーストの訴えを聞いてあげる会 , ロイヤルスイートで年齢０歳を実現する会 , エアーコンバットをエースコンバットと間違えて買ってくる会 , 三種の神器を揃えずに頼朝を倒す会 , 天空の城の薬草倉庫をカラにする会 , 液晶付PS oneにＰＣエンジンＬＴで対抗する会 , 結構いい所まで進んだデータをセーブしようとしてセーブディスクを入れたら満杯で、仕方がないからセーブディスクをもう一枚作ろうと思ったらゲームを一旦終了してユーティリティを立ち上げなきゃいけない事に気が付いた時の心境を島本和彦風に表現する会 , メットにファイアーボール１２８発ぶつけて倒す会 , ズイガム・ボルドにロボット形態で挑む会 , テラジをバックファイアで破壊する会 , とりあえずコナミコマンドの会 , ＭＺに不可能はない事を証明し続ける会 , ゲームミュージックに勝手に歌詞を付けて歌う会 , 「来年はダライアスIII」という言葉を信じていつまでも待ち続ける会 , ゲームウォッチのマンホールとファイヤーを電池ずらしで高速化して1周する会 , ネコからリセットボタンを死守する会 , ごじさんすーつ愛好会 , イシターをNEWGAMEから１コインでクリアする会 , マジカルポップンを全て回収し、ボイスを入れ替えて再販する会 , 買ったソフトをとりあえず旧システムカードで起動し、警告画面を堪能する会 , 最短ゲームオーバーを極める会 , サムライには絶対に盾を装備させない会 , シールドボーナスを取りまくってザカリテを降参させる会 , 志津香フォーマットに対抗してまゆらフォーマット（もちろん９８用）を作ってみる会 , マシン語で会話する会 , 全てのハードでリセットを押しながら電源を切る会 , ＯＦコーナーに目一杯長い文章を送りつけて、コメントを書けなくする会 , 初期装備だけでRPGをクリアする会 , FM音源パックを厚く敬う会 , ＳＴＧのボスキャラを全て「安藤君」と呼ぶ会 , DogCowが犬なのか牛なのかはっきりさせる会 , 消火栓や切り株を見かけたらとりあえず押してみる会 , アーサーはパンツ一丁で姫と何をしていたのかを追及する会 , ブランディッシュをキーボードだけでクリアする会 , ナムコ隊は今どこで何をしているのか調査する会 , ＭＡＨＡＬＩＴＯではなく、あえてＭＯＬＩＴＯを唱える会
+
+
+#--------------------------------------------------------------------------
+#Shiteoku degree judgment corner
+
+#01
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「Because I did ＦＦ２ without a manual、I did not know for a while after clearing that the main character had an official name and that a chocobo appeared。 Is it Shiteoku?\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1Don't got the instructions。\e
+#02
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「Without knowing how to sail in the age of the voyages、I was dying at a bar for more than a month。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1Living in Bakuchi is also the way of Han。\e
+#03
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「The emerald dragon was walking around the fort for almost two weeks in real time without knowing the exit of 『Arpas Fortress』。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1It's just fun to settle down。\e
+#04
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When I bought the last one of the three limited discount PCs、the next day、the same three were lined up。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1It is common。\e
+#05
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「At my grandmother's house、a Sony TV that been bought 10 years ago still works。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1A miracle。\e
+#06
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「Though I have ＭＳＸ２, I bought an ＭＳＸ version of Romancia。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1Wow or Romancia。\e
+#07
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「The game consoles I have bought so far are TV Boy、Lynx and Jaguar、Laser Active and 3DO。 Recently I bought ＰＣ－ＦＸ。 Is it Shiteoku?」\n\w8\w8\0シテオク度$(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1You are a true hero。\e
+#08
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「I was going to crush the prisoner with a chop lifter and put it on it。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1Choplifter is a game in which prisoners are originally played、so it's ＯＫ at all。\e
+#09
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「Missed on the sixth lap in Spelunker and used up the flash and crushed all the remaining aircraft。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1It's a shiteoku when I'm doing six same laps。\e
+#10
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「I think Dowboy is interesting。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1Save the fuse。\e
+#11
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「PC8801MC。 Is it Shiteoku?」\n\w8\w8\0サhe degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1Well、 do it at MIRRORS。\e
+#12
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「I bought only a strategy book without having software。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1Guru can play just by looking at the strategy book。 Because of devotees。\e
+#13
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「My friend carries a spare for the lever ball。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1No、it's a gamer's heart。\e
+#14
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「In Karateka、you suddenly fall off a cliff and die。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1Don't let the letters cry ”ＴＨＥ　ＥＮＤ”。\e
+#15
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「Getting out of a mystery house and being hit by a car。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1I don't think there is much traffic in front of that house。\e
+#16
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「ＦＭ－ＴＯＷＮＳ with １ＭＢ RＡＭ。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1……what is it used for?\e
+#17
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When you bought a game watch fire、it wasn't a widescreen but an old version。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\w8\1I like the old version better。\e
+#18
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「If you notice、all you have is a ship-in bottle。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\n\n\w8\1There are rumors that Pole makes hobby of ship-in bottles。\w8\0Yeah、it's a cast。\e
+#19
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When you read a bat activity、always from the margin。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\n\n\w8\1It's even better if you read only that and forget to read the other pages。\e
+#20
+sentence : \0\s[4]Shiteoku \w8degree \w8judgment \w8corner。\n\n\w8\1\s[10]くwow、\w8shiteoku。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「RPGs that you can play １０００ times、I really played １０００ times。 Is it Shiteoku?」\n\w8\w8\0The degree of shiteoku is $(? ∞ １ ２ ３ ４ ５ ６ ７ ８ ９ １０ １００ １０円 －√５ －√２ ガッチンコ)。\n\n\w8\1Because they sell such copies、it is natural that they can be played １０００ times。\w8\nIf you're a true gamer、play １０００ more times。\e
+
+
+#--------------------------------------------------------------------------
+#Shiteoku moment
+
+#01
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「Eating a delicious stick "Takoyaki flavor"、the bitterness of biting ginger。」\n\w8\w8\0\s[4]…\w8…\w8that's spicy。\n\n\w8\1Close to the spiciness of life。\e
+#02
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When listening to Shiva's Queen in the Galaxian FC version。」\n\w8\w8\0\s[4]…\w8…\w8why Shiva's Queen?\n\n\w8\1Nausicaa's song is also quite out of place。\e
+#03
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When separating your favorite reader postcards so as not to damage other pages。」\n\w8\w8\0\s[4]I want you to add a perforation because you can raise the price。\n\n\w8\1Totally。\e
+#04
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「If you post a masterpiece and a one screen program to ＭＳＸＦＡＮ、when only the one screen program is adopted。」\n\w8\w8\0\s[4]The big work is also made very enthusiastically。\n\n\w8\1I was thinking about comments when they were adopted。\e
+#05
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When an adult recorded a ballad on the B-side of a tape version of the game。」\n\w8\w8\0\s[4]You have to put the tape on the nail even though it is broken。\n\n\w8\1What's more、it's a father's karaoke。\w8\0That's the worst。\e
+#06
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When the Chupa Chaps hit the DQ3 cassette while playing Dharma's temple and the data disappeared。」\n\w8\w8\0\s[4]Why Chupa Chaps?\n\n\w8\1\n１．Chupa chaps are flying around the house。\n\w8２．A technique called Chupa Chaps。\n\w8３．A cat named Chupa Chaps。\n\w8\0……which one to choose?\e
+#07
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「Druaga Tower and Frontline Christmas morning when the latter is chosen as an alternative。」\n\w8\w8\0\s[4]Next to my family happily making noise、I guess was doing Pikopiko crying。\n\n\w8\1I only want to ask why chose the front line。\e
+#08
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When my friend's name was on the NES cassette that came back after a long time。」\n\w8\w8\0\s[8]Perhaps it's still good just not being sold or rented。\n\n\w8\1Write before it is written。\w8Oily magic、big and clear。\e
+#09
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When there is still a game I have sold in the stock disposal corner of a used shop。」\n\w8\w8\0\s[4]I bought a game that I couldn't sell even second-hand……。\n\n\w8\1I'm sorry、buy it again。\e
+#10
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When Beaupal Bunny was beheaded。」\n\w8\w8\0\s[4]Is there such a person?\n\n\w8\1Don't feel sorry、will be revived。\e
+#11
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「Cat was reset。」\n\w8\w8\0\s[0]While cat resets during the game and cat water damage caused by cat water are increasing、drastic measures are required。\n\n\w8\1Get a NES and a TV for your cat。 That's all。\e
+#12
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When I noticed that I spent more than 1000 yen on a set of 50 delicious sticks with an UFO catcher prize。」\n\w8\w8\0\s[4]UFO catchers are addictive。\n\n\w8\1The delicious sticks are worth 20 yen each。 You should taste it and eat it。\n\w8By the way、I like the taste of the past。\e
+#13
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「Jumping at Super Mario's wall pole failed and fired a lonely firework on the bottom point。」\n\w8\w8\0\s[4]That fireworks can only be considered harassment。\n\n\w8\1It's like a bell that boasts a throat。\e
+#14
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「The two step jump was successful、but the dash was not enough and the clovis that went to the room of the super sword was falling down a long vertical hole endlessly。」\n\w8\w8\0\s[3]Fell from such a high place and why is it safe?\n\n\w8\1At best、reflect on your immaturity before you get underneath。\e
+#15
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「The moment mother crushes the Family Basic keyboard。」\n\w8\w8\0\s[3]I would cry。\n\n\w8\1You too often crush。\w8Me。\e
+#16
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When you escape to a metal slime that can be defeated if you do damage once with DQ1。」\n\w8\w8\0\s[4]I remember too much……。\n\n\w8\1For ＤＱ３、it's one shot with Dragoram。\e
+#17
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When you accidentally shoot a bullet at the end of the night striker。」\n\w8\w8\0\s[4]Ah、the pacificist bonus……。\n\n\w8\1What about destroying the button so that it doesn't fire at the beginning?\n\w8\0When the afterburner button was broken、it was pretty shiteoku。\e
+#18
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When you see a cursed level 100 bishop that failed to identify a lazy sword + rotten skin armor。」\n\w8\w8\0\s[3]I've been thinking for a while……。\n\n\w8\1Hmm?\n\w8\0Don't you think these ２ can be understood just by looking without distinguishing them?\n\w8\1It is a mystery that only the bishop can be identified。\e
+#19
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When you stepped on a frog at the end of the last story of Yokai Dochu。」\n\w8\w8\0\s[4]１ coin heaven is far。\n\n\w8\1Training is not enough。\e
+#20
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} wasB\n\w8「Death fell while invincible。」\n\w8\w8\0\s[4]Good to take the star、a pitfall if you are running on light music。\n\n\w8\1Basically。\e
+#21
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When I was trying to get a COM moss on an Excite bike、the place was off and I was back。」\n\w8\w8\0\s[5]It's too much fun to hit the rear wheel and roll it down、or to dive all the way down the COM from the jumping hill。\n\n\w8\1You are……。\e
+#22
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「DQ1 relatives 「It was fun yesterday。」 When you see a message。」\n\w8\w8\0\s[0]Have fun……what did you do?\n\n\w8\1Well……what is that?\n\w8\0\s[5]After all、it's a game all night。\w8\1Exactly。\e
+#23
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「Something that、when I realized that I paid GOLD for 「puffy」。」\n\w8\w8\0\s[4]……。\n\n\w8\1Naturally if you are a man。\w8No、rather than being a man。\n\w8\0Yes yes。\e
+#24
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「If you do Air Combat 2 with PC98VM、FPS is 0.5。」\n\w8\w8\0\s[0]In the first place、doing a 3D flight sim with that spec is wrong。\n\n\w8\1I still want to do it。\w8I'm aguy。\n\w8\0\s[4]……ha。\e
+#25
+sentence : \0\s[5]！s the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「A PlayStation that is crisp because of poor reading。」\n\w8\w8\0\s[3]What is PlayStation?\n\n\w8\1It looks like the latest state-of-the-art game console。\w8It seems that polygons move in Gringlin。\n\w8\0\s[0]Then、ＳｅｅＮａ can be transplanted easily。\w8\1I'm looking forward to it。\e
+#26
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「A person who keeps walking in the corridor endlessly without noticing that it is protected in Sabash。」\n\w8\w8\0\s[4]Copy is useless～。\n\n\w8\1It seems that there was a swallow that asked Bomaga in a certain ＡＶＧ without noticing that it was because of the protection that he could not proceed。\n\w8\0It made a disastrous appearance。\e
+#27
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When there is no label that should have been affixed to the removed floppy。」\n\w8\w8\0\s[4]……you were drunk。\n\n\w8\1Don't drink。\n\w8\0\s[0]Conversely、something may come out。\w8\1……what。\e
+#28
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When I see people talking in machine language。」\n\w8\w8\0\s[0]……we sometimes use it。\w8\1It's quite troublesome。\e
+#29
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When the game is over while the bomb is rolling up too much in shooting。」\n\w8\w8\0\s[4]Most of the time you'll notice after you're done。\n\n\w8\1If you do not use to save it、it will be cut off where it is important if you use it normally。\w8\0It's difficult。\e
+#30
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When it is not possible to clear only when scrolling to the left for the same surface on Star Radar for some reason。」\n\w8\w8\0\s[3]Even race games are suddenly difficult when you go in reverse。\w8\1Anyway、${1} hone himself with Bartron。\e
+#31
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「A suicide bomb attempts to step on Kuribo。」\n\w8\w8\0\s[4]Going to step straight from the top、but it's a bit off。\w8\1You can sympathize with the steps you take if you just overdo it。\e
+#32
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When I noticed that NEC Avenue games have been postponed again。」\n\w8\w8\0\s[0]Well、it's ＮＥＣ。\n\n\w8\1There is no common sense for that manufacturer。\n\w8\0\s[4]In many ways。\e
+#33
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When I learned that half of the FD12 disc title was for the opening demo only。」\n\w8\w8\0\s[0]それって、\w8\n「元々ゲーム本体は６枚組で、オープニングのために６枚追加した」\w8\nと考えるか、\w8\n「元々ゲーム本体は１２枚組だったけど、オープニングのためにやむなく削った」\n\w8と考えるかでかなり違ってくるよね。\w8\1Either way、the fact remains the same。\e
+#34
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「A friend who said、『Let's go buy together after school』 before the release date of ＤＱ３ was absent on the day。」\n\w8\w8\0\s[3]In front of Dragon Quest、friendship is also fragile。\n\n\w8\1\s[11]True gamers don't need friends。 Strong enemy。\n\w8\0\s[4]……ha。\e
+#35
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「Siddo escapes by calling a terrible thing in Pulpunte in trouble。」\n\w8\w8\0\s[3]Well、I would also want to escape the horrible just there。\n\n\w8\1\s[10]I can't really show it to the players。\e
+#36
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When I saw myself are facing the NES to say that it is the New Year。」\n\w8\w8\0\s[0]……it's normal for me。\n\n\w8\1\s[10]Because the new year is natural in games。\n\w8\0\s[5]This year playing games till watching the first sunrise。\w8\1It was dazzling and the screen was hard to see。\e
+#37
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When LongFileName is broken using SpeedDisk and the face of renaming H game files one by one appears on the black screen of DOS。」\n\w8\w8\0\s[4]……。\n\n\w8\1\s[10]I don't know this feeling。\n\w8\0But I do not even want to know separately。\e
+#38
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When the sound is clocked up。」\n\w8\w8\0\s[3]It's nice to be fast、but it's not calm。\n\n\w8\1\s[10]In such a case、if the hearing is clocked up, it is ＯＫ。\w8\nWell、I can do it from me。\e
+#39
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When I met Banshee in the PC88 version of Ark's and ended up in an infinite loop。」\n\w8\w8\0\s[4]Since losing admit、feeling defeated early。\n\n\w8\1\s[10]Did the test player there never meet Banshee?\n\w8\0\s[8]In the first place there was no test player for it。\e
+#40
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When you play an old game and discover an urtech that isn't listed in Daelim Forest。」\n\w8\w8\0\s[5]If you tell me、I'll announce it instead。\n\n\w8\1\s[10]You can't say anything because it sounds like a lie。\n\w8\0\s[4]Mmm～。\e
+#41
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When the special flag does not appear even if you shoot。」\n\w8\w8\0\s[4]This is common～。\n\n\w8\1\s[10]I guess it doesn't come out even if you shoot from end to end。\e
+#42
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「The game is Mahjong Mahjong。」\n\w8\w8\1\s[10]……there is a degree of evil。\n\n\w8\0\s[4]That's why we shouldn't hit the undressing mahjong opponent loudly。\e
+#43
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When I put in money to continue、but it got stuck and the game was over。」\n\w8\w8\0\s[4]Besides、there is no change at the time of continuation、there is game over if you return after changing money。\n\n\w8\1\s[10]So、continuation has evil ways……\w8\0Yes yes。\e
+#44
+sentence : \0\s[5]Is the corner of "Shiteoku moment"。\n\n\w8\1\s[10]Um。\n\w8\0What's the shiteoku today?\n\n\w8\1From ${sentence.place}・${o.name} was。\n\w8「When you cancel the bonus 60th character。」\n\w8\w8\0\s[4]This hand、is this hand……。\n\n\w8\1\s[10]Don't just sleep on those days。\e
+
+
+
+#--------------------------------------------------------------------------
+#Monologue
+
+#01
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8Darius Ⅲ、yet?』\n\n\w8\w8……\s[5]surely it will be soon。 Let's wait without abandoning hope。\w8\1Well、give up and play other games。\e
+#02
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8Super Arabian's three sides can't be solved。』\n\n\w8\w8……\s[8]please do your best。\w8\1I understand your feelings。\e
+#03
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8is it a lap scan nowadays?』\n\n\w8\w8……\s[0]well、I do it normally。\w8\1In this era、scanners are still expensive。\e
+#04
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8after all、it's a thumb shift。』\n\n\w8\w8\s[0]In fact、I wonder what about。\n\n\w8\1At that time、it was said to be god speed……。\w8\0\s[3]Then it would be better to spread it。\e
+#05
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0At ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8If I switch to DOS/V、I can't use Shizuka format。』\n\n\w8\1Null。 Prepare a special machine。\n\w8\0\s[4]……special-purpose machine?\n\n\w8\1Yes、it is a machine that keeps formatting FDs with Shizuka format。\w8\0The head seems to be worn out……。\e
+#06
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8so don't call assembler a low-level language。』\n\n\w8\w8\s[3]I'm rude to assembler。\n\n\w8\1Well、I wonder if this story is about to come。\e
+#07
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8I can't forgive extensions with more than 4 characters。』\n\n\w8\w8\s[7]Exactly!\n\n\w8\1It's not too much praise for files with more than eight characters。\w8\0It's outrageous。\e
+#08
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8you can eat anything with curry flavor。』\n\n\w8\w8\1Speaking of curry……。\n\w8\0\s[0]What?\n\n\w8\1I was about to die from a curry pilaf you made this time。\n\w8\0\s[5]Oh～、that's it。\w8I made it from the rice in the refrigerator、was it a bit old?\n\n\w8\1Be aware of that before making it。\n\w8\0It smelled sour、but I thought it would be okay if it had curry。\w8\1……。\e
+#09
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8I guess I'm not going to sing karaoke in love。』\n\n\w8\w8\s[0]Isn't there a search?\n\n\w8\1No、not sure。\w8\0Even though we have 8 tigers……。\e
+#10
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8this guy has been chopping cabbage all the time。』\n\n\w8\w8\s[0]I watched it for about an hour to try it out、but after all、it was ticking。\n\n\w8\1Try to be the body of a falcon that is eaten that amount。\w8\0\s[4]Stir-fried cabbage with miso soup of cabbage、cabbage rice……。\e
+#11
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8BugBug has been an eroge magazine since。』\n\n\w8\w8\s[0]I feel like it was a regular ＰＣ magazine when it was launched。\n\n\w8\1From a relatively early stage、it gradually flowed over the route。\n\w8\0\s[3]That's when you started buying。\n\n\w8\1It is a common practice for men to buy erotic books。\w8\0\s[4]I don't know why……。\e
+#12
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8CHECK SUM ERROR……。』\n\n\w8\w8\s[4]Well、 came out again。\n\n\w8\1You better just leave。 Remember the hardships of Bemaga。\n\w8\0So。 This bug never disappears……\n\n\w8\1After worrying for a month、the cause was a typo。\e
+#13
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8There is nothing impossible in the ＨＥ system。』\n\n\w8\w8\s[0]One don't really understand the ＨＥ system because it has too many components。\n\n\w8\1When you collect all and assemble、the ultimate combined special great ＰＣ engine Ｄｕｏ－ＲＸ that exceeds the next generation machine……\0\s[4]Can not。\e
+#14
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8１６ of the ４０９６ colors are sufficient。』\n\n\w8\w8\s[0]That's enough at all。\n\n\w8\1It's outside full color。\w8\0It's a natural picture mode with a hundred steps。\e
+#15
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8That person、I'm sorry。 Comes on the B dash…。』\n\n\w8\w8\s[8]No matter how much does do。\w8\1Except for us。\e
+#16
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8ドアノシュウリダイヲモラウゾ！』\n\n\w8\w8\s[3]That is it targeting absolute。\w8\1Make sure you have a proper door before the repairs。\e
+#17
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8When I put the TV vertically、it was broken as expected。』\n\n\w8\w8\s[0]I wonder if you try to play in the arcade mode?\w8\1In such a case、it is correct to lie down。\e
+#18
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8it's a square button。』\n\n\w8\w8\s[3]Square buttons are hard to use。\n\n\w8\1What to say。 The NES with square buttons is the true NES。 The rest is fake。\n\w8\0Is that so?\n\n\w8\1It is something that imitators are likely to do、such as selling round buttons for ease of use。\w8\0\s[4]……yes。\e
+#19
+sentence : \0\s[0]Is the corner of "monologue"。\n\n\w8\1\s[10]Yeah。\n\w8\0From ${sentence.place}・${o.name}-san something of。\n\n\w8\w8『…\w8…\w8…\w8Also ＤＯ not supported either。』\n\n\w8\w8\s[4]Why～？\n\n\w8\1Well、after all it's an odd machine。\w8\0Also remarks to increase enemies……。\e
+
+
+#Sum
+#148+44+125+20+44+19=381
+
+
+#--------------------------------------------------------------------------
+# Random search
+
+# 402
+sentence: $(if $([ ${rsearchflag} -eq 1 ]) \0\s[5]$(set a ${o.wordlist})Suddenly, let's search for ${a} on Google.\w8\1\s[10]Why not?\j[http://www.google.com/search?hl=ja&lr=lang_ja&q=${a}])\e
+# 403
+sentence: $(if $([ ${rsearchflag} -eq 1 ]) \0\s[5]$(set a ${o.mag})Suddenly, let's search for ${a} on Yahoo Auctions.\w8\1\s[10]Is it available?\j[http://search.auctions.yahoo.co.jp/search/auc?auccat=&alocale=0jp&acc=jp&p=${a}])\e
+
+#--------------------------------------------------------------------------
+#Dictionary
+
+sentence.place :  Tokyo , Kanagawa, Chiba , Okinawa , Aomori , Fukuoka , Osaka , Kyoto , Hokkaido , Tokushima , Akita , Tochigi , Shiga , Nagano 
+
+:script end

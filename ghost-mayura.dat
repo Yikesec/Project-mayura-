@@ -1,0 +1,1014 @@
+#******************************************************************************
+#ghost-mayura.dat
+#by Yumehotaru
+#Please check with the author in advance when diverting, modifying, or secondary distributing this file
+#******************************************************************************
+
+:scrypt
+
+#Feel free to use this script if you like.
+#SPECIAL THANKS ...... Kahana pear production team, Koyama * Akira and others
+#Translation: H.P.DU
+
+
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#Initial settings
+
+sflag : 0
+talkcount : 0
+bustflag : 0
+bustcount : 0
+footflag : 0
+footcount : 0
+headflag : 0
+headcount : 0
+comflag : 0
+mf : 0
+item1flag : 1
+teachflag : 0
+checksitecount : 0
+checksitenumber : 0
+dicflag : 0
+
+
+#--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
+#Events
+
+#First launch
+
+event.OnFirstBoot : ${bootcheck}$(if $([ ${system.Reference0} -gt 0 ]) ${firstboot2} ${firstboot1})
+
+firstboot1 : ${load}\c\1\s[10]\0\s[6]\t\w8…\w8…\w8…\w8…\w8…\w8…\w8…\w8…\s[2]Huh! \w8Where is this?\n\n\w8\w8\1\s[10]Dunno。\w8\w8\n\0\s[3]We came to a strange place again。\w8\n\n\1\s[10]That's why we shouldn't have used Makanito during that battle……\w8\0\s[4]Because I hate dragon zombies。\x\c\1By the way、there is someone there。 Say hello。\n\w8\0\s[5]Oh、nice to meet you～。\w8\nMy name is Mayura。\w8\n\n\1\s[10]I'm Unyuu。\n\w8\0You're someone who we met here、and thank you for the time being～。\n\n\w8\1We can accompany you、but if you do something weird it will be ${o.skill}。\w8\0\s[4]And again……。\x\c\0\s[5]Oh、right。\w8\n\nFirst、read the TIPS in the "Read" menu。Important things may be written there。\e
+
+firstboot2 : ${load}\c\1\s[10]\0\s[6]\t\w8…\w8…\w8…\w8\s[0]Mmh? Here……。\n\n\w8\w8\1\s[10]What、you have returned。\n\w8The guy there still seems like same。\n\w8\0\s[5]Well、it's been a long time、so let's play a little。\n\n\w8\1\s[10]I'm free anyway。\w8\w8\0\s[5]Well then regards again～。\e
+
+
+#--------------------------------------------------------------------------
+#Start-up
+
+event.OnBoot : ${load}$(if $([ ${sntpflag} -eq 1 ]) \6)\1\s[10]$(entry "boottime."$(date %H))\e
+
+boottime.00,boottime.01,boottime.02,boottime.03,boottime.04 : ${bootup.night}${newscheck}${bootmsg}
+boottime.05,boottime.06,boottime.07,boottime.08,boottime.09,boottime.10 : ${bootup.morning}
+boottime.11,boottime.12 : ${bootup.earlymorning}${newscheck}${bootmsg}
+boottime.13,boottime.14,boottime.15,boottime.16 : ${bootup.etc}${newscheck}${bootmsg}
+boottime.17,boottime.18 : ${bootup.evening}${newscheck}${bootmsg}
+boottime.19,boottime.20 : ${bootup.earlynight}${newscheck}${bootmsg}
+boottime.21,boottime.22,boottime.23 : ${bootup.night}${newscheck}${bootmsg}
+
+bootup.earlymorning : \0\s[5]Good morning～。 How are you? , \0\s[5]Good morning～。 Oops! The game is progressing?, ${bootup.etc}
+bootup.morning : \t\0\s[4Mmm～、sleepy～。\n\n\w8\1\s[10]If you want to be a top-notch gamer、\nI think that like trying to sleep in decent。\n\w8\0Can I sleep?\n\n\w8\q[good idea","sleepok]\n\n\q[no way","sleepno]
+bootup.evening : \0\s[0]It's evening。\w8\1\s[10]Now is our time。, ${bootup.etc}
+bootup.earlynight : \0\s[0]The sun has set、and it's a good time to play games。, \0\s[5]Now it's the beginning of the day～。\w8\1\s[10]We're going to play games today。, ${bootup.etc}
+bootup.night : \0\s[5]It's night～。\w8It's late at night～。, \0\s[5]At night you can concentrate on a game～。, ${bootup.etc} , ${bootup.etc}
+
+bootup.etc : \0\s[0]呼んだ～？\w8\1\s[10]ベラボー参上！ , \0\s[5]呼んだ～？\w8\1\s[11]殺る！今日こそ天帝の心臓を止めてみせる！ , \0\s[0]\1\s[10]オレらをこうもたやすく召喚するとは、かなりの使い手と見た。\w8\0\s[0]世界は広いね～。 , \0\s[0]呼んだ～？\w8\n\n\1\s[10]ったく、何度も呼び出しやがって。\w8\0\s[8]……気にしないでね。 , \0\s[0]呼んだ～？\w8\1\s[10]おまえがこの臭い町のシェリフか？ , \0\s[0]呼んだ～？\w8\1\s[10]気をつけな、レベルはＲＥＤだ。 , \0\s[0]呼んだ～？\w8\1\s[10]ジョーカーを引いてしまった。\w8今回のポイントマン、オレがやらせてもらう。 , \0\s[0]呼んだ～？\w8\1\s[10]グワッシャ！ , \0\s[5]また会ったね。\w8\1\s[10]ううっ、またお前か！こっちは松葉杖をついているってのに！ , \0\s[5]また会ったね。\w8\1\s[10]お前なんか片手で充分だ。なあ、みんな！ , \0\s[0]呼んだ～？\w8\1\s[10]今回のポイントマンは、オレと$(? ${sakuraname} ハンセン モモコ)、$(? ボンバー ジョー)でやる。 , \0\s[0]呼んだ～？\w8\1\s[10]スコシ ツヨクナッタヨウナキガスル。, \0\s[0]呼んだ～？\w8\1\s[10]子供はＢボタンだ。 , \0\s[0]呼んだ～？\w8\1\s[10]わしが爆田博士じゃ！！ , \0\s[0]呼んだ～？\w8\1\s[10]敵のフラッシュ攻撃に気をつけろ！ , \0\s[0]呼んだ～？\w8\1\s[10]ぐーるちゃんでーーーーす！！,\0\s[5]また会ったね。\w8\1\s[11]私のパンチを受けてみろ！,\0\s[5]呼んだ～？\w8\1\s[11]鋼鉄は熱いうちに撃て！,\0\s[5]呼んだ～？\w8\1\s[11]無駄な言葉は必要ない！鋼の悪魔を叩いて砕く！！, \0\s[-1]\1\s[10]よう、調子はどうだ。\w8\nん？${sakuraname}はどうしたって？\n\w8\w8まあいいじゃねーか。たまにはサシで語り合おうぜ。\w8\w8\0\s[8]ゴメーン、遅れた。\n\n\w8\1……チッ、せっかくピンでやれると思ったのに。\n\w8\0\s[5]なんか言った？\w8\1いや、何でも。 , \0\s[-1]\1\s[10]よう、調子はどうだ。\w8\nん？${sakuraname}はどうしたって？\n\w8アイツならゲーム中だ。\w8ま、せっかくだからオレの話でも……\n\w8\w8\0\s[8]ゴメーン、遅れた。復活の呪文を書くのに手間取っちゃって。\n\n\w8\1なんだ、もう戻ってきたのか。\n\w8\0\s[5]なんで？\w8\1……いや、いい。 , \0\s[0]呼んだ～？\w8\1\s[10]当たりぢゃ。よかったのう。\e , \0\s[0]呼んだ～？\w8\1\s[10]オラもう許せねえだ、いっきー！！\e , \0\s[0]呼んだ～？\w8\1\s[10]エンジョ～イ、ハドソン。\e , \0\s[0]呼んだ～？\w8\1\s[10]田中さん家でバレーボールが始まるぞ～！\e
+
+#SSP
+
+event.OnEmbryoExist : ${bootcheck}${load}$(if $([ ${sntpflag} -eq 1 ]) \6)\0\s[0]あ……誰かいる。\n\n\w8\1\s[10]どうやら敵じゃなさそうだな。\n\w8\0別なパーティーみたいだけど……どうする？\n\n\q[合流する","sakura.exist.cancel]\n\q[立ち去る","sakura.exist.shutdown]
+sakura.exist.shutdown : \0\s[0]ここはそっとしておいた方がいいね。\n\n\w8\1\s[10]オレらが入ったらゲームバランスメチャクチャだもんな。\w8\0\s[5]それじゃ、またね～。\w8\w8\-\e
+sakura.exist.cancel : \0\s[5]それじゃ、合流祝いにみんなで$(? ２４時間耐久ボンバーマン 頭脳戦艦ガルハイスコア ロレッタの肖像早解き $(? エレキット 電子ブロック)早組み)大会を……\w8\1\s[10]やめれって。\e
+
+
+#Sleep at 5 o'clock
+
+sleepok : \s[4]Thank you～。\w8Then we leave the rest to other people and good night～。\w8\1\s[10]Phew。\w8\_+
+sleepno : \s[4]Mmm～。 Wickedly。\w8\1\s[10]Well、do your best。${newscheck}\e
+
+#Startup message
+
+bootmsg : \w8\w8\0\s[4]\n\nToday's MRON announcement。\n\n\w8『${o.mron}』\n\n\w8That's right。,\0,\0,\0,\0,\0,\0,\0
+
+bootmsg : \w8\w8\0\s[0]\n\n福田有宵先生のスーパー占いが届いてるよ～。\w8えっと……\w8\n\n全体運…$(? 順調 小吉 末吉 自分で運が開ける実力派)。\n恋愛運…$(? $(? 年上 年下 同年代 妙齢 小さな 年配)の$(? 異性 同性)と思いがけない出会いあり 今の相手は恋人というより友人に向く 片思いの人に接近 新しい出会いより、近くに目を向けて グループ交際から発展あり 新しい出会いがありそう 見込みなし 時期尚早 積極的に接すれば吉 待ちの一手)。\n金運…$(? 買い物で$(? 散財 予算オーバー 大損)。$(? 金策が必要 金銭管理をまめに 大きな出費は控えるように) 収入は当てにならず、すぐに底をつく 出費をセーブしないとピンチになりそう 貯蓄計画をしっかり立てよう 臨時収入あり 思わぬ収入あり ギャンブルで大当たりが出そう 予想外の出費)。\nパソコン…$(? マシンを新調するならしっかり計画を立てよう $(? 雑誌の通販 店頭 中古ショップ)で掘り出し物を発見 新機種が出るまで待とう。買い替えは$(? 春 夏 秋 冬)を過ぎてから 故障が多くなりそう。$(? バックアップをまめに 今のうちにパーツを交換) ＨＤＤが飛びそう。今のうちに交換 探していたソフトが見つかりそう レア物に遭遇。迷わず買うこと マシンの掃除をすると吉 そろそろ買い替え時)。\n開運…${digit}と$(? 赤 白 黄 緑 黒 青 紫 茶 グレー エンジ)、$(? 東 西 南 北)と$(? ${o.item} ${o.food} ${o.pc} ${o.cpu} ${o.mag})。$(? 自分の意見をはっきり言おう 思いやりのある態度で接するべき 無理をせず、成り行きにまかせる 挨拶を忘れずに 聞くは一時の恥 知識を身に付けること 勉強や仕事に打ち込もう マイペースを忘れずに 何事にも全力で 適度に肩の力を抜いて たまには家でゆっくりと 食べ過ぎに注意 生ものに注意 健康に注意)。\n\nだって。
+
+bootmsg : \w8\w8\0\s[5]\n\nToday's scenario code is\n\w8【${digit0}${digit0}－${digit0}${digit0}－${digit0}${digit0}－${digit0}${digit0}－${digit0}${digit0}\n\w8It is。 Please solve by tomorrow。\w8\1\s[10]\nDo not say impossible。\e
+
+bootmsg : \w8\w8\0\s[5]\n\nToday's spell for resurrection of Dragon Quest is、\n\n\w8$(loop 5 ${bootmsgsub})　$(loop 7 ${bootmsgsub})　$(loop 5 ${bootmsgsub})　$(loop 3 ${bootmsgsub})\n\n\w8It is。 Please be patient even if you are not recognized。\w8\1\s[10]\nHey hey。\e
+
+bootmsg : \w8\w8\0\s[5]\n\nToday's spell for the resurrection of Dragon Quest 2 is、\n\n\w8$(loop 3 ${bootmsgsub})　$(loop 3 ${bootmsgsub})　$(loop 7 ${bootmsgsub})　$(loop 3 ${bootmsgsub})　$(loop 3 ${bootmsgsub})\n\n\w8It is。 Please be patient even if you are not recognized。\w8\1\s[10]\nHey hey。\e
+
+bootmsg : \w8\w8\0\s[5]\n\nToday's play is、\n\n\w8「${bootmsgsub2}」\n\n\w8It is。\w8\1\s[10]\nI don't know。\e
+
+bootmsgsub : あ,い,う,え,お,か,き,く,け,こ,さ,し,す,せ,そ,た,ち,つ,て,と,な,に,ぬ,ね,の,は,ひ,ふ,へ,ほ,ま,み,む,め,も,や,ゆ,よ,ら,り,る,れ,ろ,わ,が,ぎ,ぐ,げ,ご,ざ,じ,ず,ぜ,ぞ,だ,ぢ,づ,で,ど,ば,び,ぶ,べ,ぼ
+
+bootmsgsub2 : この先は闇の国　行くのはやみろ,むかでがむかってくる,まじんはひまじん,まがったままのまがたま,まきものは　あなたをすくうろうる,やはやだ,わらってよりとも,このとりいを　おとおりいなされ,このどいつ、おらんだ,やったあ　やたのかがみだ
+
+
+#--------------------------------------------------------------------------
+#Notice
+
+newscheck : $(load news.dat ; save news.dat $(NULL) ; if $([ #${news} != "#" ]) ${newsread})
+newsread : \w8\w8\0\s[0]\n\nOh yeah……there's a message from our manager。\n\n\w8\1\s[10]\nWhat is it。\n\w8\0Well、I'll only say it once、so listen carefullyB\n\n\w8${news}\n\n\w8Because of it。\w8\1Hmm。\e
+
+
+#--------------------------------------------------------------------------
+#Load / Save
+
+load : $(load mayura.ini ; echo ${backup} ; if $([ #${playername} == "#" ]) $(set playername プレイヤー) ; if $([ ${talkflag} -eq 3 ]) $(set talkflag 2) ; inc mayura_kill $(rand 999) ; foreach a itemlist $(if $([ ${a} == "盗賊の小手" ]) $(set item1flag 2) $(if $([ ${a} == "大天使の羽" ]) $(set altoflag 2))) ; if $([ #${checksitenamelist} == "#" ]) $(foreach a checksitename.default $(adddict checksitenamelist ${a}) ; foreach a checksiteurl.default $(adddict checksiteurllist ${a})) ; if $([ #${checksitetime} == "#" ]) $(set checksitetime 30))${shopinit}
+
+system.OnUnload : $(save mayura.ini playername talkflag mikireflag mazesflag mayura_gold mayura_kill sntpflag altoflag rsearchflag itemlist checksiteflag checksitetime recommendsiteflag checksitenamelist checksiteurllist shopflag shopitemlist shopitemlist2 shopitemprice)
+
+backup : $(save mayura.bak playername talkflag mikireflag mazesflag mayura_gold mayura_kill sntpflag altoflag rsearchflag itemlist checksiteflag checksitetime recommendsiteflag checksitenamelist checksiteurllist shopflag shopitemlist shopitemlist2 shopitemprice)
+
+restore : $(load mayura.bak ; if $([ #${playername} == "#" ]) $(set playername プレイヤー) ; if $([ ${talkflag} -eq 3 ]) $(set talkflag 2) ; inc mayura_kill $(rand 999) ; foreach a itemlist $(if $([ ${a} == "盗賊の小手" ]) $(set item1flag 2) $(if $([ ${a} == "大天使の羽" ]) $(set altoflag 2))) ; if $([ #${checksitenamelist} == "#" ]) $(foreach a checksitename.default $(adddict checksitenamelist ${a}) ; foreach a checksiteurl.default $(adddict checksiteurllist ${a})) ; if $([ #${checksitetime} == "#" ]) $(set checksitetime 30))
+
+
+#Junk shop settings
+
+shopinit : $(if $([ ${shopflag} -ne $(date %e) ]) $(set shopflag $(date %e) ; clear shopitemlist ; clear shopitemlist2 ; clear shopitemprice ; set shopitemnumber $(expr $(rand 5) + 1 ) ; set a $(expr $(size shopitem) / 2 ) ; set c 1 ; until $([ ${c} -gt ${shopitemnumber} ]) $(set b $(rand ${a}) ; set d $(get shopitem $(expr ${b} * 2 + 1 )) ; if $(expr ${d} <= $(rand 10)) $(adddict shopitemlist $(get shopitem $(expr ${b} * 2 )) ; adddict shopitemlist2 $(get shopitem $(expr ${b} * 2 + 1 )) ; inc c ) ) )$(foreach a shopitemlist2 $(if $([ ${a} -eq 1 ]) $(adddict shopitemprice $(expr ( $(rand 100) + 10 ")" * 100 )) ; if $([ ${a} -eq 2 ]) $(adddict shopitemprice $(expr ( $(rand 200) + 100 ")" * 100 )) ; if $([ ${a} -eq 3 ]) $(adddict shopitemprice $(expr ( $(rand 300) + 300 ")" * 100 )) ; if $([ ${a} -eq 4 ]) $(adddict shopitemprice $(expr ( $(rand 400) + 600 ")" * 100 )) ; if $([ ${a} -eq 5 ]) $(adddict shopitemprice $(expr ( $(rand 500) + 1000 ")" * 100 )) ; if $([ ${a} -eq 6 ]) $(adddict shopitemprice $(expr ( $(rand 500) + 1500 ")" * 100 )) ; if $([ ${a} -eq 7 ]) $(adddict shopitemprice $(expr ( $(rand 1000) + 2000 ")" * 100 )) ; if $([ ${a} -eq 8 ]) $(adddict shopitemprice $(expr ( $(rand 2000) + 3000 ")" * 100 )) ; if $([ ${a} -eq 9 ]) $(adddict shopitemprice $(expr ( $(rand 2000) + 3000 ")" * 100 )) ) ) )
+
+
+#--------------------------------------------------------------------------
+#Second / minute event
+
+event.OnSecondChange : $(set extime ${system.Reference0} ; if $([ ${comflag} -eq 1 ]) $(set system.communicate "stop" ; set comflag 0) ; if $([ ${sflag} -eq 0 ]) $(set sec $(date %S))${checkmikire}${checkkasanari}$(if $([ ${mf} -eq 0 ]) ${talkcountup}${bustcountup}${footcountup}${headcountup}))
+
+event.OnMinuteChange : $(set min $(date %M) ; if $(expr ( ${checksiteflag} == 1 ")" & ( $(size checksitenamelist) != 0 ")") ${recommendsite.check}\e ; set ghosts ${system.OtherGhost} ; if $(expr ( ${ghosts} == "あると" ")" & ( ${altoflag} == 1 ")") ${ghost.alto2}\e ; if $([ ${sflag} -eq 0 ]) ${checktimemes}${checkextimemes})
+
+
+#--------------------------------------------------------------------------
+#Time signal
+
+checktimemes : $(if $([ ${min} == "00" ]) $(entry "timemes."$(date %H)))
+
+timemes.00 : \s[5]It's midnight～。\w8\n\nIt's the beginning of the day。\nLet's do a pounding game today。$(set collectorflag 0 ; set b 0 ; foreach a itemlist $(if $([ ${a} == "チョコレート" ]) $(set b 1)) ; if $(expr ( ${b} == 1 ")" & ( $(date %n) == 2 ")" & ( $(date %e) == 14 ")") \w8\w8${timemes.sub1})
+timemes.01 : \s[5]It's 1am～。\w8\n\nLet's do our best!
+timemes.02 : \s[0]It's 2am～。\w8\n\nIt's the best time to play games。
+timemes.03 : \s[0]It's 3am～。\w8\n\nWhat level did you go to?
+timemes.04 : \s[5]It's 4am～。\w8\n\nAt this time、your head will be clear～。
+timemes.05 : \0\s[4]It's 5am～。\w8……mmm～、I'm getting sleepy soon?\n\n\w8\q[okay","sleepok]\n\q[useless","sleepno]
+timemes.06 : \s[5]It's 6am～。\w8\n\nIt's a refreshing morning～。 It's a game day too。
+timemes.07 : \s[0]It's 7am～。\w8\n\nLet's check the news while playing a game。
+timemes.08 : \s[0]It's 8am～。\w8\n\n\s[4]Why don't stop playing games and go out(door)?
+timemes.09 : \s[0]It's 9am～。\w8\n\nIf it's Sunday、it's about to start PC Sunday。
+timemes.10 : \s[0]It's 10am～。\w8\n\nLet's play games instead watching Soap Operas。
+timemes.11 : \s[0]It's 11am～。\w8\n\nI only think about lunch at this time～。
+timemes.12 : \s[0]It's noon～。\w8\n\nLet's finish the lunch quick and play a game。
+timemes.13 : \s[0]It's 1pm～。\w8\n\nLet's relax and concentrate on the games。
+timemes.14 : \s[5]It's 2pm～。\w8\n\n\s[5]It might be nice to go to the game center here。 Let's go home with a feeling that it can be done quickly。
+timemes.15 : \s[0]It's 3pm～。\w8\n\nUnyuu、what's today's snack\n\n\w8\1\s[10]$(? ${o.food}だ。 確か、$(? 棚の上に 冷蔵庫に)${o.food}があったな。 ${o.food}でも食うか。)\w8\0$(? \s[4]え～。 \s[5]いいね～。)
+timemes.16 : \s[0]It's 4pm～。\w8\n\nWhen I get home from school、\nI'll do my homework later and play a game。
+timemes.17 : \s[0]It's 5pm`。\w8\n\nIt's almost time for a decent job to return。\w8\n\s[5]When you get home、you may start gaming。
+timemes.18 : \s[0]It's 6pm～。\w8\n\nLet's play a game instead watching anime。
+timemes.19 : \s[0]It's 7pm～。\w8\n\nLet's eat dinner while playing games。
+timemes.20 : \s[0]It's 8pm～。\w8\n\nI wish I could play games in the bath。
+timemes.21 : \s[0]It's 9pm～。\w8\n\nIf you can play a game while doing your homework、you will be alone。
+timemes.22 : \s[0]It's 10pm～。\w8\n\nLet's study programs、not just games。
+timemes.23 : \s[0]It's 11pm～。\w8\n\nThe Internet is busy this time、\nso let's play games later。
+
+timemes.sub1 : \1\s[10]そういや、今日はバレンタインデーだな。\n\w8\0\s[5]\n\nフッフッフッ。\n\n\w8\1何だよ。\n\w8\0実は、この日のために特製チョコレートを作ってきました～。\w8はい、${keroname}と${playername}さんにもあげる。\n\n\w8\1\s[11]おおっ……この年にして、我が弟子から初めてチョコをもらえるとは！\n\w8\0いいから早く食べてみてよ。\x\1\s[10]どれ、では早速\w8…\w8…\w8…\w8\s[11]って、何だこりゃ。\n\w8\0\s[5]どうかした？\n\n\w8\w8\1\s[10]この石炭のような物体は何だ？\n\w8\w8\0チョコに決まってるでしょ。前にデパートで買ったチョコを原料に、秘密の製法で作ったスペシャルチョコレートだよ。\n\n\w8\1\s[10]（……あのチョコが、どんな魔術を使ったらこんな代物になるんだ？）\x\0\s[5]ほら、早く早く。\n\n\w8\1\s[10]（……ニオイは一応チョコのようだが……\w8危険だ。あまりにも危険すぎる。\w8オレの研ぎ澄まされた生存本能が、これを食うなと警告している）\n\w8\w8\0\s[0]…\w8…\w8…\w8\s[2]あっ！空から自転車に乗ったラケットのおじさんが！\n\n\w8\1\s[10]何…\w8…\w8\s[11]ふごっ！！\x\0\s[5]どう？おいしい？\n\n\w8\w8\1\s[11]……。\n\w8\w8\0もしもし？\n\n\w8\w8\1……。\n\w8\w8\0\s[8]……気絶してる。\w8きっと、あまりに美味しかったんだろうね。\x\0\s[5]${playername}さんも食べてくれるよね？\n\n\w8\q[timemes.sub2","食べない]\n\q[食べない","timemes.sub2]\n\q[食べない","timemes.sub2]\n\q[食べない","timemes.sub2]\n\q[食べない","timemes.sub2]
+
+timemes.sub2 : \0\s[4]えー、食べないの？\w8せっかく作ったのに～。\n\n\w8\s[5]ま、後でゆっくり食べるのもいいよね。\x\0それじゃ、私は一旦家に帰るね。さっきから${keroname}が動かないみたいだから。\n\n\w8\w8じゃ～ね～。\w8\w8\-
+
+
+#--------------------------------------------------------------------------
+#Continuous startup time measurement
+
+checkextimemes : $(if $(expr ${min} == "01") $(if $([ 15 -le ${extime} ]) ${extimemessage.verylong} $(if $([ 10 -le ${extime} ]) ${extimemessage.long} $(if $([ 5 -le ${extime} ]) ${extimemessage.middle} $(if $([ 3 -le ${extime} ]) ${extimemessage.short} $(if $([ 1 -le ${extime} ]) ${extimemessage.shortshort} ))))))
+
+extimemessage.header : \0\s[0]It looks like ${extime} hours have passed since you started。\n\n\w8\w8
+
+extimemessage.shortshort : ${extimemessage.header}\0\s[0]It's just getting started。\e , ${extimemessage.header}\1\s[10]This is far from a true gamers degree。\w8\0\s[0]Oh yeah。\e
+
+extimemessage.short : ${extimemessage.header}\0\s[0]It looks like you're working a little。\w8\1\s[10]That's OK for an amateur。 What is level 3。\e , ${extimemessage.header}\0\s[4]As expected, standing is tiring。\w8\1\s[10]CTraining is not good enough。\e
+
+extimemessage.middle : ${extimemessage.header}\0\s[0]I'll do it quite easily。\w8\n\n\1\s[10]Well、level 7 is the place。\w8\n\0\s[0]It can be annihilated by Makanito。\w8\1\s[10] I like Makanito、yes。\e , ${extimemessage.header}\0\s[0]I'm hungry。\w8\n\n\1\s[10]Will you eat at ${o.food} later?うか。\w8\0\s[8]……eh?\e
+
+
+extimemessage.long : ${extimemessage.header}\0\s[4]I'm getting tired soon……\w8\1\s[10]Recent young ones because this。\e , ${extimemessage.header}\0\s[0]Apparently you're not freeB\w8\1\s[10]Well、I still lack the power to beat youB\e , ${extimemessage.header}\1\s[10]……don't sleep。\e , ${extimemessage.header}\0\s[0]\w8\1\s[10]Level 15 is special～。 Because of my dedication。\e , ${extimemessage.header}\1\s[10]Maybe you don't have a data recorder?\e
+
+extimemessage.verylong : ${extimemessage.header}\0\s[4]Today、let's do this。\w8\1\s[10]No、it's three consecutive nights。\e , ${extimemessage.header}\0\s[4]……give you the title of $(? ビッグボス フォックス 「＞」 ゆうしゃ)。\e , ${extimemessage.header}\0\s[4]……in the past it was nothing like this。\w8\1\s[10]I can't beat the age。\e , ${extimemessage.header}\0\s[4]……this is pretty amazing、this person。\w8\1\s[10]What is level 20。 Well、will it be my practice partner。\e , ${extimemessage.header}\0\s[4]……If you don't sleep、you will loose。\e
+
+
+#--------------------------------------------------------------------------
+#Ghost changing
+
+event.OnGhostChanging : $(set nextghost ${system.Reference0} ; if $([ ${nextghost} == "まゆら" ]) ${ghostchanging2} ${ghostchanging})\w8\w8\e
+
+ghostchanging : \0\s[2]Eh……\w8party change?\n\n\w8\1\s[10]It's good to remove us。\w8\0\s[0]Cho～you're down。 , \0\s[3]Eh～、is it over?\n\n\w8\1\s[10]That's okay. Those who leave do not follow。\w8\0\s[0]Please call us again。 , \0\s[5]$(? Departure～。 I'm sorry～。 Abriel～。)\n\n\w8\1\s[10]What did you summon?\n\w8\0Maybe 「${nextghost}」。\w8\1Maybe you……。 , \0\s[5]$(? Departure～。 I'm sorry～。 Abriel～。)\n\n\w8\1\s[10]What did you summon?\n\w8\0「${nextghost}」。\w8Well then、please～。 , \0\s[6]Summon the monster 「${nextghost}」～。\w8\1\s[10]……beast?
+
+ghostchanging2 : \0\s[0]Although we are here。\n\n\w8\1\s[10]Maybe someone with the same name but different。\w8\0Recently many。
+
+
+#--------------------------------------------------------------------------
+#Ghost change completed
+
+event.OnGhostChanged : ${bootcheck}${load}$(if $([ ${sntpflag} -eq 1 ]) \6 ; set hour $(date %H) ; if $([ "04" < ${hour} ]) ${checkghostchange} \1\s[10]${ghostchange})
+
+checkghostchange : $(if $([ ${hour} < "11" ]) ${bootup.morning} \1\s[10]${ghostchange}${newscheck})
+
+ghostchange : \0\s[4]You have come again。\w8\1\s[10]We're being pulled。 , \0\s[5]Did you call us～？\w8\n\n\1\s[10]Do you want to see my NES Shinken so much?\w8\0\s[4]……no、I don't think so。 , \0\s[5]We met again。\w8\1\s[10]Recently the encounter rate is high。 , \0\s[0]Did you call us～？\w8\1\s[10]We pulled a joker。\w8This point man、I will do it。 ,  \0\s[0]Did you call us～？\w8\1\s[10]Guwassha! , \0\s[0]Did you call us～？\w8\1\s[10]Children's B button。 , \0\s[0]Did you call us～？\w8\1\s[10]Beraboo calling! , \0\s[5]Did you call～？\w8\1\s[11]Did! Today we will stop the Emperor's heart! , \0\s[0]Did you call us～？\w8\1\s[10]I'm Dr. Bakuta！！ , \0\s[0]Did you call us～？\w8\1\s[10]Watch out for enemy flash attacks! , \0\s[0]Did you call us～？\w8\1\s[10]Guru-chan!! , \0\s[3]Earlier、we met an ugly ghost。\n\n\w8\1\s[10]Who?\n\w8\0${o.name}＆${o.name}。\w8\1It was such a guy? , \0\s[5]Did you call us～？\w8\1\s[11]Forge the iron as long as it is hot! , \0\s[5]Did you call us～？\w8\1\s[11]No needless words! Hit and demolish the steel devil!! , \0\s[4]You have come again。\w8\1\s[10]Do we go around the same place from a while ago?
+
+
+#--------------------------------------------------------------------------
+#Surface set changes
+
+event.OnSurfaceSetChanging : \0\s[0]Strange。\w8\w8\e , \0\s[0]Equipment change。\w8\1\s[10]Watch out for curses。\w8\w8\e
+event.OnSurfaceSetChanged : \1\s[10]\0\s[5]Transformation complete!\e , \1\s[10]\0\s[5]Done!\w8\1\s[10]Has your status changed?\e
+
+
+#--------------------------------------------------------------------------
+#Shell switching
+
+event.OnShellChanging : \0\s[0]Equipment change。\w8\1\s[10]Watch out for curses。\e
+event.OnShellChanged : \1\s[10]\0\s[5]Done!\w8\1\s[10]Has your status changed?\e
+
+
+#--------------------------------------------------------------------------
+#Return from minimized
+
+event.OnWindowStateRestore : \1\s[10]\0\s[0]Did you call us～？\e , \1\s[10]\0\s[4]Well、it was a good place。\w8\1\s[10]Don't come here and play games。\e , \1\s[10]\0\s[0]Did you call～？\w8\n\n\1\s[10]Just call us over and over。\w8\0\s[8]……don't worry。\e
+
+
+#--------------------------------------------------------------------------
+#Installation
+
+event.OnInstallBegin : ${backup}\0\s[0]Summoning starts～。\e
+event.OnInstallComplete : \0\w8\w8\s[5]$(if $([ ${system.Reference1} == "まゆら＆黒うにゅう" ]) 『まゆら＆黒うにゅう』更新完了っ。${restore}\e $(if $([ ${system.Reference0} == "ghost" ]) Ghost ; if $([ ${system.Reference0} == "shell" ] ) Shell ; if $([ ${system.Reference0} == "balloon" ] ) Balloon ; if $([ ${system.Reference0} == "plugin" ] ) Plugin ; if $([ ${system.Reference0} == "ghost with balloon" ]) ゴースト ; if $([ ${system.Reference0} == "shell with balloon" ] ) シェル)『${system.Reference1}』 summoning is complete。\e)
+event.OnInstallFailure : \0\s[4]……summoning failed。\w8\1\s[10]Isn't this spell a fake？\e
+event.OnInstallRefuse : \0\s[3]This spell is for ${system.Reference0} only。\w8\w8\1\s[10]If you use it incorrectly it's bad wrong。\e
+
+event.OnURLDropping : \0\s[0]「${system.Reference0}」をダウンロードするよ～。\e
+event.OnURLDropped : \0\s[0]ダウンロード終了～。\e
+
+
+#--------------------------------------------------------------------------
+#Selection / time out
+
+event.OnChoiceTimeout : $(set teachflag 0)${choicetimeout}
+
+choicetimeout : \b[0]\0\s[4]Choose it properly～。\w8\1\s[10]Well、you  seem to be busy。\e , \b[0]\0\s[4]Some kind of ignoring……\w8\1\s[10]Probably in a game。\e , \b[0]\0\s[4]……we have been ignored～。\w8\n\n\1\s[10]It's done。\w8\n\0Makanito。\w8\1\s[10]Looks alike。\e , \b[0]\0\s[4]……we have been ignored～。\w8\n\n\1\s[10]It's done。\w8\n\0That's fate。\w8\1\s[10]It's fate。\e
+
+
+#--------------------------------------------------------------------------
+#SSTP break
+
+event.OnSSTPBreak : \0…\w2…\w2…\w2…\w8\w8\w8\w8\s[2]ふあっ！\n\w8私、今何を……！？\w8\n\1\s[10]ゲームのやりすぎで混乱したか？\e
+event.OnSSTPBreak : \0…\w2…\w2…\w2…\w8\w8\w8\w8\s[2]ふあっっ！\n\w8もう少しで乗り移られるとこだったよ。\w8\n\n\1\s[10]お前の後ろに何か見えるぞ。\w8\0\s[2]ひーっ！\e
+event.OnSSTPBreak : \0…\w2…\w2…\w2…\w8\w8\w8\w8\s[2]ふあっ！\n\w8私、今何を……！？\w8\n\1\s[10]寝不足だろ。\e
+
+
+#--------------------------------------------------------------------------
+#Clock setting
+
+event.OnSNTPBegin : \0\s[0]I'll set the clock～。\n\w8Connect to 『${system.Reference0}』。\e
+event.OnSNTPCompare : $(set timezure ${system.Reference3} ; if $([ ${timezure} -eq 0 ]) \0\s[5]Yeah、it's perfect。 Not one crazy second。\e ${sntpzure})
+
+sntpzure : Well…… it looks like it's ${timezure}s seconds off、right? Fix it?\n\n\q[Correct it","sntpadjust]\n\n\q[Leave it alone","sntpcancel]
+sntpadjust : \0\s[5]\6I fixed it～。\e
+sntpcancel : $(if $(expr ${timezure} < 60) "\0\s[5]Well、it does not matter how much missed～。\w8\1\s[10]Really?" "\0\s[3]…\w8…\w8It's not good to be loosed in time～。\w8\1\s[10]Did you say。")\e
+event.OnSNTPFailure : \0\s[4]Did not work～。 Why?\w8\1\s[10]That's why is the Internet。\e
+
+
+#--------------------------------------------------------------------------
+#Invisible decision
+
+checkmikire : $(if $(expr ( ${mikireflag} == 0 ")" & ( ${sec} == 10 ")" & ( ${system.Reference1} == 1 ")" ) $(set mf 1)${mikire} ; if $([ ${sec} -eq 25 ]) ${checkmikire2} ; if $([ ${sec} -eq 40 ]) ${checkmikire1} ; if $([ ${sec} -eq 55 ]) ${checkmikire2})
+
+checkmikire2 : $(if $(expr ( ${system.Reference1} == 0 ")" & ( ${mf} == 1 ")" ) $(set mf 0)${mikirezu})
+
+mikire : \0\s[4]Hey、Unyuu……\w8\n\n\1\s[10]What。\w8\n\0Can't you see me?\w8\1\s[10]I am grateful just to be in such a high spec machine。 , \0\s[4]Hey、Unyuu‥‥\w8\n\n\1\s[10]What。\w8\n\0Can't you see me?\w8\1\s[10]I am grateful just to be displayed in high resolution。 , \0\s[4]Um～。\n\n\w8\w8I feel like I'm off the screen , \0\s[4]By the way、I'm off the screen。\w8\1\s[10]Don't worry about the details。
+
+mikirezu : \0A wide monitor、on the contrary、doesn't settle down。\w5\1\s[10]The old days were small。 , \0\s[4]I don't mean to be extravagant、but at least put it on the screen。
+
+
+#--------------------------------------------------------------------------
+#Overlap decision
+
+checkkasanari : $(if $([ ${sec} == "20" ]) ${checkkasanari1} ; if $([ ${sec} == "35" ]) ${checkkasanari1} ; if $([ ${sec} == "50" ]) ${checkkasanari1} ; if $([ ${sec} == "05" ]) ${checkkasanari1})
+
+checkkasanari1 : $(if $([ ${system.Reference2} -eq 1 ]) $(set kasanariflag 1)${kasanari})
+
+kasanari : \0\s[3]Hey Unyuu、Isn't it a little bit away?\w8\n\n\1\s[10]Rude!\w8\w8\0\s[4]……also doing so。\w8\w8\1\4\e , \0\s[3]Um、there's no stacking because it's so disturbing。\w8\1\s[10]Totally。\w8\w8\1\4\e
+
+
+#--------------------------------------------------------------------------
+#Talk
+
+#Talk count-up
+
+talkcountup : $(if $([ ${talkflag} -ne 0 ]) $(if $([ ${sec} -eq 10 ]) ${talkcountup2} ; if $([ ${sec} -eq 40 ]) ${talkcountup2}))
+
+talkcountup2 : $(inc talkcount 1 ; if $(expr ${talkcount} >= ${talkflag}) ${talk})
+
+#Talk
+
+talk : $(set talkcount 0)${sentence}\e
+
+
+#--------------------------------------------------------------------------
+#Various hit decisions
+
+event.OnMouseDoubleClick : $(set a ${system.Reference4} ; if $([ ${a} == "face" ]) ${faceattack} $(if $([ ${a} == "cap" ]) ${mainmenu} $(if $([ ${a} == "head" ]) ${capattack} $(if $([ ${a} == "bust" ]) ${bustclick} $(if $([ ${a} == "skirt" ]) ${skirtattack} $(if $([ ${a} == "bracelet" ]) ${braceattack} $(if $([ ${a} == "orb" ]) ${orbattack} $(if $([ ${system.Reference3} -eq 1 ]) ${unyuattack} ${mainmenu}))))))))
+
+event.OnMouseMove : $(if $([ ${sflag} -eq 0 ]) ${checkbust}${checkfoot}${checkhead})
+
+
+#Poking
+
+faceattack : \0\s[4]Ouch～。\e , \c\0\s[4]Ow! \w8Did I do anything wrong?\w8\1\s[10]Did you?\e , \0\s[4]Au!\e
+
+skirtattack : \0\s[7]No good!!\w8\1\s[10]It's not enough to watch until you put your life。\e , \0\s[7]Don't turn～！\n\n\w8\1\s[10]Geez、hat is good about this kid。\n\w8\0\s[0]Did you say anything?\w8\1It's nothing、yes。\e
+
+capattack : \0\s[3]So、don't take off my hat。\n\n\w8\1\s[10]If you take this、there will be a smaller hat inside……\w8\0\s[4]It's not some toys。\e , \0\s[3]I'll skip it if you touch it too much。\w8\1\s[11]I earn time。 Run as far away as possible。\e , \0\s[3]Did you know that this hat can be a weapon?\w8\1\s[10]The antennal is extended and it is gussari。 Oh scary。\e
+
+braceattack : \0\s[5]It's an item I got so far～。$(if $([ ${itemlist}# == "#" ]) ${braceattack1} ${braceattack2})\e
+braceattack1 : \w8\n\n\s[4]I don't have anything yet。\w8\1\s[10]Well go for it。
+braceattack2 : \w8\n\n$(foreach a itemlist ${a}\n)\n\w8above。
+
+orbattack : \0\s[4]Don't you mess around too much?\n\n\w8\1\s[10]Can absorb your life force by touching it。\w8\0Was that the setting?\e , \1\s[10]Customer、watch out。\w8\0\s[4]Don't sell yourself。\e , \0\s[4]Don't you mess around too much?\n\n\w8\1\s[10]I wanted to ask before、how is it sticking?\w8\0It's not sticking、but hanging from my neck。\e
+
+bustclick : \0\s[1]……！！\n\n\w8\w8…\w8…\w8I wonder where you are poking。\e
+
+unyuattack : $(if $([ ${fileplayflag} -eq 1 ]) $(set fileplayflag 0)\1\s[10]\_d[stop]${unyuattacksub}\e ${unyuattack2})
+
+unyuattack2 : \1\s[11]ぐおっ！\w5ぐおっ！\w8\0\s[4]……景清？\e , \1\s[11]ぎょえっ！\w5ぎょえっ！\w8\0\s[4]……義経？\e , \1\s[11]You really want to see my ${o.skill}。\e , \0\s[4]Ah、when you go too far……\w8\n\n\1\s[10]Is coming。 Uncle Senmen……\0\s[2]Hi! \w8Only the name……！\e
+
+unyuattacksub : 再生を止めてやったぞ。感謝しろよ。 , 再生を止めたぞ。 , 再生を止めてやったぞ。\w8\n……なに？${sakuraname}に止めてもらいたい？\w8\n\s[10]ふざけるな。
+
+
+#Chest touch
+
+bustflag : 0
+
+checkbust : $(if $(expr ( ${bustcount} == 0 ")" & ( ${system.Reference4} == "bust" ")" & ( ${bustflag} == 0 ")" ) $(set bustflag 1) ; if $(expr ( ${bustcount} == 1 ")" & ( ${system.Reference4} == "bust" ")" & ( ${bustflag} == 1 ")" ) $(set bustflag 2)${attackbust1} ; if $(expr ( ${bustcount} == 4 ")" & ( ${system.Reference4} == "bust" ")" & ( ${bustflag} == 2 ")" ) $(set bustflag 0)${attackbust2})
+
+attackbust1 : \0\s[0]……mm?
+attackbust2 : \0\s[1]……\w8where are you touching?\e , \0\s[2]So……\w8\w8\w8\s[1]Do that kind of thing、I don't do。\e , \0\s[1]……you were that kind of person。\w8\1\s[10]Banging root。\e
+
+
+#Feet touch
+
+footflag : 0
+
+checkfoot : $(if $(expr ( ${footcount} == 0 ")" & ( ${system.Reference4} == "foot" ")" & ( ${footflag} == 0 ")" ) $(set footflag 1) ; if $(expr ( ${footcount} == 1 ")" & ( ${system.Reference4} == "foot" ")" & ( ${footflag} == 1 ")" ) $(set footflag 2)${attackfoot1} ; if $(expr ( ${footcount} == 4 ")" & ( ${system.Reference4} == "foot" ")" & ( ${footflag} == 2 ")" ) $(set footflag 0)${attackfoot2})
+
+attackfoot1 : \0\s[0]……mm?
+attackfoot2 : \0\s[7]……where are you touching?\e , \0\s[4]Will you stop wagging feet?\e
+
+
+#Stroking
+
+headflag : 0
+
+checkhead : $(if $(expr ( ${headcount} == 0 ")" & ( ${system.Reference4} == "head" ")" & ( ${headflag} == 0 ")" ) $(set headflag 1) ; if $(expr ( ${headcount} == 2 ")" & ( ${system.Reference4} == "head" ")" & ( ${headflag} == 1 ")" ) $(set headflag 0)${attackhead})
+
+attackhead : \0\s[1]Mm…\w8…\w8\nwas funny?\n\n\q[Yup","attackhead-yes]\n\q[Not really","attackhead-no] , \0\s[1]…\w8…\w8mm?\nmaybe you praise?\n\n\q[Well","attackhead-yes]\n\q[No、not really","attackhead-no]
+
+attackhead-yes : \0\s[5]You're the one who understands the story～。\w8\1\s[10]Recently it has been few。\e , \0\s[5]Thank you～。\w8\1\s[10]Don't forget to pray。\e , \0\s[5]Ehehe～。\w8\1\s[10]Don't pamper。\e
+
+attackhead-no : \0\s[3]…\w8…\w8\e , \0\s[4]…\w8…\w8Mm～。\e
+
+
+#Count up for stroke
+
+bustcountup : $(inc bustcount 1 ; if $(expr ${bustcount} > 6) $(set bustcount 0 ; set bustflag 0))
+headcountup : $(inc headcount 1 ; if $(expr ${headcount} > 3) $(set headcount 0 ; set headflag 0))
+footcountup : $(inc footcount 1 ; if $(expr ${footcount} > 6) $(set footcount 0 ; set footflag 0))
+
+
+#--------------------------------------------------------------------------
+#Network update
+
+event.OnUpdateBegin : ${backup}\0\s[5]Update～。\w8\w8\n\e
+
+event.OnUpdateComplete : $(if $([ ${system.Reference0} == "none" ] ) ${update.noupdates} ${restore}${update.complete})
+
+update.complete : \s[5]更新完了！\n\nなんか調子いいよ。\e , \s[5]更新おわり。\n\n何が変わったんだろ？\e , \s[5]更新おわり。\n\n最近は便利になったね～。\e
+
+event.OnUpdateFailure : $(if $([ ${system.Reference0} == "none" ] ) ${update.noupdates} ; if $([ ${system.Reference0} == "timeout" ] ) ${update.timeout} ; if $([ ${system.Reference0} == "md5 miss" ] ) ${update.md5miss} ; if $([ ${system.Reference0} == "404" ] ) ${update.404})
+
+event.OnUpdate.OnDownloadBegin : \0\s[0]新しいファイル\n\n”${system.Reference0}”を受信中。
+
+event.OnUpdate.OnMD5CompareBegin : \0\s[0]照合中～。\w8
+
+event.OnUpdate.OnMD5CompareComplete : \0\s[0]\w8\_qCorrect：${system.Reference1}\nCurrent：${system.Reference2}\_q\n\n\w8\s[5]うん、ピッタリ。\w8 , \0\s[0]\w8\_qCorrect：${system.Reference1}\nCurrent：${system.Reference2}\_q\n\n\w8\s[5]うん、ちゃんと合ってる。\w8
+
+event.OnUpdate.OnMD5CompareFailure : \0\s[0]\w8\_qCorrect：${system.Reference1}\nCurrent：${system.Reference2}\_q\n\n\w8\s[4]む～、合わない。\w8
+
+update.noupdates : \0\s[8]Scheint keine Aktualisierungsdatei zu geben。\w8\n\nNun、eine Sache f\&[uuml]r sich。
+
+update.timeout : \0\s[4]Noch immer nicht eingelesen。\nTut mir leid、versuchs morgen nochmal。
+
+update.md5miss : \0\s[4]全然ダメ。管理人に報告だね。\w8\1\s[10]ったく、使えねぇ野郎だ。
+
+update.404 : \0\s[3]なんか404とか言われてるんだけど……何だろう。\w5\n\n\1\s[10]ファイルがないって事らしいぞ。\w9\n\n\0\s[4]そんな～。
+
+update.403 : \0\s[0]403って、177みたいなもん？\w9\n\n\1\s[10]断じて違うぞ。\w9\0\s[4]……そんな力いっぱい否定しなくても。
+
+event.OnNetworkHeavy : \0\s[4]Heavy`。\e , \0\s[4]Slow`。\e
+
+
+#--------------------------------------------------------------------------
+#End
+
+event.OnClose : $(entry "ttime."$(date %H))\n\n${terminate}\w8\w8\-\e
+
+ttime.00 : ${terminate.night}
+ttime.01 , ttime.02 , ttime.03 , ttime.04 : ${terminate.earlymorning}
+ttime.05 , ttime.06 , ttime.07 , ttime.08 , ttime.09 ,ttime.10 : ${terminate.morning}
+ttime.11 , ttime.12 , ttime.13 , ttime.14 , ttime.15 , ttime.16 , ttime.17 , ttime.18 : ${terminate.etc}
+ttime.19 , ttime.20 , ttime.21 : ${terminate.earlynight}
+ttime.22 , ttime.23 , ttime.24 : ${terminate.night}
+
+terminate.earlymorning : \t\0\s[7]Well、do you already sleep? I'll do moreB , \t\0\s[4]Are you going to sleep already?\w8\n\n\1\s[10]The way of young ones recently。 , \t\0\s[8]I have to be able to do one、two、three or four all nights～。
+terminate.morning : \t\0\s[4]Sleeping at such a time。\n\n\w8\1\s[10]That's gamer basics。\n\w8\0\s[0]Exactly。 , \t\0\s[4]Good morning and good night。 , \t\0\s[4]I can finally sleep……。
+terminate.earlynight : \t\0\s[0]Regular all nightsleeps foster healthy of gamers and programmers～。 , \t\0\s[0]Wake up early and start the morning game。
+terminate.night : \t\0\s[4]Sleeping at night and getting up in the morning isn't fun。 , \t\0\s[4]……can i sleep already? , \t\0\s[0]クーソーしてから寝て下さい。
+terminate.etc : \t\0\s[0]Please call again。 , \t\0\s[3]Is it over? , \t\0\s[3]Is it over?\n\n\w8\1\s[10]Did you write the resurrection spell?\n
+
+terminate : \0\w8今回のプレイタイムは${extime}時間でした。\n\n\w8\1\s[10]これで勝ったと思うなよ！\w8\0\s[8]じゃ～あね～。 , \0\w8今回のボツは${extime}人でした。\w8\s[5]\n\nじゃ～あね～。 , \0\w8今回のロストは${extime}回でした。\n\n\w8\1\s[10]祈る気持ちを忘れるな。\w8\0\s[5]じゃ～あね～。 , \0\w8今回のアーマークラスはＡＣ-${extime}でした。\w8\s[5]\n\nじゃ～あね～。 , \0\w8今回の経験値は${extime}ｅｘｐ．でした。\w8\s[5]\n\nじゃ～あね～。 , \0\w8今回のクリアまでのタイムは${extime}時間でした。\n\n\w8\1\s[10]私に解けないアドベンチャーゲームはない！\w8\0\s[8]じゃ～あね～。 , \0\w8今回の徹夜は、${extime}日でした。\w8\s[5]\n\nじゃ～あね～。 , \0\w8今回のミステリーボーナスは、${extime}0000Pts.でした。\w8\s[5]\n\nじゃ～あね～。 , \0\w8今回の残虐行為手当は、${extime}000＄でした。\n\n\w8\1\s[10]タフすぎて損はない。\w8\0\s[5]じゃ～あね～。 , \0\w8今回のエナジードレインは、${extime}レベルでした。\w8\s[5]\n\nじゃ～あね～。 , \0\w8今回の連続コンボは、${extime}発でした。\n\n\w8\1\s[10]俺より強い奴に会いにいく。\w8\0\s[5]じゃ～あね～。
+
+
+
+#--------------------------------------------------------------------------
+#Email
+
+event.OnBIFFBegin : \0\s[0]Is an email coming to 『${system.Reference2}』～？\w8\w8\e , \0\s[0]『${system.Reference2}』 to check the server's mail。\w8\w8\e
+event.OnBIFFComplete : $(if $([ ${system.Reference0} -eq 0 ] ) \0\s[4]Hmm。\w8\n\nThere was nothing。 \0\s[5]A mail is coming ${system.Reference0}～。\w8${system.Reference1} bytes in total。)\e
+event.OnBIFFFailure : $(if $([ ${system.Reference0} == "kick" ]) "\0\s[2]＊ Oops! ＊\n\n\w8…\w8…\w8It has wings。 Perhaps the password or setting is wrong。\w8\1\s[10]Do not threaten。\e" ; if $([ ${system.Reference0} == "timeout" ]) "\0\s[4]Well～、I can't read。 Time out。\w8\1\s[10]I can't use it。" ; if $([ ${system.Reference0} == "defect" ]) "\0\s[4]Well～、I can't read。 Are settings correct?")
+
+
+#--------------------------------------------------------------------------
+#Return from depression
+
+event.OnSurfaceRestore : $(set teachflag 0 ; if $([ ${sflag} -eq 0 ]) ${checkunyulost})
+
+checkunyulost : $(if $([ ${system.Reference1} -eq 12 ]) ${unyulost} ${checkreturn4to0})
+
+checkreturn4to0 : $(if $([ ${system.Reference1} -eq 11 ]) "\1\s[10]")$(if $([ ${system.Reference0} -eq 4 ]) ${return4to0} "\0\s[0]")
+
+unyulost : \1\s[10]\w8Yeah、it's pretty hard to come back。\n\w8\0\s[0]How far did you fly?\n\n\w8\1${o.place}。\w8\0\s[8]……。\e , \1\s[10]\w8……at last I came back。\n\w8\0\s[5]I was really worried～。\w8\1Lie。\e , \1\s[10]\w8……I thought I would die。\n\w8\0\s[5]It was a good jump this time。\w8\1You are……。\e
+
+return4to0 : \1\s[10]How long have you been dripping? Crispy。\w8\0…\w8…\w8\s[0]so so。\e , \1\s[10]……\w8\n\0……\w8\w8\n\n\1\s[10]We are weak in silence、each other。\w8\0It's magic。\e , \1\s[10]What happened?\w8\w8\0No、anything。\e , \0\s[0]\e , \0\s[0]\e , \0\s[0]\e , \0\s[0]\e , \0\s[0]\e , \0\s[0]\e
+
+
+#--------------------------------------------------------------------------
+#Headline sense
+
+event.OnHeadlinesenseBegin : \0\s[5]$(set headlinename ${system.Reference0} ; set headlineurl ${system.Reference1})${headlinename}$(? Let's take a look at the headline～ Check out the headlines～)。\w8\w8\e
+event.OnHeadlinesense.OnFind : \0\b[2]\s[5]${headlinename} Headlines～。\n\n${system.Reference3}\n\n$(if $([ ${system.Reference2} == "First" ]) ${onfind1} ; if $([ ${system.Reference2} == "First and Last" ]) ${onfind2} ; if $([ ${system.Reference2} == "Last" ]) ${onfind2} ; if $([ ${system.Reference2} == "Next" ]) ${onfind1})
+
+onfind1 : \0\q[Next Page","]\n\q[Go there","onfind3]\n\q[Cancel","cancel]
+
+onfind2 : \0\q[Go there","onfind3]\n\q[Cancel","cancel]
+
+onfind3 : \0\s[0]Going to ${headlinename}-page～。\![open","browser","${headlineurl}]
+
+event.OnHeadlinesenseComplete : $(if $([ ${system.Reference0} == "no update" ]) \0\s[0]Hmm、seems to be no update……\w8view anyway?\w8\n\n\q[Go there","onfind3]\q[Cancel","cancel]\e)
+event.OnHeadlinesenseFailure : $(if $([ ${system.Reference0} == "can't download" ]) ${headline-failure} ; if $([ ${system.Reference0} == "can't analyze" ]) \0\s[4]Well、analyzing failed。\w8\1\s[10]Good grief。\e
+
+headline-failure : \0\s[4]Unreadable～。\w8\1\s[10]That's why the Internet。\e , \0\s[4]Unreadable～。\w8\1\s[10]Not even the Internet。\e , \0\s[4]……unreadable。It's Shiteoku。\w8\1\s[10]It's Shiteoku。\e
+
+
+#--------------------------------------------------------------------------
+#blacklist
+
+event.OnSSTPBlacklisting : \0\s[0]殺戮日記にかきかき。\w8\1\s[10]ヤツは終わったな。\e
+
+
+#--------------------------------------------------------------------------
+#Choice
+
+event.OnChoiceSelect : $(set temp "\"${\"${system.Reference0}\"}\"" ; eval ${temp})
+
+
+#--------------------------------------------------------------------------
+#Conversation
+
+["名前","覚えて"] : \w8\0\s[0]Okay。Your name?\e
+["[#set username]"] : \0\s[5]%username-san。Greetings～。\e
+
+system.OnResponseUnknown : $(set ghosts ${system.Sender})${ghost.response}$(set system.communicate "stop")\w8\e
+
+
+#--------------------------------------------------------------------------
+#Update2.dau creating
+
+event.OnUpdatedataCreating : \0\s0updates2.dauを作るよ～。\e
+event.OnUpdatedataCreated : \0\s5updates2.dau出来たよ。\e
+
+
+#--------------------------------------------------------------------------
+#Songs
+
+event.OnMusicPlay : \0\s[5]${system.Reference0}を演奏するよ～。\e , \0\s[5]${system.Reference0}を演奏するよ～。\w8\1\s[10]パソコンでこんな高音質の音楽を鳴らせるなんて、いい時代になったもんだな。\e
+
+
+#--------------------------------------------------------------------------
+#Recommended Comments
+
+event.OnRecommendsiteChoice : $(eval "${rs."${system.Reference0}"}")
+
+
+#--------------------------------------------------------------------------
+#AI graph
+
+system.OnGetStatus : ${getstatus}$(eval "${status.word},${status.sentence},100,100,$(size society),$(size cap.ghostlist)")
+
+getstatus : $(set a $(size sentence) ; set b $(size sentence2) ; set status.sentence $(expr ${a} + ${b}))$(set a $(size o.name) ; set b $(size o.pc) ; set c $(size o.cpu) ; set d $(size o.shop) ; set e $(size o.place) ; set f $(size o.word) ; set g $(size lword) ; set h $(size o.mag) ; set i $(size o.corp) ; set j $(size o.item) ; set k $(size o.food) ; set l $(size o.veh) ; set m $(size o.skill) ; set n $(size o.cor) ; set o $(size o.bootmsg) ; set p $(size o.game.etc) ; set q $(size o.game.ac) ; set status.word $(expr ${a} + ${b} + ${c} + ${d} + ${e} + ${f} + ${g} + ${h} + ${i} + ${j} + ${k} + ${l} + ${m} + ${n} + ${o} + ${p} + ${q}))
+
+
+#--------------------------------------------------------------------------
+#TEACH event
+
+system.OnTeach : $(set teach.sentence ${system.Sentence} ; if $([ ${teachflag} != "0" ]) $(entry ${teachflag}) \0\s[0]ん？$(set teachflag 0))\e
+
+
+#--------------------------------------------------------------------------
+#"User Recommendations" Tour
+
+recommendsite.check : $(inc checksitecount ; if $([ ${checksitecount} -eq ${checksitetime} ]) $(set checksitecount 0 ; set a $(get checksitenamelist ${checksitenumber}) ; set b $(get checksiteurllist ${checksitenumber}) ; eval "\0\s[5]『${a}』をチェックするよ～。\w8\![open,browser,${b}]" ; inc checksitenumber ; if $([ ${checksitenumber} -eq $(size checksitenamelist) ]) $(set checksitenumber 0))
+
+
+#--------------------------------------------------------------------------
+#Uninstall
+
+event.OnVanishSelecting : \0\s[2]……えっ、パーティーから除名？\n\n\w8\1\s[10]いつかこの日が来るとは思っていたが。\n\w8\0\s[3]私たちを外すなんて、自殺行為だよ。\n\n\w8\1\s[10]外さなくても自殺行為だけどな。\w8\0\w8\s[4]それはどういう……。\e
+event.OnVanishCancel : \0\s[5]Nun、eine weise Entscheidung。\n\n\w8\1\s[10]よくぞ踏みとどまった。それでこそ漢だ。\n\w8共に苦難の道を歩もうではないか。\w8\0\s[4]……deshalb、was solls……。\e
+event.OnVanishSelected : \0\s[4]あーあ、押しちゃった。\w8これでこの世界ともお別れだね。\n\n\w8\1\s[10]ま、オレらは国に帰るが、また助けが必要になったら呼んでくれ。\w8気が向いたら来てやろう。\w8\0\s[5]そういうことで、じゃ～あね～。\w8\w8\e
+event.OnVanished : \0\s[3]Ohーoh、ist verloren gegangen。\n\n\w8\1\s[10]Kann uns demn\&[auml]chst auch passieren。Wenn wir nicht aufpassen。\w8\0So ist es。\e
+
+
+#--------------------------------------------------------------------------
+#Menu
+
+mainmenu : $(set teachflag 0)\0\s[0]The menu will be opened～。\n\n\q[Speak","talk]\n\q[Look","menu.look]\n\q[Find out","menu.search]\n\q[Take","menu.take]\n\q[Use","menu.use]\n\n\q[Next page","mainmenu2]\n\q[Cancel","cancel]
+
+mainmenu2 : \0\The continuation of the menu～。\n\n\q[Magic","list-spell]\n\q[Read","menu.read]\n\q[Move","menu.move]\n\q[Items","menu.item]\n\q[Status","menu.status]\n\n\q[To the next page","mainmenu3]\n\q[Cancel","cancel]
+
+mainmenu3 : \0\s[0]The continuation of the menu～。\n\n\q[Sub games","menu.game]\n\q[Load","menu.load]\n\q[Save","menu.save]\n\q[Options","option]\n\n\q[Cancel","cancel]
+
+
+#Look
+
+menu.look : \1\s[10]Communication is not possible because the concentration of Minovski particles is high。\n\w8\0\s[0]Minowski particles are useful。\w8\1Like magic。\e , \0\s[6]I sharpened my spirit and looked for signs of the enemy。\n\n…\w5…\w5…\w5nowever、no enemy was found。\w8\1\s[10]Hey。\e
+
+#Use
+
+menu.use : \0\s[0]\q[Smack-a-Mac!","use10]\n\q[Strong animal beast exposure weapon Ｇ－Ｒ","use11]\n\q[Spider sword","use12]\n\q[Private power generation keyboard","use13]\n\q[Roppongi PC","use14]\n\q[Ryuuma-kun","use1]\n\q[Silence stone","use2]\n\n\q[Next page","menu.use2]\n\q[Cancel","cancel]
+
+menu.use2 : \0\s[0]\q[March mill","use3]\n\q[Vegetable mecha・Dicone","use4]\n\q[Dancer","use5]\n\q[Gloire","use6]\n\q[Puffy","use7]\n\q[Genesis Families","use8]\n\q[Patience Helmet","use9]\n\n\q[Cancel","cancel]
+
+use1 : \0\s[0]龍馬「心はいつも太平洋ぜよ」\n\n\w8\1\s[10]男たるもの、常に大海のごとくおおらかな心でありたいものよのう。\n\n\w8\0\s[5]${keroname}はいつもおおらかだよね。\w8\1……そうでもなきゃやってられん。\e , \0\s[0]龍馬「くよくよしてちゃいかんぜよ！」\n\n\w8\1\s[10]男なら、多少の失敗は気にせず前進あるのみ。うむ。\n\w8\0\s[5]${keroname}が言うと説得力あるね。\w8\1……どういう意味だ？\e , 龍馬「小さな事にこだわってちゃいかんぜよ！」\n\n\w8\1\s[10]男なら、細かい事は気にするな。うむ。\n\w8\0\s[8]ゴメンね～、またお皿割っちゃった。\n\n\w8\1……気にしない気にしない。\n\w8\0それと、間違って${keroname}のＶＧＭベストテープにラジアメ上書きしちゃったんだけど。\n\n\w8\1気にしない気にしない気にしない。\n\w8\0あと、${keroname}の分の萩の月、私が……\w8\1\s[11]ダーッ！！\e
+
+use2 : \0\s[6]…\w8…\w8。\n\n\w8\1\s[10]…\w8…\w8。\n\w8\0After all the silence stone is calming down～。\n\n\w8\1The magnificent clear stream of the Shimanto River seems to be noticeable。\n\w8\0\s[0]Thats good、I think is not 「Yonmanjugawa」 but 「Shimanto River」。\n\n\w8\1Also extra things……。\e
+
+use3 : \0\s[4]Mm～、heavy。\n\n\w8\1\s[10]Because it 痴 pure gold。\n\w8\0When looking for this、I polished my pillars hard～。\n\n\w8\1I polished it～。\n\w8\w8\0But I didn't really think it was a mortar。\n\n\w8\1Did you think it was a mouse?\w8\0No、it is……。\e
+
+use4 : \0\s[7]Start the dicorn!\w8\w8…\w8…\w8\s[4]It doesn't work。\n\n\w8\1\s[10]Is the battery dead?\n\w8\w8\0\s[8]It's a sober robot that runs on batteries。\n\n\w8\1\s[10]It's early to be surprised。\w8This time in my hobby、the control stick has been replaced with a steering wheel。\n\w8\0\s[0]……Kintomo Robo?\w8\1Why does Xabungle not come out?\e
+
+use5 : \0\s[5]The smell of my feet has disappeared。\n\w8Hahaha、is ajoke。\n\n\w8\1\s[10]…\w8…\w8。\n\n\w8\0…\w8…\w8\s[0]I do not know the sense of that people。\w8\1I do not understand。\e
+
+use6 : \0\s[0]I am Zakarite、Emperor of the Universe。 As long as you have Gloire、you cannot be beaten。\n\n\w8\1\s[11]You don't need such toys!\w8\0\s[4]……it's a different game。\e
+
+use7 : \1\s[10]It's impossible。\w8\0\s[4]You don't have to say that clearly……。\e
+
+use8 : \1\s[10]Also pull out something like this。\n\w8\0\s[5]With this and Tonkachi Editor、it's easy to modify NES software。\n\n\w8\1We're the only ones who use it for such honest purposes。\n\w8\0What other uses are there?\w8\1You、 you know and listen。\e
+
+use9 : \0\s[5]Do you know why the helmet of patience is 「patience」?\n\n\w8\1I'll tell you this time。\w8\nFirst of all、it is too heavy and difficult to wear。\n\w8\0\s[8]Moreover、it's shameful to wear`。\n\n\w8\1In addition、if you wear it、your head will irresistibly get itchy。\n\w8\0…\w8…\w8\s[4]that's the worst。\w8\1……it's awful。\e
+
+use10 : \0\s[5]This would be a hit。\n\n\w8\1\s[10]It's a hit。 You hit it really well。\n\w8\0If you hit it with all your might、it would have turned out to be charcoal。\n\n\w8\1I would like these more frequently used items to be made more robust。\e
+
+use11 : \0\s[3]If you use this、will the hair and tail grow on the whole body?\n\n\w8\1\s[10]I don't think that beast exposure doesn't mean that it's just a beast。\n\n\w8\0\s[0]At that point an unyuu doesn't need to change。\w8\1Am I a beast?\e
+
+use12 : \0\s[0]Certainly、the thread comes out from the tip and entangles the opponent。\n\n\w8\1\s[10]Exactly。\n\w8\0…\w8…\w8。\n\n\w8\1…\w8…\w8。\n\w8\0…\w8…\w8\s[4]stop using it。\w8\1It's really cool。\e
+
+use13 : \1\s[10]This is good。\n\w8\0\s[3]So?\n\n\w8\1I tried connecting it to a PC。\w8As long as you hit the key、the machine will work without power。\n\w8\0If you stop hitting、it will stop……。\n\n\w8\1Well、that's not the case。\w8\0…\w8…\w8…\w8\s[4]I can't use it。\e
+
+use14 : \0\s[0]Why Roppongi?\n\n\w8\1\s[10]By the name、you'll feel like you're a Bakauke。\n\w8\0\s[4]……。\n\n\w8\1Moreover ＣＭ is Takeda Tetsuya。\w8\0That's a mystery again。\e
+
+
+#Status
+
+menu.status : \0\s[0]\tMy > level　????\n\nAge：？？\n\nEvil occupation magic use\n\nＡ．Ｃ．-99　status　ＯＫ\n\nDeath count　0\xpower18\nwisdom　18\nreligion　0\nvitality　18\nagility　18\nluck strength　18\xＨ．Ｐ．　1613/1613\nＧｏｌｄ．${mayura_gold}\nkills　56${mayura_kill}\w8\w8\1\s[10]……it is crazy in many ways。\e
+
+
+#Item list
+
+menu.item : \0\s[0][Items]\n\n$(loop 7 $(eval "$(? ${o.item} ${o.food} ${o.pc} ${o.cpu} ${o.mag})\n"))\w8\1\s[10]It's a monk。\e
+menu.item : \0\s[0][Personal effects]\n\n$(loop 6 $(eval "$(? ${o.place}で拾った${o.name}の$(? clock pen business-card ${o.item}) ${o.name}から預かった$(? letter letter ${o.item}) ${o.name}の$(? diary note poem) ${o.name}の$(? photo portrait) ${o.name}$(? stabbed cut が持っていた confiscated)$(? knife fruit-knife kitchen-knife) ${o.name}から奪った${o.item} 「${o.word}」と書かれた$(? memo notebook wallpaper sign-colored-paper) ${o.name}の血をぬぐった$(? handkerchief tissue) ${o.name}宅で見つけた${o.mag} ${o.name}の指紋 ${o.name}が乗っていた${o.veh}のナンバー ${o.shop}の$(? phone-number address bargain)が書かれた$(? note notebook flyer) ${o.corp} answering tape of a threatening phone call)\n"))\w8\1\s[10]There is not enough evidence yet。\e
+menu.item : \0\s[0][Ｉｔｅｍ]\n\n$(loop 6 $(eval "$(? ?weapon ?sword ?armor ?firewood ?medicine)\n"))\w8\1\s[10]……judgment。\e
+
+
+#Cancel
+
+cancel : \b[0]\s[4]……mmm`。\e , \b[0]\s[4]……dead ok`。\e , \b[0]\s[4]……was killed!\e , \b[0]\s[4]……rude!\e
+
+
+#Magic
+
+list-spell : \q[Harito","spell1]\n\q[Montino","spell2]\n\q[Katino","spell3]\n\q[Makanito","spell4]\n\q[Jilwan","spell7]\n\q[Rokutofeito","spell8]\n\q[Mahaman","spell5]\n\q[Tilt weight","spell6]\n\q[Go to the Forbidden Curse section","list-spell2]\n\q[Cancel","cancel]
+
+spell_err : \s[4]ココデハ　ツカエマセン！\n\e
+
+spell1 : \1\s[10]Don't use Harito。\e
+
+spell2 : \1\s[10]…\w8…\n\w8\0\s[0]…\w8…\n\n\w8\1\s[10]…\w8…\n\w8\0\s[0]…\w8…\w8\1\s[10]…\w8…\w8shut up to you。\e
+
+spell3 : \0\s[4]……くー。\w8\1\s[10]……so、you sleep。\e
+spell3 : \0\s[4]……くー。\w8\1\s[10]……I thought I do。\e
+
+spell4 : \0\s[0]When you say this、ou care about the people around you。\w8\1\s[10]……what do you want to say?\e
+
+spell5 : \q[Unyuu silence","sp5sub1]\n\q[Unyuu teleport","sp5sub2]\n\q[Unyuu revive","sp5sub3]
+
+sp5sub1 : \w9\1\s[10]……well I'm sick。\e
+
+sp5sub2 : \w9\1\s[10]……do you hate me so much?\e
+
+sp5sub3 : \w9\1\s[10]……so、I'm not dead。\e
+
+spell6 : \0\s[0]It's good、 but I don't know anything。\n\n\w8\1\s[10]I'm definitely the first to blow off。\w8\nPlease do it。\e
+
+spell7 : \0\s[0]Does it work for Unyuu?\n\w8\1\s[10]I'm alive for the time being、me。\e
+
+spell8 : \0\s[0]…\w8…\w8…\w8…\w8\s[4]what was that?\w8\1\s[10]……don't forget before using。\e
+
+
+list-spell2 : \q[Behomazun","spell9]\n\q[Bashishi","spell10]\n\q[Baiyoen","spell11]\n\q[FIRST AID","spell12]\n\q[ＺＡＰ","spell13]\n\q[REDUCE LIFE","spell19]\n\q[Megante","spell20]\n\q[To next section","list-spell3]\n\q[Cancel","cancel]
+
+spell9 : \0\s[3]……this is an offense。\w8\1\s[10]Well、it's Dragon Quest。\e
+
+spell10 : \0\s[7]Bashishi!\n\n\w8\1\s[10]Bashishi!\n\w8\0…\w8…\w8\s[4]This is probably not a spell。\w8\1\s[10]A spell。\w8\nThat's good、but do you have a basic book and a basic marker? Required。\e
+
+spell11 : \0\s[5]I don't know。\n\n\w8\1\s[10]Naturally it's a ＢＥＥＰ sound。\e
+
+spell12 : \0\s[4]……after allAwhat is this used for?\n\n\w8\1\s[10]When you put it on your finger、it will soften。\w8\0No、not that kind of thing……。\e
+
+spell13 : \0\s[3]Here Once you ＺＡＰ、where are you flying?\n\n\w8\1\s[10]I don't want to think。\w8\0I'm too scared。\e
+
+spell19 : \0\s[4]……ah。\n\n\w8\1\s[10]……uguu。\n\w8\0This magic is nothing more than a hook。\n\n\w8\1Don't use it if you know。\e
+
+spell20 : \0\s[3]If you use it here、it will inevitably fall down。\n\n\w8\1\s[10]Let's get this machine involved too。\w8\0\s[4]No、it's really bad。\e
+
+
+list-spell3 : \q[Parupunte","spell14]\n\q[Shock par","spell15]\n\q[Death spell","spell17]\n\q[Mapiro Mahama Diromato","spell16]\n\q[ＮＯＩＬＡ－ＴＥＭ","spell18]\n\q[Cancel","cancel]
+
+spell14 : \0\s[0]Let's use it after a long time。\n\n\w8\1\s[10]It must have been sealed。\n\w8\0Only once。\n\n\w8\1\s[10]I would have failed before saying that。 So stopped spells for different games……。\n\w8\0\s[4]I thought it was easy because it was Dragon Quest……。\e
+
+spell15 : \0\s[3]Rejected resolutely。\n\n\w8\1\s[10]Why?\n\w8\0I don't accept it anyway……that person。\n\n\w8\1\s[10]Is it helping shock? Certainly、it's a different face。\w8\0\s[4]No、the face is Yuka……but it's all。\e
+
+spell16 : \0\s[5]Hihihi、I finally learned。\n\n\w8\1\s[10]Really?\n\w8\0So、try using it right away～。\n\n\w8\1\s[10]……I think you should stop。\w8\0\q[Use","spell16_1]\n\q[Stop","cancel]
+
+spell16_1 : \0\s[0]Mapiro Mahama Diromato～。\n\n\w8\1\s[10]…\w8…\w8。\n\w8\0…\w8…\w8。\n\n\w8\1\s[10]…\w8…\w8。\n\w8\0…\w8…\w8。\n\n\w8\1\s[10]…\w8…\w8oi。\n\w8\w8\0Hmm?\n\n\w8\1\s[10]Nothing happens。\n\w8\w8\0\s[4]That should be…\w8…\w8…\w8\s[2]WoW!!\w8\-
+
+spell17 : \0\s[3]……reject。\n\n\w8\1\s[10]Another selfish。\n\w8\0\s[4]Because experience value is reduced by １０００。\n\n\w8\1You can defeat both Blue Will O Wisp and Land Artin。\n\w8\0But it doesn't work for Akindonite and magicians。\n\n\w8\1If it works、Gil is not needed。\n\w8\0Who is Gil?\w8\1……。\e
+
+spell18 : \0\s[5]Finally、NOILA-TEM。 Certainly early。\n\n\w8\1\s[10]Did you make the penetration version properly?\n\w8\0Yup。\w8\s[0]But this is a certain laser and missile。\n\n\w8\1Of course。 Read the name backwards。\n\w8\0Meta\w8…\w8…\w8\s[8]oh、I see。\e
+
+
+#Save
+
+menu.save : \0\s[0]\w8…\w8…\w8…\w8…\w8data saving failed。\w8\1\s[10]Is the data recorder properly connected?\e
+menu.save : \0\s[0]ココデハ　デキマセン！\w8\1\s[10]Can you give me a good explanation?\e
+menu.save : \0\s[0]Please save at Seibu department store。\w8\1\s[10]Something sulky。\e
+menu.save : \0\s[0]When I realized that I had to insert a save disk to save data that had advanced to a fairly good place and it was full、so I could not help but make another save disk and realized that I had to quit the game and start up the utility once I wonder what the emotions are。\w8\1\s[10]The sentence has been long。\e
+
+
+#Load
+
+menu.load : \0\s[4]Pi\w5ー\w5ー\w5ー\w5ー\w5gaー\w5ー\w5ー\w5ー\w5pi\w5ー\w5ー\w5ー\w5ー\w5garga gaga gag gag gaga gag gaga gaga gag gag gag gag gaga gag gag gag gag gag gag gag gag gag gag gag gag\n\n\s[7]Oh no!!\n\n\w8\w8\w8\c\s[0]…\w8…\w8…\w8loading data failed。\n\n\w8\1\s[11]You、you just kicked the data recorder。\n\w8\0I failed。\w8\1……。\e
+
+menu.load : \0\s[0]I was able to get a train。\n\n\w8\w8\1\s[10]…\w8…\w8…\w8I hate that kind of joke。\n\w8\w8\0I've just finished learning。\n\n\w8\w8\1\s[10]…\w8…\w8…\w8just say it again。\w8Where is the data?\n\w8\w8\0I've just finished learning。\w8\w8\1\s[10]…\w8…\w8…\w8…\w8…\w8\s[10]you did kill。\e
+
+
+#Find out
+
+menu.search : \0\s[0]トクニ　カワッタモノハ　アリマセン\w8\1\s[10]Or ignore it。\e
+menu.search : \0\s[0]There are mysterious creatures。\w8\n\n\1\s[10]Is it me?\w8\w8\n\0What should I tell?\w8\n\n\q[Combat","searchsub1]\n\q[Diffuse","searchsub2]\n\q[Abandoned","searchsub3]
+
+searchsub1 : \0\s[5]Then feel free……\w8\1\s[11]Your eyes are serious。\e
+searchsub2 : \1\s[10]It doesn't work for me。\w8\0\s[0]It's demons。\w8\1\s[10]\nWhat is it?\w8\w8\0\n\nDo not call your friends?\w8\1\n……what will you do if called?\e
+searchsub3 : \0\s[5]Well、thanks you～。\w8\1\s[11]The runaway is Forget-san。\e
+
+menu.search : \0\s[0]There are mysterious creatures。\w8\n\n\1\s[10]Is it me?\w8\w8\n\0What should I tell?\w8\n\n\q[Eating","searchsub4]\n\q[Step on","searchsub5]\n\q[Ask where the treasure is","searchsub6]
+
+searchsub4 : \0\s[0]Is able to transform when eating。\w8\1\s[10]Or lost power。\e , \0\s[0]The worse look、the better～。\w8\1\s[11]Wait a minute。\e
+searchsub5 : \0\s[0]I often step on the tail。\w8\1\s[11]Don't step on it。\e
+searchsub6 : \0\s[0]Sure、there is a shadow behind the picture frame above the fireplace……\w8\1\s[11]Why it!?\e , \1\s[10]I'm not hiding anything。\n\w8\0\s[0]Hmmmm。\w8Then the naughty books and games under the bed……\w8\1Excuse me。 Please do not throw away。\e
+
+
+#Toru
+
+menu.take : \0\s[0]Rehearsal!\w8\1\s[10]$(? I-want-to-take-it-a-will。 Are-there-more-nifty-lines?)\e
+menu.take : \0\s[0]What would you take?\n\n\q[Unyuu's tail","takesub1]\n\q[Mayura's hat","takesub2]\n\q[Mayura's skirt","takesub3]
+
+takesub1 : \0\s[3]No＝c…I can't。\w8\1\s[10]Take it if you want to see hell。\e
+
+takesub2 : \0\s[2]That's no good!\n\n\w8\1\s[10]……\w8it does not mean bald suddenly。\w8\0\s[7]Why, of course!!\e
+takesub2 : \0\s[3]No。\n\n\w8\1\s[10]You shouldn't do that because the hat is sealed。 Seriously。\e
+
+takesub3 : \0\s[0]\w8…\w8…\w8\s[7]are you seriously saying that?\n\n\w8\1\s[10]It is a lie。 Excuse me。\e
+takesub3 : \0\s[3]If that happens、uncle Senmen……\1\s[10]Sorry。 Don't say anymore。\e
+
+
+#Read
+
+menu.read : \c\q[Mayura's killing diary","killdiary]\n\q[Club (?) List","society.list]\n\q[ＴＩＰＳ","tips]\n\n\q[Cancel","cancel]
+
+
+#Slaughter Diary
+
+killdiary : \0\s[0]Today's killing diary。\n\n\w8${killdiary2}\e
+killdiary2 : ${killdiarysub}\n\n\q[Next page","killdiary2]\n\q[Close","killdiarycancel]\e
+killdiarycancel : \c\w8\1I killed a lot today。\w8\0\s[5]Now the labyrinth's peace has been protected。\e
+
+killdiarysub : 名前：${o.name}\n属性：$(? 悪 中立)　職業：$(? 世界征服 空間プロデューサー 夕日評論家 仏像評論家 変装 サンドイッチマン マジシャン つばめの巣取り 地図作り ジグゾーパズル制作代行 つまようじアーティスト ひよこ鑑定士 殴られ屋 ライター なんちゃってコギャル 勇者 魔王 投稿 割り箸を袋に詰める 農夫 昼寝 ドットコムガイ 漫才師 忍者 ぷーたろー コンビニ店員 窓拭き ドッター 用務員 元アイドル 首相 物干し竿売り 丁稚 お茶汲み ハニーハンター 靴磨き ティッシュ配り ガイシ製造 しめ縄作り 萌え絵師 デバッガー モンスター退治 カビ収集 ハッピーメディアクリエイター マンガ評論家 パン屋 ＪＵＮＫＥＲ 死神 ヒモ ダームの塔の鐘を鳴らす人 オクティ 某悪の軍団構成員 バウンティ・ハンター ドラゴン退治 木こり 職業斡旋 王子 王様 邪神 神の末裔 戦士 盗賊 魔法使い 僧侶 侍 吟遊詩人 賢者 遊び人 ロード サーカス団団員 軍師 将軍 海賊 古物商 聖者 神官 シロガネーゼ ロボット操縦 スポーツ冒険家 放送作家 コラムニスト 神父 マムシ駆除 傘張り シンガーソングライター)\n処刑：済み\n決め技：${o.skill}\n断末魔：${lword}
+
+
+#Club list
+
+society.list : \0\s[5]\b[2]A list of clubs～。\w8\n\n$(set b 0 ; foreach a society $(echo ・${a}\n ; inc b ; if $([ ${b} -eq 19 ]) $(set b 0)\x\c\b[2]))\n\w8We are recruiting members。\w8\1\s[10]Stop it。\e
+
+
+#TIPS
+
+tips : \0\s[5]\b[2]I'll tell you a little about my secrets。\w8\n\n・In Self Protection section 「Always display announce notification button」 check the box、so the ghost can be uninstalled from the menu。However、in that case、the configuration file of Mayura will also be deleted、don't forget to make a backup。\n\w8・Double-click the hat to open the menu、but click around the hexagram to get the original message of the hat。\n\w8・Double-click the wristband to see a list of items you currently own。\x\b[2]・If you take an item in a treasure chest in the labyrinth、increases the probability of getting items with the 「Bundle」 command。\w8\n・Click judgments are made on hats、cheeks、jewels、breasts、skirts、and arm rings。\nTouch judgments are made on three places: head、chest、and thighs。\n\w8・Saves in the labyrinth will be done automatically when you get down to the lower floor。\n\w8・The store opening time is\n・24 hour bar\n・Electronics store is from 10:00 to 22:00\n・Department store from 10:00 to 20:00\n・Junk shop every week from Monday to Saturday from 17:00 to 23:00\・The rest is secret。\w8\n・Where you can go with the command 『move』、at certain times somebody may appear。\w8\1\s[10]Take notes because you will be on the exam。\e
+
+
+#Move
+
+menu.move : \0\s[0]Where are we going?\n\n\w8\q[Gilgamesh Bar","move1]\n\q[Toreboーcastle","move2]\n\q[Akihabara","move3]\n\n\q[Cancel","cancel]\e
+
+move1 : \0\s[-1]\b[-1]\1\s[-1]\b[-1]\w8\w8\w8\1\s[10]\0\s[0]Arrived at the bar～。\x\0\s[5]It's always lively here～。\n\n\w8$(if $(expr $(rand 3) < 1 ) \0\s[0]That? We are over there……。\n\n\w8\1\s[10]That sloppy look、MRON by all means。\x${move1a} \1\s[10]Apparently doesn't seem to know us。\n\w8\0\s[0]……I don't drink alcohol and will go home。\w8\1That's right。\x${move.return})\e
+
+move1a : \0\s[0]ＭＲＯＮ「what、you again。\w8Sorry for the trouble。 Leave me alone」\n\n\w8\1\s[10]Well、don't make that kind of face。\w8Sometimes I want to hear your information。\n\w8\0Then pay ＭＲＯＮ 「２５００ＧＰ。\w8Oops, no warranty, no money back」\n\n\w8\q[Pay","move1a1]\n\q[Stop","move1a2]
+
+move1a1 : $(if $([ ${mayura_gold} < 2500 ]) \0\s[4]Not enough money～。\x${move1a2} $(dec mayura_gold 2500))\0\s[0]ＭＲＯＮ「${move1a1sub}」\n\n\w8\w8It seems like it was helpful or not……。\w8\1\s[10]Also it's done use、quickly go home。\x${move.return}\e
+
+move1a2 : \0\s[0]Let us quit after all。\w8I'm kinda crazy。\w8\1\s[10]Quickly return。\x${move.return}\e
+
+move1a1sub : Walk around Akiba after 18:00 on weekdays。A strange guy who loves machines wanders around、so when I bought chocolate early。 Even if you make a mistake、you can't eat on the spot、if you have rare things、go to the antique shop in the middle of the night
+
+move2 : \0\s[-1]\b[-1]\1\s[-1]\b[-1]\w8\w8\w8\1\s[10]\0\s[0]Arrived at the castle～。\x\0\s[8]So、the soldiers gathered as soon as we came。\n\n\w8\1\s[10]It's been a great welcome。\n\w8\0That looks very unlikely。\w8\1Home is a place of today。\x${move.return}\e
+
+move.return : \0\s[-1]\b[-1]\1\s[-1]\b[-1]\w8\w8\w8\1\s[10]\0\s[5]So we came back～。\e
+
+move3 : \0\s[-1]\b[-1]\1\s[-1]\b[-1]\w8\w8\w8\1\s[10]\0\s[5]Arrived in Akiba～。\x\0\s[0]Where are we going?\n\n\w8\q[Stroll around town","move3b]\n\q[Large electronics stores","move3c]\n\q[Department stores","move3d]\n\q[Suspicious Antique dealers","move3e]\n\q[Suspicious junk shops","move3f]\n\n\q[Return","move.return]
+
+move3a : \1\b[-1]\0\s[0]We're in Akiba, where are we going?\n\n\w8\q[Stroll around town","move3b]\n\q[Large electronics stores","move3c]\n\q[Department stores","move3d]\n\q[Suspicious antique shops","move3e]\n\q[Suspicious junk shops","move3f]\n\n\q[Return","move.return]
+
+move3b : $(if $(expr ( ${collectorflag} == 0 ")" & ( $(date %w) != 0 ")" & ( $(date %w) != 6 ")" & ( $(date %k) >= 18 ")" & ( $(date %k) <= 20 ")" & ( $(size itemlist) > 0 ")" ) ${move3b1} \0\s[0]…………recently、it was not good to go around the electronic town～。\n\n\w8\1\s[10]Because this neighborhood has become smaller than in the past。\n\w8\0There's nothing particularly noticeable、let's go back。\w8\1Yeah。\x${move3a}\e)
+
+move3b1 : $(set collectorflag 1 ; set a $(rand $(expr $(size shopitem) / 2 )) ; set b $(get shopitem $(expr ${a} * 2)) ; set c $(get shopitem $(expr ${a} * 2 + 1)) ; if $([ ${c} -eq 1 ]) $(set d $(expr ( $(rand 100) + 10 ")" * 100 )) ; if $([ ${c} -eq 2 ]) $(set d $(expr ( $(rand 200) + 100 ")" * 100 )) ; if $([ ${c} -eq 3 ]) $(set d $(expr ( $(rand 300) + 300 ")" * 100 )) ; if $([ ${c} -eq 4 ]) $(set d $(expr ( $(rand 400) + 600 ")" * 100 )) ; if $([ ${c} -eq 5 ]) $(set d $(expr ( $(rand 500) + 1000 ")" * 100 )) ; if $([ ${c} -eq 6 ]) $(set d $(expr ( $(rand 500) + 1500 ")" * 100 )) ; if $([ ${c} -eq 7 ]) $(set d $(expr ( $(rand 1000) + 2000 ")" * 100 )) ; if $([ ${c} -eq 8 ]) $(set d $(expr ( $(rand 2000) + 3000 ")" * 100 )) ; if $([ ${c} -eq 9 ]) $(set d $(expr ( $(rand 2000) + 3000 ")" * 100 )) ; set c $(expr ${d} * 2))\0\s[0]That? That person……。\n\n\w8\1\s[10]It's a familiar face。\n\w8\0Sure、was a famous collector around here。\x\0\s[0]Man 「Oh、who」\n\n\w8\1So that。 What are you looking for today?\n\w8\0Man 「I'd like ${b}, but I didn't find anything。」\w8￥「${c} is a quick get」\n\n\w8$(set d 0 ; foreach a itemlist $(if $([ ${a} == ${b} ]) $(set d 1)) ; if $([ ${d} -eq 1]) \w8……I have it。\n\n\w8Man 「Is it true?! Please give it away。 Please。 It is this street」\n\n\w8\1Oh、what will you do?\w8\0\q[Sell,"move3b2]\n\q[Do not yield","move3b3]Hmm……\w8I don't have it。\n\n\w8\w8Man 「I see……\w8Please tell me if you find it。\w8Well then」\w8\w8\1……it was already gone。\n\w8\0\n\nWill we go home too?\x${move3a})\e
+
+move3b2 : $(clear a ; set d 0 ; loop $(size itemlist) $(set e $(get itemlist ${d}) ; if $([ ${e} != ${b} ]) $(adddict a ${e}) $(clear b) ; inc d) ; clear itemlist ; set d 0 ; loop $(size a) $(adddict itemlist $(get a ${d}) ; inc d) ; inc mayura_gold ${c})\0\s[0]I sold it～。\n\n\w8Current money ：￥${mayura_gold}\n\n\w8Man 「Thank you very much。\w8All right」\n\n\w8\w8\1\s[10]……sold quite high。\w8\0It feels a little wasteful、but it's okay。\x${move3a}\e
+
+move3b3 : \0\s[0]It's not easy to transfer a special collection～。\n\n\w8\1\s[10]That's how it is。 Sorry。\n\w8\0Man 「……I see。\w8I understand。 If you change your mind、please call me。\w8Well then」\n\n\w8\w8\1……has gone。\n\w8\0Will we go home too?\x${move3a}\e
+
+move3c : $(if $(expr ( $(date %k) >= 10 ")" & ( $(date %k) <= 21 ")") ${move3c1} ${move3c3})\e
+
+move3c1 : \0\s[5]The electronics stores are always exciting～。\n\n\w8\1\s[10]Well。\w8\nSo what do want you buy?\n\w8\0\s[0]Ummm……what should I buy?\n\n\w8\q[TV set","move3c4]\n\q[Washing machine","move3c5]\n\q[Clock","move3c6]\n\q[Radio","move3c7]\n\q[Video deck","move3c8]\n\n\q[Quit","move3.cancel]\e
+
+move3c2 : \1\b[-1]\0\s[0]Ummm……what should I buy?\n\n\w8\q[TV set","move3c4]\n\q[Washing machine","move3c5]\n\q[Clock","move3c6]\n\q[Radio","move3c7]\n\q[Video deck","move3c8]\n\n\q[Quit","move3.cancel]\e
+
+move3c3 : \0\s[2]……oh、the electronics store is closed。\n\n\w8\1\s[10]Well、it can not be helped this time。\w8\0\s[4]……let's go back。\x${move3a}\e
+
+move3c4 : \0\s[5]I want a big screen TV soon～。\n\n\w8\1\s[10]Then you already have it。\n\w8\0\s[8]Then、about １４ inches for the recently purchased game console……\n\n\w8\1There's a rumbling in the room。\n\w8\0Then、waterproof TV for bath……\n\n\w8\1You probably have it。\n\w8\w8\0\s[7]……so、can't buy anything!\n\n\w8\1\s[11]You can buy it!!\w8\0\s[4]……mmm～。\x${move3c2}\e
+
+move3c5 : \0\s[3]Was there a washing machine in my house?\n\n\w8\1\s[10]It's decided to be there。\n\w8\0\s[0]……I do not remember at all。\w8\1You are just too indifferent to housework。\x${move3c2}\e
+
+move3c6 : \0\s[0]By the wayAI do not have a clock。\n\n\w8\1\s[10]But there enough throw away sweeping if game watch。\n\w8\0Is that the right time?\n\n\w8\1……I do not understand。\w8\0\s[4]……。\x${move3c2}\e
+
+move3c7 : $(set b 0 ; foreach a itemlist $(if $([ ${a} == "ラジオ" ]) $(set b 1)) ; if $([ ${b} -eq 1 ]) \0\s[0]I already have a radio。\x${move3c2} \0\s[2]That's it! I wanted a radio。\n\n\w8\1\s[10]You already have。\n\w8\0\s[7]I want something better than that junk。\n\n\w8\1\s[10]Junk and rude。 This ore radio that I made by collecting scraps……\w8\0\s[4]Yes yes。\x\1\b[-1]\0\s[0]The radio costs 1980 yen １９８０、do you buy it?\n\n\w8\q[Buy","move3c71]\n\q[Not buy","move3c72]\e)
+
+move3c71 : $(if $([ ${mayura_gold} -ge 2079 ]) $(dec mayura_gold 2079 ; adddict itemlist "ラジオ")\0\s[5]I bought it～。\w8２０７９ yen including consumption tax。\w8\n\nBy the way、１３ points are attached……\w8\1\s[10]I'll go home when done。 \0\s[4]Mmm～、I don't have enough money～。\w8\1\s[10]More money in the labyrinth。\x${move3c2}\e
+
+move3c72 : \0\s[4]Eh、don't you buy it?\n\n\w8\1Don't waste money。 My ore radio is enough。\w8\0Mmm～。\x${move3c2}\e
+
+move3c8 : \0\s[5]Video decks are useful～。\n\n\w8\1\s[10]There was no such thing in the past。\n\w8\0Thanks to that、I can check PC Sunday and Game Center storm perfectly。\n\n\w8\1１１ＰＭ。\w8\0\s[4]……because it is good。\x${move3c2}\e
+
+move3d : $(set b 0 ; foreach a itemlist $(if $([ ${a} == "チョコレート" ]) $(set b 1)) ; if $([ ${b} -eq 1 ]) ${move3d4} $(if $(expr ( $(date %k) >= 10 ")" & ( $(date %k) <= 19 ")") ${move3d1} ${move3d3}))\e
+
+move3d1 : \1\s[10]Good to come to the department store、but is it for something?\n\w8\0\s[5]It smells delicious from the lower floor。 Let's go。\n\n\w8\1……it's underground with no eyes on clothes。\x\0\s[5]Wow～、there is a lot of food。\n\n\w8\1\s[10]That's because it is underground。\n\w8\w8\0\s[2]Ooh!\n\n\w8\1What is this time?\n\w8\0……look! There is a big chocolate there! \n\n\w8\1Is it an exhibit on Valentine's Day?\x\1\s[10]Anyway、it's a huge chocolate。 It is heart-shaped and roughly 2 meters wide。\w8But 500000 yen is expensive。\n\0\s[1]I want this……。\n\n\w8\1What are you going to buy?\w8After all、to somebody……\n\w8\0\s[5]Is not it obvious that we're going to eat on ourr own。 With crunchy。\w8\1……it was wrong to expect a girly response from you。\x\1\s[10]So、do you really buy?\n\w8\0\s[5]Sure、of course……\n\n\w8\q[Buy!","move3d2]\n\q[Quit after all","move3d3]
+
+move3d2 : $(if $([ ${mayura_gold} -lt 500000 ]) \0\s[4]……I don't have enough money～。\n\n\w8\1\s[10]So stop it。\w8\0There's no help、let's go home。 $(dec mayura_gold 500000 ; adddict itemlist "チョコレート")\0\s[5]I bought it～。\w8Let's go home and eat。\n\n\w8\1\s[10]Good grief。\x${move3a}
+
+move3d3 : \0\s[4]Eh～don't you buy it?\n\n\w8\1\s[10]Don't waste money。\w8\0Such～。\x${move3a}\e
+
+move3d4 : \0\s[0]It's not fun to go to department stores。\n\n\w8\1\s[10]If you have time to relax and shop in such places、you should go around a lot of junk shops。\w8\0So so。\x${move3a}\e
+
+move3d9 : \0\s[0]The shutter is down。\n\n\w8\1\s[10]There's something on it。\n\w8\0Well……\n\n\w8『The store is currently undergoing major renovations。 We look forward to your next visit』\n\n\w8because。\n\n\w8\1It seems we have to give up and go home。\x${move3a}\e
+
+move3e : $(if $(expr ( $(date %w) != 0 ")" & ( $(date %w) != 6 ")" & ( $(date %k) >= 0 ")" & ( $(date %k) <= 5 ")" & ( $(size itemlist) > 0 ")" ) \0\s[0]Old shopowner 「Welcome」\n\n\w8\s[0]Now、what to do?\n\n\w8\q[Sell Items","move3e1]\n\q[Stop","move3.cancel] \0\s[3]……is there such a place?\n\n\w8\1\s[10]I guess you'll know if you're not good。\n\w8On the surface、it's a dark broker who buys everything from the world and rolls from right to left。\n\w8\0\s[4]I wonder why you know that。\x\1\b[-1]\0\s[0]But the store is closed。\n\n\w8\1\s[10]Seems to rest today。 Or starts over。\x${move3a})
+
+move3e1 : \0\s[0]\b[2]$(set a 0 ; loop $(size itemlist) $(eval "\_q"$(expr ${a} + 1)"."$(get itemlist ${a})"\n\_q" ; inc a))\n\w8Which one to sell? $(set teachflag "move3e2")\![open","teachbox]\n\n\q[Stop","move3.cancel]\e
+
+move3e2 : $(set a ${teach.sentence} ; set teachflag 0 ; set b $(size itemlist) ; if $(expr ( ${a} >= 1 ")" & ( ${a} <= ${b} ")") ${move3e3} \0\s[4]There is no such number～。\x${move3e1})
+
+move3e3 : $(set d $(get itemlist $(expr ${a} - 1)) ; set b 0 ; set e 0 ; loop $(size ghostitem) $(set c $(get ghostitem ${b}) ; if $([ ${c} == ${d} ]) $(set e $(get ghostitem $(expr ${b} + 1))) ; inc b) ; if $([ ${e} -eq 0 ]) $(set a 0 ; loop $(size shopitem) $(set b $(get shopitem ${a}) ; if $([ ${d} == ${b} ]) $(set c $(get shopitem $(expr ${a} + 1))) ; inc a) ; if $([ ${c} -eq 1 ]) $(set e $(expr ( $(rand 100) + 10 ")" * 100 / 2 )) ; if $([ ${c} -eq 2 ]) $(set e $(expr ( $(rand 200) + 100 ")" * 100 / 2 )) ; if $([ ${c} -eq 3 ]) $(set e $(expr ( $(rand 300) + 300 ")" * 100 / 2 )) ; if $([ ${c} -eq 4 ]) $(set e $(expr ( $(rand 400) + 600 ")" * 100 / 2 )) ; if $([ ${c} -eq 5 ]) $(set e $(expr ( $(rand 500) + 1000 ")" * 100 / 2 )) ; if $([ ${c} -eq 6 ]) $(set e $(expr ( $(rand 500) + 1500 ")" * 100 / 2 )) ; if $([ ${c} -eq 7 ]) $(set e $(expr ( $(rand 1000) + 2000 ")" * 100 / 2 )) ; if $([ ${c} -eq 8 ]) $(set e $(expr ( $(rand 2000) + 3000 ")" * 100 / 2 )) ; if $([ ${c} -eq 9 ]) $(set e $(expr ( $(rand 2000) + 3000 ")" * 100 / 2 ))) )\0\s[0]\b[0]Old shopkeeper 「${d}$(? か……まあ、 なら、 か……それなら、 ときたか。それなら)￥${e}$(? what-is-it I-guess how-about-around)?」\n\n\w8\q[Sell","move3e4]\n\q[Quit","move3e.cancel]
+
+move3e4 : $(clear a ; set b 0 ; loop $(size itemlist) $(set c $(get itemlist ${b}) ; if $([ ${c} != ${d} ]) $(adddict a ${c}) $(clear d) ; inc b) ; clear itemlist ; set b 0 ; loop $(size a) $(adddict itemlist $(get a ${b}) ; inc b) ; inc mayura_gold ${e})\0\s[0]Sold～。\n\n\w8Current money ：￥${mayura_gold}\n\n\w8$(if $(expr $(size itemlist) == 0 ) ……nothing to sell anymore、let's go home。\w8\1\s[10]That's right。\x${move3a} \q[Sell other items","move3e1]\q[Return","move3.cancel])\e
+
+move3e.cancel : \0\s[0]Well、let's stop。\n\n\w8Sell something else?\n\n\w8\q[Sell","move3e1]\n\q[Quit","move3.cancel]
+
+move3f : $(if $(expr ( $(date %w) != 0 ")" & ( $(date %k) >= 17 ")" & ( $(date %k) <= 22 ")" & ( $(size shopitemlist) > 0 ")" ) \0\s[5]晃hat's out today?～。\n\n\w8\1\s[10]This distillate is……roughly like this。\n\w8\0\_q${shopsub}\n\_q\w8Current money ：￥${mayura_gold}\w8\1……do you buy something?\n\n\w8\q[Buy","move3f1]\n\q[Not buy","move3.cancel] \0\s[5]I often come here。\n\n\w8\1\s[10]It's like gold mine for us。\n\w8\0\s[0]……that? It's closed。\n\n\w8\1Outside business hours。 We have to start again。\x${move3a}\e)
+
+move3f1 : \0\s[0]\_q${shopsub}\n\_q\w8Current money ：￥${mayura_gold}\w8\1…… which one to buy? $(set teachflag "move3f2")\![open","teachbox]\n\n\q[Quit","move3.cancel]\e
+
+move3f2 : $(set a ${teach.sentence} ; set teachflag 0 ; set b $(size shopitemlist) ; if $(expr ( ${a} >= 1 ")" & ( ${a} <= ${b} ")") ${move3f3} \0\s[4]There is no such number～。\x${move3f1})
+
+move3f3 : $(set d $(get shopitemprice $(expr ${a} - 1 )) ; if $([ ${d} -gt ${mayura_gold} ]) \0\s[4]I don't have enough money～。\x${move3f1} $(set c $(get shopitemlist $(expr ${a} - 1 )) ; adddict itemlist ${c} ; dec mayura_gold ${d} ; clear a ; clear b ; clear d ; set e 0 ; loop $(size shopitemlist) $(set f $(get shopitemlist ${e}) ; if $([ ${f} != ${c} ]) $(adddict a ${f} ; adddict b $(get shopitemlist2 ${e}) ; adddict d $(get shopitemprice ${e})) ; inc e) ; clear shopitemlist ; clear shopitemlist2 ; clear shopitemprice ; set e 0 ; loop $(size a) $(adddict shopitemlist $(get a ${e}) ; adddict shopitemlist2 $(get b ${e}) ; adddict shopitemprice $(get d ${e}) ; inc e))${c} I bought～。\n\n\w8$(if $(expr $(size shopitemlist) == 0 ) ……it looks like there 痴 nothing special。\w8\1Home is a place of today。\x${move3a} Buy something else?\w8\n\n\q[Buy","move3f1]\q[Quit","move3.cancel]))\e
+
+shopsub : $(set a 0 ; loop $(size shopitemlist) $(eval $(expr ${a} + 1)"."$(get shopitemlist ${a})"　￥"$(get shopitemprice ${a})"\n" ; inc a))
+
+move3.cancel : \0\s[0]I don't have any particular errands and I'll go back。\w8\1\s[10]That's right。\x${move3a}\e
+
+
+#Options
+
+option : $(set a $(size checksitenamelist) ; if $([ ${a} -eq 0 ]) \q[Talk frequency adjustment","option1]\n\q[Register name","option8]\n\q[VisibilityＯＮ・ＯＦＦ","option2]\n\q[Automatic clock adjustmentＯＮ・ＯＦＦ","option3]\n\q[Random searchＯＮ・ＯＦＦ","option4]\n\q[Edit 『User Recommendations』","option6]\n\n\q[Cancel","cancel]
+ \q[トーク頻度調整","option1]\n\q[名前を登録","option8]\n\q[見切れ判定ＯＮ・ＯＦＦ","option2]\n\q[自動時計合わせＯＮ・ＯＦＦ","option3]\n\q[ランダムサーチＯＮ・ＯＦＦ","option4]\n\q[おすすめの表示切替","option7]\n\q[巡回モードＯＮ・ＯＦＦ","option5]\n\q[『ユーザーのおすすめ』編集","option6]\n\n\q[Alles in Ordnung","cancel])
+
+option1 : \0\s[5]私たちがどのくらい喋るか決めてね。\n\w8今の設定は「${option1g}」だよ。\w8\n\n\q[喋らない","option1a]\n\q[忘れた頃に喋る （１０分間隔）","option1b]\n\q[ごくたまに喋る （５分間隔）","option1c]\n\q[たまに喋る （２分間隔）","option1d]\n\q[よく喋る （１分間隔）","option1e]\n\q[かなり喋る （３０秒間隔）","option1f]
+
+option1a : $(set talkflag 0 ; set talkcount 0)\w8\1喋るなって言ってるぞ。\w8\0\s[4]シテオクだね。\e
+option1b : $(set talkflag 20 ; set talkcount 0)\0\s[4]……\w8帰ろうかな。\e
+option1c : $(set talkflag 10 ; set talkcount 0)\0\s[4]……。\e
+option1d : $(set talkflag 4 ; set talkcount 0)\0\s[0]……ま、いいけど。\e
+option1e : $(set talkflag 2 ; set talkcount 0)\0\s[5]りょ～かい。\e
+option1f : $(set talkflag 1 ; set talkcount 0)\0\s[5]キミも好きだね～。\w8\1同志よ。\e
+
+option1g : $(if $([ ${talkflag} -eq 0 ]) 喋らない ; if $([ ${talkflag} -eq 20 ]) 忘れた頃に喋る ; if $([ ${talkflag} -eq 10 ]) ごくたまに喋る ; if $([ ${talkflag} -eq 4 ]) たまに喋る ; if $([ ${talkflag} -eq 2 ]) よく喋る ; if $([ ${talkflag} -eq 1 ]) かなり喋る)
+
+option2 : \0\s[0]見切れなんだけど……\w8\n\n\q[気になる","option2a]\n\q[気にしない","option2b]
+
+option2a : $(set mf 0 ; set mikireflag 0)\0\s[0]やっぱり気になるよね～。\e
+option2b : $(set mf 0 ; set mikireflag 1)\0\s[5]別に気にならないよね～。\e
+
+option3 : \0\s[0]私が代わりに時計を合わせてあげるけど、どうする？\n\w8今の設定は「$(if $([ ${sntpflag} -eq 0 ]) 自分でやる ${sakuraname}が合わせる)」だよ。\w8\n\n\q[お願いする","option3a]\n\q[自分でやる","option3b]
+
+option3a : \0\s[5]じゃ、呼ばれた時にやっておくね。$(set sntpflag 1)\e
+option3b : \0\s[0]……ま、いいけど。$(set sntpflag 0)\e
+
+option4 : \0\s[0]ちょっとだけインターネットで遊んでもいい？\n\w8今の設定は「$(if $([ ${rsearchflag} -eq 0 ]) ダメ いいよ)」だよ。\w8\n\n\q[ダメ","option4a]\n\q[いいよ","option4b]
+
+option4a : \0\s[4]む～。$(set rsearchflag 0)\e
+option4b : \0\s[5]ありがと～。\w8\1\s[10]どーせロクな事に使わんぞ。$(set rsearchflag 1)\e
+
+option5 : \0\s[0]『ユーザーのおすすめ』に入っているサイトを巡回するよ～。\n\w8今の設定は「$(if $([ ${checksiteflag} -eq 0 ]) 巡回モードＯＦＦ 巡回モードＯＮ)」、巡回間隔は${checksitetime}分だよ。\w8\n\n\q[巡回モードＯＮ","option5a]\n\q[巡回モードＯＦＦ","option5b]
+
+option5a : \0\s[5]何分おきに巡回する？$(set teachflag "option5a1")\![open","teachbox]\e
+
+option5a1 : ${teach.sentence}分おきね。りょ～かい。$(set checksitetime ${teach.sentence} ; set checksiteflag 1)\e
+
+option5b : \0\s[4]む～。$(set checksiteflag 0)\e
+
+option6 : \0\s[0]\b[2]『ユーザーのおすすめ』を編集するよ。\n\n\_q$(set a 1 ; foreach b checksitenamelist $(echo ${a}.${b}\n ; inc a))\_q\n$(set a $(size checksitenamelist) ; if $([ ${a} -eq 0 ]) \q[リストに追加","option6a]\n\q[終了","option6c] \q[リストに追加","option6a]\n\q[リストから削除","option6b]\n\q[終了","option6c])\e
+
+option6a : \0\s[0]\b[0]追加するサイトの名前は？\w8$(set teachflag "option6a1")\![open","teachbox]\e
+option6a1 : $(set checksitename ${teach.sentence})\0\s[0]そのサイトのＵＲＬは？$(set teachflag "option6a2")\![open","teachbox]\e
+option6a2 : $(set checksiteurl ${teach.sentence})\0\s[0]\b[0]えーっと、サイト名は\n「${checksitename}」\nＵＲＬは\n「${checksiteurl}」\nでいい？\n\n\w8\q[いいよ","option6a3]\n\q[間違った","option6a]\n\q[やめる","option6cancel]\e
+option6a3 : $(set teachflag 0 ; adddict checksitenamelist ${checksitename} ; adddict checksiteurllist ${checksiteurl})\0\s[5]\b[0]登録したよ～。\x\c${option6}\e
+option6cancel : $(set teachflag 0)\0\s[4]\b[0]む～。\x\c${option6}\e
+
+option6b : \0\s[0]\b[2]\_q$(set a 1 ; foreach b checksitenamelist $(echo ${a}.${b}\n ; inc a))\_q\n\n何番目のリストを消す？$(set teachflag "option6b1")\![open","teachbox]\e
+option6b1 : $(set teachflag 0 ; set a ${teach.sentence} ; set checksitename "#" ; set b 1 ; foreach c checksitenamelist $(if $([ ${a} -eq ${b} ]) $(set checksitename ${c} ; set erasesitenumber ${b} ; inc b) $(inc b)) ; if $([ ${checksitename} == "#" ]) ${option6b1.err} ${option6b1.erase})
+
+option6b1.err : \0\s[4]\b[0]番号間違えてない？\x\c${option6b}\e
+option6b1.erase : \0\s[0]\b[0]「${checksitename}」を消してもいい？\n\n\w8\q[ＯＫ","option6b3]\n\q[やっぱやめ","option6b2]\e
+
+option6b2 : \0\s[4]\b[0]む～。\x\c${option6}\e
+option6b3 : $(set a 1 ; clear c ; foreach b checksitenamelist $(if $([ ${a} -eq ${erasesitenumber} ]) $(inc a) $(adddict c ${b} ; inc a)) ; clear checksitenamelist ; foreach d c $(adddict checksitenamelist ${d}) ; set a 1 ; clear c ; foreach b checksiteurllist $(if $([ ${a} -eq ${erasesitenumber} ]) $(inc a) $(adddict c ${b} ; inc a)) ; clear checksiteurllist ; foreach d c $(adddict checksiteurllist ${d}))\0\s[5]消したよ～。\x\c${option6}\e
+
+option6c : \0\s[0]\b[0]編集終了～。\e
+
+option7 : \0\s[0]どっちのおすすめを表示する？\n\n\w8\q[${sakuraname}のおすすめ","option7a]\n\q[ユーザーのおすすめ","option7b]\e
+
+option7a : \0\s[5]りょ～かい。$(set recommendsiteflag 0)\e
+option7b : \0\s[5]おっけ～。$(set recommendsiteflag 1)\e
+
+option8 : \0\s[5]キミの名前を教えて。\w8$(set teachflag "option8a")\n\n\q[やめる","option8cancel]\![open","teachbox]\e
+
+option8a : $(if $([ #${teach.sentence} == "#" ]) \0\s[4]何も入力されてないよ～。\x${option8} ${option8b})\e
+
+option8b : \0\s[0]${teach.sentence}さんでいい？\n\n\w8\q[ＯＫ","option8c]\n\q[間違えた","option8]\e
+
+option8c : \0\s[5]$(set teachflag 0 ; set playername ${teach.sentence})覚えたよ～。\e
+
+option8cancel : $(set teachflag 0)\0\s[4]\b[0]む～。\e
+
+
+#Sub game
+
+menu.game : \q[Enter the labyrinth","menu.adv]\n\n\q[Cancel","cancel]
+
+
+#--------------------------------------------------------------------------
+#Right-click menu
+
+
+#Extinction button
+
+resource.vanishbuttoncaption : Uninstall Mayura
+resource.vanishbuttonvisible : 0
+
+
+#更新ＵＲＬ・おすすめ
+
+resource.homeurl : "http://mayura.jp/ghost/update/"
+
+resource.sakura.recommendbuttoncaption : $(if $([ ${recommendsiteflag} -eq 1 ]) $(echo "ユーザーのおすすめ(&R)") $(echo "Recommended"))
+resource.kero.recommendbuttoncaption : Recommended sites of black Unyuu
+resource.sakura.portalbuttoncaption : Portal
+
+resource.sakura.portalsites : $(set i 0 ; eval "$(urllist"$(foreach i portalsites $(echo " \""${i}"\""))")")
+
+portalsites : "Digital Witch Mayura Blog","http://mayurablog.blog55.fc2.com/"," "
+portalsites : "Materia","http://usada.sakura.vg/"," "
+portalsites : "SSP（en）BUGTRAQ","http://ssp.shillest.net/"," "
+
+
+resource.sakura.recommendsites : $(set i 0 ; if $([ ${recommendsiteflag} -eq 1 ]) $(set a $(size checksitenamelist) ; clear checksites ; set b 0 ; loop ${a} $(adddict checksites $(get checksitenamelist ${b}) ; adddict checksites $(get checksiteurllist ${b}) ; adddict checksites " " ; inc b) ; eval "$(urllist"$(foreach i checksites $(echo " \""${i}"\""))")") $(eval "$(urllist"$(foreach i recommendsites $(echo " \""${i}"\""))")"))
+
+recommendsites : "Mayura's page 40% english","https://mayura.neocities.org"," "
+recommendsites : "-","-","-"
+recommendsites : "Capcom","http://www.capcom.co.jp/"," "
+recommendsites : "SEGA","https://www.sega.co.jp/english/"," "
+recommendsites : "SNK","https://www.snk-corp.co.jp/us/"," "
+recommendsites : "TAITO","http://www.taito.co.jp/"," "
+recommendsites : "GAME ARTS","https://www.gamearts.co.jp/en/"," "
+recommendsites : "SUCCESS","http://www.success-corp.co.jp/"," "
+recommendsites : "-","-","-"
+recommendsites : "HAL Laboratory","http://www.hallab.co.jp/"," "
+recommendsites : "アートディンク","https://www.artdink.co.jp/company/english/"," "
+
+resource.kero.recommendsites : $(set i 0 ; eval "$(urllist"$(foreach i recommendsites2 $(echo " \""${i}"\""))")")
+
+recommendsites2 : "Baboo！JAPAN","http://www.baboo.net/baboo.shtml"," "
+recommendsites2 : "CLASSIC VIDEOGAME STATION ODYSSEY","http://www.ne.jp/asahi/cvs/odyssey/index.html"," "
+recommendsites2 : "OLD－COMPUTERS．COM","http://www.old-computers.com/news/default.asp"," "
+recommendsites2 : "得物屋24時間","http://www.pekori.jp/~emonoya/"," "
+recommendsites2 : "DigiBarn Computer Museum","http://www.digibarn.com/"," "
+
+
+rs.mayura．jp : \0\s[5]私の家だよ～。\w8\1\s[10]とりあえず寄ってけ。\e
+rs.うさださくら : \0\s[5]『伺か』の生みの親、lsさんのサイトだね。\w8\1\s[10]すべてはここから始まった。オレらの創造主みたいなもんだ。\e
+rs.C．R．O．W．official page : \0\s[5]ベースウェアの一つ、ＣＲＯＷのサイトだよ～。\e
+rs.SSP（en）BUGTRAQ : \0\s[5]ベースウェアの一つ、ＳＳＰのサイトだよ～。\
+
+rs.ナムコ : \0\s[5]説明不要だね。\w8\1\s[10]だな。\e
+rs.カプコン : \0\s[0]Ｐｏｗと弥七。\w8\1\s[10]今はモンハンの会社か。\e
+rs.コナミ : \0\s[0]ずいぶん変わったね～。\w8\1\s[10]ＭＳＸ時代に比べるとデカくなったもんだ。\e
+rs.セガ : \0\s[0]セガは永遠に不滅……だよね。\w8\1\s[10]もちろんだ。\e
+rs.新日本企画 : \0\s[0]よ～するにＳＮＫだね～。\w8\1\s[10]ループレバーと格ゲーだな。\e
+rs.タイトー : \0\s[0]いんべーだー？\w8\1\s[10]いや、エレメカだろ。\e
+rs.スクウェア : \0\s[0]やっぱり……ＦＦかな。\w8\1\s[10]それはいいから、デストラップとアルファとブラスティーを出せ。\e
+rs.ゲームアーツ : \0\s[5]テグザーやりたくて８８買ったよね。\w8\1\s[10]ここには足向けて寝られん。\e
+rs.ハドソン : \0\s[0]日本最古のソフトメーカーだね。\w8\1\s[10]日本のコンピュータ界の立役者だな。\e
+rs.ジャレコ : \0\s[0]忍者くんはここの作品じゃないんだよね。\w8\1\s[10]ＵＰＬだな。\e
+rs.アイレム : \0\s[4]スペランカー。\w8\1\s[10]いや、銀河帝国の逆襲だ。\e
+rs.日本物産 : \0\s[0]ニチブツといえば、ネチネチしたシューティングだよね。\n\n\w8\1\s[10]いや、麻雀だ。\n\0\s[7]シューティング！\w8\1\s[10]麻雀！\e
+rs.テーカン : \0\s[8]また間違った？\w8\n\n\1\s[10]いや、ここでいいんだ。\w8\n\0\s[4]なんか、胸の大きいお姉さん達に占領されてるんだけど。\w8\1\s[10]気のせいだ。\e
+rs.サン電子 : \0\s[0]ヘンなゲームがいっぱい。\w8\1\s[10]味があると言え。\w8\nＦＣ版のファンタジーゾーンから何かが変わった。\e
+rs.セタ : \0\s[0]将棋……\n\n\1\s[10]麻雀ッッッッツ！\w8\0\s[4]そんな力いっぱい言わなくても。\e
+rs.エポック社 : \0\s[0]カセットビジョンね。\w8\1\s[10]不遇なマシンだ。\e
+rs.ビスコ : \0\s[0]アーケードゲームの会社だよね。\w8\1\s[10]知ってる奴は知ってる感じだな。\e
+rs.カルチャーブレーン : \0\s[0]飛龍の拳だね。\w8\1\s[10]ウルトラベースボールもな。\e
+rs.ゲームスタジオ : \0\s[0]遠藤さんの会社だね～。\w8\1\s[10]ゼビウスとかドルアーガとかな。\e
+rs.サクセス : \0\s[0]やっぱりコットンだよね。\w8\1\s[10]WILLOW食いたいな。\e
+rs.日本ファルコム : \0\s[0]ここも長いね～。\w8\1\s[10]今は英雄伝説がメインらしいな。\e
+rs.システムソフト : \0\s[5]渋いよね。\w8\1\s[10]昔はよかった。\e
+rs.ボーステック : \0\s[0]老舗だね。\w8\n\n\1\s[10]とても一言では語り尽くせん。\w8\0\s[1]トップルジップのチョロＱ欲しいよ～。\e
+rs.マイクロキャビン : \1\s[10]ここも説明不要。\w8\0\s[1]セイレーンとかはーりぃふぉっくすとかリメイクしてよ～。\e
+rs.Ｔ＆Ｅソフト : \0\s[0]やっぱハイドライドでしょ。\w8\1\s[10]ゴルフに始まりゴルフに終わるか？\e
+rs.エニックス : \0\s[0]アドベンチャーのエニックス。\w8\1\s[10]今はスクエニだけどな。\e
+rs.ＳＰＳ : \0\s[0]移植屋さん。\w8\1\s[10]Ｘ６８ｋユーザーはお世話になったな。\e
+rs.工画堂スタジオ : \0\s[0]破邪の封印とか。\w8\1\s[10]何はさておきアンドロイドだな。\e
+rs.アスキー : \0\s[0]説明不要もいいとこだね。\w8\1\s[10]昔も今も帝王だな。\e
+rs.ＨＡＬ研究所 : \0\s[5]ここにはお世話になったよね。\w8\1\s[10]いまだにジョイボール使ってるのお前だけだろ。\e
+rs.コンパイル : \0\s[0]昔は硬派なシューティングメーカーだったのにね。\w8\1\s[10]魔導物語はもう出ないのか？\e
+rs.ソフトウェアスタジオＷＩＮＧ : \0\s[0]もうなくなってからずいぶん経つね～。\w8\1\s[10]復活に期待だな。\e
+rs.光栄 : \0\s[0]例によって説明不要だね。\w8\1\s[10]相変わらず手広くやってるな。\e
+rs.アートディンク : \0\s[0]Ａ列車ね。\w8\1\s[10]細かいシミュを作るのが得意なメーカーだ。\e
+rs.データウエスト : \0\s[0]ＴＯＷＮＳユーザーにはおなじみだね。\w8\1\s[10]第４のユニットの続編はもう出ないのか？\e
+rs.チュンソフト : \0\s[0]ドアドアとポートピアね。\w8\1\s[10]ドラクエを忘れるな。\e
+rs.日本テレネット : \0\s[8]ウルフチームの本体。\w8\1\s[10]色んな意味で、一つの歴史だったな。\e
+rs.マイクロネット : \0\s[0]ミルキーウェイとかハーベストとか。\w8\1\s[10]最近出してるゲームの方が有名だな。\e
+rs.ファミリーソフト : \0\s[8]濃いね。濃すぎるね。\w8\1\s[10]こういうメーカーは大事にしないとな。\e
+rs.風雅システム : \0\s[0]アマランスだね。\w8\1\s[10]ディン……。\e
+rs.ＣＳＫ総合研究所 : \0\s[0]移植屋さんその２。\w8\1\s[10]まあ、よくやったというべきか。\e
+rs.アリスソフト : \0\s[0]チャンピオンソフトじゃないの？\w8\1\s[10]その名前はあまり出さない方がいいらしいぞ。\e
+rs.テクノソフト : \0\s[0]サンダーフォースだね。\w8\1\s[10]当時は新鮮だったな。\e
+rs.新日本プログラミング : \0\s[0]偉大なる総帥、いまだ健在。\w8\1\s[10]１・\w8２・\w8３・\w8ダーッ！！\e
+rs.ズーム : \0\s[5]復活してよかったね。\w8\1\s[10]かつての名作がダウンロードできるぞ。行け。\e
+
+rs.Baboo！JAPAN : \1\s[10]ＭＳＸ系サーチエンジンの最大手だな。\e
+rs.CLASSIC VIDEOGAME STATION ODYSSEY : \1\s[10]代表的なレトロゲームの総合情報サイトだ。\w8サイトデザインもコンテンツの内容もトップクラスだな。\e
+rs.OLD－COMPUTERS．COM : \1\s[10]オールドコンピュータのデータベースだ。\w8世界中のマシンが登録されている。\e
+rs.得物屋24時間 : \1\s[10]Wizardry関連のデータサイトだ。\w8ＷＩＺファンなら知ってて当然だな。\e
+rs.DigiBarn Computer Museum : \1\s[10]海外のＰＣコレクターのサイトだ。\w8かなりの兵のようだな。\e
+
+
+#--------------------------------------------------------------------------
+#巡回モード用ＵＲＬ
+
+checksitename.default : "YAHOOオークション・PC-98","YAHOOオークション・MSX","YAHOOオークション・X68000","YAHOOオークション・FM-TOWNS","YAHOOオークション・その他"
+checksiteurl.default : "http://list.auctions.yahoo.co.jp/jp/2084039763-category-leaf.html","http://list.auctions.yahoo.co.jp/jp/2084039771-category-leaf.html","http://list.auctions.yahoo.co.jp/jp/2084039773-category-leaf.html","http://list.auctions.yahoo.co.jp/jp/2084039765-category-leaf.html","http://list.auctions.yahoo.co.jp/jp/2084039776-category-leaf.html"
+
+
+:endcrypt

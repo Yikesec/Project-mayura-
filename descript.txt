@@ -1,0 +1,15 @@
+charset,Shift_JIS
+shiori.encoding,SHIFT_JIS
+shiori.forceencoding,1
+
+name,Mayura & Black Unyuu
+type,ghost
+
+sakura.name,‚Ü‚ä‚ç
+kero.name,‚¤‚É‚ã‚¤
+
+icon,hexagram.ico
+
+shiori.logo.filename,ai.png
+shiori.logo.alignment,leftbottom
+shiori.logo.drawmethod,1
